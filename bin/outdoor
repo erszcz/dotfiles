@@ -1,0 +1,12 @@
+#!/bin/bash
+
+OUTDOOR_FILE="$HOME/.outdoor.on"
+
+case $1 in
+  on|yes)
+    touch $OUTDOOR_FILE ;;
+  off|no)
+    [ -f "$OUTDOOR_FILE" ] && rm $OUTDOOR_FILE ;;
+  *)
+    [ -f "$OUTDOOR_FILE" ] && echo "outdoor: yes" || echo "outdoor: no" ;;
+esac

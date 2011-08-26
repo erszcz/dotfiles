@@ -1,0 +1,68 @@
+#!/bin/sh
+
+prog=`basename $0`
+cart="$HOME/.cart"
+
+[ -f "$cart" ] || exit 1
+
+cwd=`pwd`
+
+usage () {
+  echo "Usage: $prog get files"
+  echo "       $prog put"
+  echo "Store file paths into your cart, i.e. file defined by \$CART environment variable"
+  echo "or copy all files from your cart to current working directory."
+}
+
+get () {
+  echo "$cwd/$1" >> "$cart"
+}
+
+put () {
+  while read line; do
+    here="$cwd/`basename \"$line\"`"
+    echo "$line -> $here"
+    cp "$line" "$here"
+  done < $cart
+
+  mv $cart $cart".bak"
+  touch $cart
+}
+
+list () {
+  if [ `cat $cart | wc -c` -eq 0 ]; then
+    echo "The cart is empty!"
+  else
+    cat $cart
+  fi
+}
+
+clean () {
+  mv $cart $cart".bak"
+  touch $cart
+}
+
+case "$1" in
+get)
+  shift
+  while [ -n "$1" ]; do
+    get "$1"
+    shift
+  done
+  ;;
+put)
+  shift
+  put $1
+  ;;
+ls|list)
+  list
+  ;;
+clean)
+  clean
+  ;;
+*)
+  usage
+  ;;
+esac
+
+# vim: ft=sh
