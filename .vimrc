@@ -245,3 +245,6 @@ map <Leader>w <C-w>
 
 " :tabnew shortcut
 map <Leader>tn :tabnew<CR>
+
+" simplenote credentials
+source ~/.simplenoterc
