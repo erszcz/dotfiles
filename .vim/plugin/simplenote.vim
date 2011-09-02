@@ -81,6 +81,7 @@ function! s:ScratchBuffer()
     setlocal buflisted
     setlocal cursorline
     setlocal filetype=markdown
+    setlocal textwidth=74
 endfunction
 
 
