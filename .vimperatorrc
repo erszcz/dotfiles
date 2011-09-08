@@ -1,0 +1,42 @@
+" show the menubar
+" n -- tab number next to icon
+" m -- menubar
+
+" AwesomeBar style completion in command line
+set complete=l
+"set wildoptions=auto
+
+" prevoius/next tab with Alt+Up/Alt+Down
+map <A-Up> <C-o>
+map <A-Down> <C-i>
+map <M-Up> <C-o>
+map <M-Down> <C-i>
+map <A-Left> gT
+map <A-Right> gt
+map <M-Left> gT
+map <M-Right> gt
+
+" half-page up/down
+"map <C-d> <Shift-j>
+"map <C-u> <Shift-k>
+
+" letter-style hints instead of default ones
+"source /home/lavrin/.mozilla/vimperator/char-hints.js
+
+ca bs buffers
+
+" previous tab
+map <M-§> <C-6>
+
+" half page-up/-down
+map <S-j> <C-d>
+map <S-k> <C-u>
+
+" display tab number on each tab
+set tabnumbers
+
+" highlight search results by default
+set hlsearch
+
+" 0b jumps to last open tab
+nmap 0b 9999b
