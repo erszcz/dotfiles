@@ -27,6 +27,7 @@ ca bs buffers
 
 " previous tab
 map <M-§> <C-6>
+map <C-`> <C-6>
 
 " half page-up/-down
 map <S-j> <C-d>
