@@ -1,0 +1,7 @@
+[user]
+	name = Radosław Szymczyszyn
+	email = radoslaw.szymczyszyn@erlang-solutions.com
+[alias]
+	st = status
+    co = checkout
+    br = branch
