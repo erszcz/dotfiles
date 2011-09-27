@@ -41,3 +41,6 @@ set hlsearch
 
 " 0b jumps to last open tab
 nmap 0b 9999b
+
+" go to grooveshark app tab
+nmap <Leader>gr :b grooveshark<CR>
