@@ -26,6 +26,7 @@ map <M-Right> gt
 ca bs buffers
 
 " previous tab
+map <A-`> <C-6>
 map <M-§> <C-6>
 map <C-`> <C-6>
 
