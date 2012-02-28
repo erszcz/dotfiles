@@ -30,7 +30,7 @@ set softtabstop=4 ":se sts=2
 set smarttab ":se sta
 
 " Automatyczna zmiana biezacego katalogu na ten, w ktorym znajduje sie edytowany plik
-set autochdir ":se acd
+"set autochdir ":se acd
 
 " Sprytne szukanie
 " wzorzec - tylko male litery -> dopasowuj male/duze
@@ -153,7 +153,7 @@ else
 endif
 
 " vim wiki setup
-set tags=./tags,./TAGS,tags,TAGS,$HOME/docs/wiki/tags,$HOME/.vim/system_tags,$HOME/work/ejabberd_otp/test
+set tags=./tags,./TAGS,tags,TAGS,$HOME/docs/wiki/tags,$HOME/.vim/system_tags
 autocmd BufWritePost $HOME/docs/wiki/*.txt :helptags $HOME/docs/wiki
 
 " dodawanie nawiasu wokol slowa przez Ctrl-B w trybie interaktywnym
@@ -181,8 +181,8 @@ iabbr /* /* */<Esc>2hi
 source $HOME/.vim/autocorrect-lavrin.vim
 
 " half page up/down
-map <S-j> <C-d>
-map <S-k> <C-u>
+"map <S-j> <C-d>
+"map <S-k> <C-u>
 
 " save on w/W instead of w only
 cabbr Q q
@@ -245,6 +245,9 @@ map <Leader>w <C-w>
 
 " :tabnew shortcut
 map <Leader>tn :tabnew<CR>
+
+" show file name
+map <Leader>f :file<CR>
 
 " simplenote credentials
 source ~/.simplenoterc
