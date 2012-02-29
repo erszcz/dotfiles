@@ -205,7 +205,7 @@ map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
-"sunmap e
+sunmap e
 nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
 nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
 imap <silent> <C-Left> <Plug>CamelCaseMotion_b
