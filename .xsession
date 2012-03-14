@@ -2,6 +2,6 @@
 
 xkbset b r rate 200 40
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-nm-applet &
+wicd-client -t &
 
 exec awesome
