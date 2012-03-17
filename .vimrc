@@ -251,3 +251,7 @@ map <Leader>f :file<CR>
 
 " simplenote credentials
 source ~/.simplenoterc
+
+" used in snippet expansion
+let g:author    = 'Radosław Szymczyszyn'
+let g:copyright = 'Radosław Szymczyszyn'
