@@ -6,11 +6,13 @@
 [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
+#export HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 # history length
 export HISTSIZE=2000
+# append to the history file, don't overwrite it
+shopt -s histappend
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -31,16 +33,11 @@ esac
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# (On Debian) See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-# some more ls aliases
-alias ll='ls -G -l -h'
-alias la='ls -G -A -h'
-alias l='ls -G -CF -h'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -49,12 +46,14 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# Setup a nicer prompt
+
 if [ -f ~/.prompt ]; then
     . ~/.prompt
 fi
 
 # command line bookmarks
-source $HOME/.cdargs-bash.sh
+#source $HOME/.cdargs-bash.sh
 
 # command completion for human beings
 #export COMPLEAT_USER_DIR=$XDG_CONFIG_HOME/compleat
@@ -68,7 +67,8 @@ source $HOME/.cdargs-bash.sh
 #[ -f "$HOME/.outdoor.on" ] && xtermcontrol
 
 # git integration features
-if [ -f "$HOME/.bash_completion.d/git-completion.bash" ]; then
-    source "$HOME/.bash_completion.d/git-completion.bash"
-fi
-export GIT_PS1_SHOWDIRTYSTATE=1
+# (it seems not to work)
+#if [ -f "$HOME/.bash_completion.d/git-completion.bash" ]; then
+    #source "$HOME/.bash_completion.d/git-completion.bash"
+#fi
+#export GIT_PS1_SHOWDIRTYSTATE=1

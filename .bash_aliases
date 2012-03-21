@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # pd - pass directory, a utility to quickly share current working dir between sessions
 alias pds='echo -n `pwd` > ~/.pdstack'
 alias pdc='cd "`tail -n 1 ~/.pdstack`"'
@@ -19,3 +21,12 @@ alias put='cart put'
 
 # clear screen
 alias cl=clear
+
+case `uname` in
+Linux)
+    alias ls='ls --color=auto'
+    alias ll='ls -l -h --color=auto'
+    alias la='ls -A -h --color=auto'
+    alias l='ls -CF -h --color=auto'
+    ;;
+esac
