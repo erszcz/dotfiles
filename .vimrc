@@ -19,15 +19,15 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>
 "inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Szerokosc taba w tekscie
-set tabstop=4 ":se ts=2
+set tabstop=4
 
 " Szerokosc wciecia (lub autowciecia)
-set shiftwidth=4 ":se sw=2
+set shiftwidth=4
 " Ilosc spacji wstawiana za taba
-set softtabstop=4 ":se sts=2
+set softtabstop=4
 
 " tab we wcieciu wstawia shiftwidth spacji
-set smarttab ":se sta
+set smarttab
 
 " Automatyczna zmiana biezacego katalogu na ten, w ktorym znajduje sie edytowany plik
 "set autochdir ":se acd
