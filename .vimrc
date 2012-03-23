@@ -255,3 +255,7 @@ source ~/.simplenoterc
 " used in snippet expansion
 let g:author    = 'Radosław Szymczyszyn'
 let g:copyright = 'Radosław Szymczyszyn'
+
+" statusline with filename, buffer info, ruler
+set laststatus=2  " display statusline no matter how many windows open
+set statusline=%<%f\ %h%m%r%q%=%-14.(%l,%c%V%)\ %P
