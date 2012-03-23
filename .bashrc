@@ -72,3 +72,6 @@ fi
     #source "$HOME/.bash_completion.d/git-completion.bash"
 #fi
 #export GIT_PS1_SHOWDIRTYSTATE=1
+
+# enable zsh-like recursive globbing
+shopt -s globstar
