@@ -13,3 +13,10 @@ diff:
 	for f in $$FILES; do \
 		diff -u $$f $(TARGET)/$$f || echo; \
 	done
+
+install-vim:
+	cp .vimrc $(TARGET)/
+	cp -R .vim $(TARGET)/
+	mkdir $(TARGET)/.vim/backupdir \
+		$(TARGET)/.vim/swapdir \
+		$(TARGET)/.vim/undodir
