@@ -1,4 +1,15 @@
+ifdef TARGET
+	TARGET = $$TARGET
+else
+	TARGET = $$HOME
+endif
+
 diff:
-	for file in `find . -path ./.git -prune -o -type f -print`; \
-		do diff -u $$file ~/$$file; \
+	@if [ -n "$$file" ]; then \
+		FILES=$$file; \
+	else \
+		FILES=`find . -path ./.git -prune -o -type f -print`; \
+	fi; \
+	for f in $$FILES; do \
+		diff -u $$f $(TARGET)/$$f || echo; \
 	done
