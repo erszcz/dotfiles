@@ -65,3 +65,11 @@ snippet cpr
 	%%% @end
 	%%% Created : `strftime("%Y-%m-%d")`
 	%%%-------------------------------------------------------------------
+snippet escript
+	#!/usr/bin/env escript
+	%% vim: ft=erlang et sts=4 ts=4 sw=4
+	%% -*- erlang -*-
+	%%! -smp enable -sname factorial -mnesia debug verbose
+
+	main([String]) ->
+		ok.
