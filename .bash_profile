@@ -18,10 +18,10 @@ fi
   && PATH="/opt/local/sbin":"${PATH}"
 
 [ -d "/usr/local/bin" ] \
-  && PATH="/opt/local/bin":"${PATH}"
+  && PATH="/usr/local/bin":"${PATH}"
 
 [ -d "/usr/local/sbin" ] \
-  && PATH="/opt/local/sbin":"${PATH}"
+  && PATH="/usr/local/sbin":"${PATH}"
 
 #[ -d "/usr/local/erlang/r14b01/lib/erlang/bin" ] \
   #&& PATH="/usr/local/erlang/r14b01/lib/erlang/bin":"${PATH}"
