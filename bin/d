@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DICTCMD="ydpdict -w $1"
+
+case $TERM in
+    xterm)
+        $DICTCMD
+        ;;
+    *)
+        exec xterm -e bash -c "$DICTCMD"
+        ;;
+esac
