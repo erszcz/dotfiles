@@ -28,5 +28,12 @@ Linux)
     alias ll='ls -l -h --color=auto'
     alias la='ls -A -h --color=auto'
     alias l='ls -CF -h --color=auto'
+
+    # Debian package management
+    alias ac="apt-cache"
+    alias ag="sudo apt-get"
+
+    # alias for ack (known as ack-grep under Debian)
+    alias ack="ack-grep"
     ;;
 esac
