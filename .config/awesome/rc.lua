@@ -15,7 +15,7 @@ require("debian.menu")
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "xterm"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -74,7 +74,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, "%a %b %d, %H:%M:%S ", 1)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -219,6 +219,14 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
+              end),
+
+    awful.key({ modkey }, "d",
+              function ()
+                  awful.prompt.run({ prompt = "Dictionary: " },
+                  mypromptbox[mouse.screen].widget,
+                  dictionary_lookup, nil,
+                  awful.util.getdir("cache") .. "/history_dict")
               end)
 )
 
@@ -336,6 +344,21 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+ -- }}}
+
+-- {{{ My own extensions
+
+function dictionary_lookup(word)
+  function get_clipboard()
+    local f = io.popen("xsel")
+    local t = f:read("*all")
+    f:close()
+    return t
+  end
+  word = (word == "") and get_clipboard() or word
+  awful.util.spawn("d " .. word)
+end
+
 -- }}}
 
--- vim: foldmethod=marker
+-- vim: foldmethod=marker ts=2 sts=2 sw=2 et
