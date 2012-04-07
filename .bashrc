@@ -75,3 +75,6 @@ fi
 
 # enable zsh-like recursive globbing
 shopt -s globstar
+
+# enable autojump
+. /usr/share/autojump/autojump.sh
