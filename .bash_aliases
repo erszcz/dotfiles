@@ -29,9 +29,11 @@ Linux)
     alias la='ls -A -h --color=auto'
     alias l='ls -CF -h --color=auto'
 
-    # Debian package management
+    # Debian package management with bash autocompletion
     alias ac="apt-cache"
     alias ag="sudo apt-get"
+    complete -o filenames -F _apt_get ag
+    complete -o filenames -F _apt_cache ac
 
     # alias for ack (known as ack-grep under Debian)
     alias ack="ack-grep"
