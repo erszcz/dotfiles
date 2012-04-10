@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# schedule playing some file and exit
+# used for playing pronunciation in ydpdict without blocking the UI
+
+playsound $1 > /dev/null &
