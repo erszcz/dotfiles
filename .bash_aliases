@@ -32,6 +32,8 @@ Linux)
     # Debian package management with bash autocompletion
     alias ac="apt-cache"
     alias ag="sudo apt-get"
+    . /usr/share/bash-completion/completions/apt-cache
+    . /usr/share/bash-completion/completions/apt-get
     complete -o filenames -F _apt_get ag
     complete -o filenames -F _apt_cache ac
 
