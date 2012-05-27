@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- MPD client
+require("lib/mpd")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -156,6 +158,12 @@ for s = 1, screen.count() do
 end
 -- }}}
 
+-- {{{ MPD client
+
+mpc = mpd.connect()
+
+-- }}}
+
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -227,7 +235,20 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   dictionary_lookup, nil,
                   awful.util.getdir("cache") .. "/history_dict")
-              end)
+              end),
+
+    -- MPD controls
+    awful.key({ modkey }, "p",
+              function ()
+                  local r = mpc:status()
+                  if r.state == "play" then
+                      mpc:pause(true)
+                  else
+                      mpc:pause(false)
+                  end
+              end),
+    awful.key({ modkey,           }, "[", function () mpc:previous() end),
+    awful.key({ modkey,           }, "]", function () mpc:next()     end)
 )
 
 clientkeys = awful.util.table.join(
