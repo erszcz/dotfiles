@@ -1,5 +1,6 @@
 #!/bin/sh
 
+wmname LG3D
 export XDG_CONFIG_HOME="$HOME/.config"
 
 xkbset b r rate 200 40
