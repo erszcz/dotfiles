@@ -259,3 +259,8 @@ set statusline=%<%f\ %h%m%r%q%=%-14.(%l,%c%V%)\ %P
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+
+" Turn off reindenting on typing closing parens, brackets and curlies.
+" Default is:
+" indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch,=),=],=}
+autocmd FileType erlang set indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch
