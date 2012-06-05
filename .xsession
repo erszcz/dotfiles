@@ -1,5 +1,10 @@
 #!/bin/sh
 
+xrandr | grep "CRT1 connected" > /dev/null
+if [ $? = 0 ]; then
+    xrandr --output CRT1 --mode 1440x900 &
+fi
+
 wmname LG3D
 export XDG_CONFIG_HOME="$HOME/.config"
 
