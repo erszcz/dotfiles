@@ -1,0 +1,8 @@
+#!/bin/bash
+
+xrandr | grep "CRT1 connected" > /dev/null
+if [ $? = 0 ]; then
+    xrandr --output CRT1 --mode 1440x900 &
+else
+    xrandr --output LVDS --mode 1366x768 &
+fi

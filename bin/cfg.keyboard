@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xkbset b r rate 200 40 &
