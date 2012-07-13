@@ -14,7 +14,8 @@ require("debian.menu")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(os.getenv("XDG_CONFIG_HOME")
+               .. "/awesome/themes/redd/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -370,6 +371,8 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ My own extensions
 
+-- Hotkey callbacks
+
 function dictionary_lookup(word)
   function get_clipboard()
     local f = io.popen("xsel")
@@ -382,12 +385,25 @@ function dictionary_lookup(word)
 end
 
 function playlist()
-  local dmenucmd = "dmenu -i -l 20 -nb '" .. beautiful.bg_normal
-                             .. "' -nf '" .. beautiful.fg_normal
-                             .. "' -sb '" .. beautiful.bg_focus
-                             .. "' -sf '" .. beautiful.fg_focus .. "'"
   awful.util.spawn_with_shell("mpc play `mpc playlist | nl -s ') ' | "
-                              .. dmenucmd .. " | cut -d')' -f1`")
+                              .. dmenu("-i -l 20") .. " | cut -d')' -f1`")
+end
+
+-- Helpers
+
+function dmenu(opts)
+  return "dmenu -nb '" .. beautiful.bg_normal
+          .. "' -nf '" .. beautiful.fg_normal
+          .. "' -sb '" .. beautiful.bg_focus
+          .. "' -sf '" .. beautiful.fg_focus
+          .. "' -fn '" .. beautiful.dmenu_font
+          .. "' " .. either(opts, "")
+end
+
+function either(l,r)
+  if l then return l
+  else return r
+  end
 end
 
 -- }}}
