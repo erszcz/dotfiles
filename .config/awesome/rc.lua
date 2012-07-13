@@ -248,9 +248,16 @@ globalkeys = awful.util.table.join(
                       mpc:pause(false)
                   end
               end),
-    awful.key({ modkey,           }, "\\", function () playlist()     end),
-    awful.key({ modkey,           }, "[",  function () mpc:previous() end),
-    awful.key({ modkey,           }, "]",  function () mpc:next()     end)
+    awful.key({ modkey,           }, "\\",  function () mpc_playlist() end),
+    awful.key({ modkey, "Shift"   }, "\\",  function () mpc_info()     end),
+    awful.key({ modkey,           }, "[",   function ()
+                                              mpc:previous()
+                                              mpc_info()
+                                            end),
+    awful.key({ modkey,           }, "]",   function ()
+                                              mpc:next()
+                                              mpc_info()
+                                            end)
 )
 
 clientkeys = awful.util.table.join(
@@ -384,9 +391,13 @@ function dictionary_lookup(word)
   awful.util.spawn("d " .. word)
 end
 
-function playlist()
+function mpc_playlist()
   awful.util.spawn_with_shell("mpc play `mpc playlist | nl -s ') ' | "
                               .. dmenu("-i -l 20") .. " | cut -d')' -f1`")
+end
+
+function mpc_info()
+  awful.util.spawn_with_shell('notify-send \\\"Now playing\\\" \\\"$(mpc)\\\"')
 end
 
 -- Helpers
