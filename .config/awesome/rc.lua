@@ -247,8 +247,9 @@ globalkeys = awful.util.table.join(
                       mpc:pause(false)
                   end
               end),
-    awful.key({ modkey,           }, "[", function () mpc:previous() end),
-    awful.key({ modkey,           }, "]", function () mpc:next()     end)
+    awful.key({ modkey,           }, "\\", function () playlist()     end),
+    awful.key({ modkey,           }, "[",  function () mpc:previous() end),
+    awful.key({ modkey,           }, "]",  function () mpc:next()     end)
 )
 
 clientkeys = awful.util.table.join(
@@ -378,6 +379,15 @@ function dictionary_lookup(word)
   end
   word = (word == "") and get_clipboard() or word
   awful.util.spawn("d " .. word)
+end
+
+function playlist()
+  local dmenucmd = "dmenu -i -l 20 -nb '" .. beautiful.bg_normal
+                             .. "' -nf '" .. beautiful.fg_normal
+                             .. "' -sb '" .. beautiful.bg_focus
+                             .. "' -sf '" .. beautiful.fg_focus .. "'"
+  awful.util.spawn_with_shell("mpc play `mpc playlist | nl -s ') ' | "
+                              .. dmenucmd .. " | cut -d')' -f1`")
 end
 
 -- }}}
