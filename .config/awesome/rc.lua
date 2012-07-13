@@ -239,25 +239,13 @@ globalkeys = awful.util.table.join(
               end),
 
     -- MPD controls
-    awful.key({ modkey }, "p",
-              function ()
-                  local r = mpc:status()
-                  if r.state == "play" then
-                      mpc:pause(true)
-                  else
-                      mpc:pause(false)
-                  end
-              end),
-    awful.key({ modkey,           }, "\\",  function () mpc_playlist() end),
-    awful.key({ modkey, "Shift"   }, "\\",  function () mpc_info()     end),
-    awful.key({ modkey,           }, "[",   function ()
-                                              mpc:previous()
-                                              mpc_info()
-                                            end),
-    awful.key({ modkey,           }, "]",   function ()
-                                              mpc:next()
-                                              mpc_info()
-                                            end)
+    awful.key({ modkey            }, "p",   function () mpc_toggleplay()                end),
+    awful.key({ modkey,           }, "\\",  function () mpc_playlist()                  end),
+    awful.key({ modkey, "Shift"   }, "\\",  function () mpc_info()                      end),
+    awful.key({ modkey,           }, "[",   function () mpc:previous(); mpc_info()      end),
+    awful.key({ modkey,           }, "]",   function () mpc:next(); mpc_info()          end),
+    awful.key({ modkey,           }, "=",   function () mpc_volume{ 5, relative = true} end),
+    awful.key({ modkey,           }, "-",   function () mpc_volume{-5, relative = true} end)
 )
 
 clientkeys = awful.util.table.join(
@@ -398,6 +386,29 @@ end
 
 function mpc_info()
   awful.util.spawn_with_shell('notify-send \\\"Now playing\\\" \\\"$(mpc)\\\"')
+end
+
+function mpc_volume(args)
+  local volume = args[1]
+  if args.relative == true then
+    local status = mpc:status()
+    volume = volume + status.volume
+  end
+  if volume > 100 then
+    volume = 100
+  elseif volume < 0 then
+    volume = 0
+  end
+  mpc:set_vol(volume)
+end
+
+function mpc_toggleplay()
+  local r = mpc:status()
+  if r.state == "play" then
+    mpc:pause(true)
+  else
+    mpc:pause(false)
+  end
 end
 
 -- Helpers
