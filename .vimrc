@@ -263,4 +263,4 @@ autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 " Turn off reindenting on typing closing parens, brackets and curlies.
 " Default is:
 " indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch,=),=],=}
-autocmd FileType erlang set indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch
+autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
