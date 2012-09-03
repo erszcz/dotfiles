@@ -231,7 +231,10 @@ set ruler
 "autocmd BufRead,CmdwinEnter *.* cd %:h
 
 " copy to global clipboard, not just yank
-map <Leader>y "+y
+" for Linux:
+"map <Leader>y "+y
+" for MacOSX:
+map <Leader>y "*y
 
 " sane (bash-like) filename completion style
 set wildmode=longest:full
@@ -247,7 +250,9 @@ map <Leader>tn :tabnew<CR>
 map <Leader>f :file<CR>
 
 " simplenote credentials
-source ~/.simplenoterc
+if filereadable($HOME . ".simplenoterc")
+    source $HOME . ".simplenoterc"
+endif
 
 " used in snippet expansion
 let g:author    = 'Radosław Szymczyszyn'
@@ -264,3 +269,6 @@ autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 " Default is:
 " indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch,=),=],=}
 autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
+
+"autocmd FileType python set indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
+autocmd FileType python set indentkeys=0{,0},!^F,o,O,e,=elif,=except
