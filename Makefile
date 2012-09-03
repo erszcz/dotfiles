@@ -6,13 +6,13 @@ endif
 
 diff:
 	@if [ -n "$$file" ]; then \
-		FILES=$$file; \
+		colordiff -u "$$file" "$(TARGET)/$$file" || echo; \
 	else \
 		FILES=`find . -path ./.git -prune -o -type f -print`; \
-	fi; \
-	for f in $$FILES; do \
-		diff -u $$f $(TARGET)/$$f || echo; \
-	done
+		for f in $$FILES; do \
+			diff -q $$f $(TARGET)/$$f || echo; \
+		done; \
+	fi
 
 install-vim:
 	cp .vimrc $(TARGET)/
