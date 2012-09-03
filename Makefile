@@ -20,3 +20,10 @@ install-vim:
 	mkdir $(TARGET)/.vim/backupdir \
 		$(TARGET)/.vim/swapdir \
 		$(TARGET)/.vim/undodir
+
+install:
+	@if [ -n "$$file" ]; then \
+		cp -i "$$file" $(TARGET)/"$$file"; \
+	else \
+		echo "no file specified"; \
+	fi
