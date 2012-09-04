@@ -14,12 +14,15 @@ diff:
 		done; \
 	fi
 
-install-vim:
+install-vim: vim-vundle
 	cp .vimrc $(TARGET)/
 	cp -R .vim $(TARGET)/
-	mkdir $(TARGET)/.vim/backupdir \
+	mkdir -p $(TARGET)/.vim/backupdir \
 		$(TARGET)/.vim/swapdir \
 		$(TARGET)/.vim/undodir
+
+vim-vundle:
+	git submodule update --init --recursive
 
 install:
 	@if [ -n "$$file" ]; then \
