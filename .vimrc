@@ -20,6 +20,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
+Bundle 'vim-scripts/neocomplcache'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/xterm16.vim'
 
@@ -180,6 +181,9 @@ map <Leader>tl :TlistToggle<Return>
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+
+" neocomplcache: enable
+let g:neocomplcache_enable_at_startup = 1
 
 "
 " Extra filetype support
