@@ -10,17 +10,18 @@ Bundle 'gmarik/vundle'
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'ervandew/supertab'
+"Bundle 'ervandew/taglisttoo'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/snipmate-snippets'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'scrooloose/nerdtree
+"Bundle 'scrooloose/nerdtree'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/xterm16.vim'
-"Bundle 'ervandew/taglisttoo'
 
 filetype plugin indent on
 
