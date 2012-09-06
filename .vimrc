@@ -23,6 +23,7 @@ Bundle 'vim-scripts/AutoTag'
 Bundle 'vim-scripts/neocomplcache'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/xterm16.vim'
+Bundle 'jimenezrick/vimerl'
 
 filetype plugin indent on
 
