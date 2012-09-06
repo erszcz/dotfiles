@@ -130,7 +130,7 @@ if filereadable($HOME . "/.outdoor.on")
 	let xterm16_brightness = "high"
 	colorscheme xterm16
 else
-	colorscheme zenburn
+	colorscheme 256-grayvim
 endif
 
 " Default encryption method
