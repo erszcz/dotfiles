@@ -23,19 +23,6 @@ fi
 [ -d "/usr/local/sbin" ] \
   && PATH="/usr/local/sbin":"${PATH}"
 
-#[ -d "/usr/local/erlang/r14b01/lib/erlang/bin" ] \
-  #&& PATH="/usr/local/erlang/r14b01/lib/erlang/bin":"${PATH}"
-#[ -d "/usr/local/erlang/r14b03/lib/erlang/bin" ] \
-  #&& PATH="/usr/local/erlang/r14b03/lib/erlang/bin":"${PATH}"
-
-#[ -d "/usr/local/erlang/r14b01/bin" ] \
-  #&& PATH="/usr/local/erlang/r14b01/bin":"${PATH}"
-#[ -d "/usr/local/erlang/r14b03/bin" ] \
-  #&& PATH="/usr/local/erlang/r14b03/bin":"${PATH}"
-
-
-export MANPATH="$HOME/.local/man:$HOME/.local/share/man:$HOME/.local/local/man:`manpath`"
-
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
