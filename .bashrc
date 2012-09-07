@@ -66,15 +66,10 @@ fi
 # adjust color scheme according to outdoor/indoor setting
 #[ -f "$HOME/.outdoor.on" ] && xtermcontrol
 
-# git integration features
-# (it seems not to work)
-#if [ -f "$HOME/.bash_completion.d/git-completion.bash" ]; then
-    #source "$HOME/.bash_completion.d/git-completion.bash"
-#fi
-#export GIT_PS1_SHOWDIRTYSTATE=1
-
 # enable zsh-like recursive globbing
 shopt -s globstar
 
 # enable autojump
 . /usr/share/autojump/autojump.sh
+
+export GIT_PS1_SHOWDIRTYSTATE="yes"
