@@ -32,8 +32,15 @@ Linux)
     # Debian package management with bash autocompletion
     alias ac="apt-cache"
     alias ag="sudo apt-get"
-    . /usr/share/bash-completion/completions/apt-cache
-    . /usr/share/bash-completion/completions/apt-get
+
+    # Needed on Debian Testing with bash-completion version 1:2.0-1
+    # for _apt_get and _apt_cache completion functions to be found.
+    # On the contrary this doesn't seem to be necessary on Ubuntu Oneiric.
+    [ -f "/usr/share/bash-completion/completions/apt-cache" ] && \
+        . "/usr/share/bash-completion/completions/apt-cache"
+    [ -f "/usr/share/bash-completion/completions/apt-get" ] && \
+        . "/usr/share/bash-completion/completions/apt-get"
+
     complete -o filenames -F _apt_get ag
     complete -o filenames -F _apt_cache ac
 
