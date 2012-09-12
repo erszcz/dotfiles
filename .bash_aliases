@@ -6,7 +6,7 @@ alias pdc='cd "`tail -n 1 ~/.pdstack`"'
 alias pdcat='echo `cat ~/.pdstack`'
 # no more pd
 
-alias lla='ls -G -alh'
+alias lla='ls -alh'
 alias l1='ls -1'
 
 alias ts='date +%F_%T'
