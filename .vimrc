@@ -28,6 +28,59 @@ Bundle 'jimenezrick/vimerl'
 filetype plugin indent on
 
 "
+" Plugin configuration
+"
+
+" nerdcommenter bindings
+map <C-c> ,c<space>
+imap <C-c> ,c<space>
+
+" CamelCaseMotion aware bindings
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
+nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
+imap <silent> <C-Left> <Plug>CamelCaseMotion_b
+imap <silent> <C-Right> <Plug>CamelCaseMotion_e
+
+" taglist toggle
+map <Leader>tl :TlistToggle<Return>
+
+" surround: make b surround text with <<",">> in Erlang mode
+autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+
+" neocomplcache: enable
+let g:neocomplcache_enable_at_startup = 1
+
+"
+" Extra filetype support
+"
+
+" vala
+autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala setfiletype vala
+au BufRead,BufNewFile *.vapi setfiletype vala
+
+" ooc
+au BufNewFile,BufRead *.ooc set filetype=ooc
+
+"
+" Predefined macros/variables
+"
+
+" reStructuredText/AsciiDoc header macro
+let @h = "yypVr"
+
+" Personal information used in snippet expansion
+let g:author	= 'Radosław Szymczyszyn'
+let g:copyright	= 'Radosław Szymczyszyn'
+
+"
 " Customizations
 "
 
@@ -61,8 +114,8 @@ set backup
 set directory=$HOME/.vim/swapdir
 
 " Enable persistent undo
-"set undodir=$HOME/.vim/undodir
-"set undofile
+set undodir=$HOME/.vim/undodir
+set undofile
 
 " Syntax highlighting
 syntax on
@@ -164,55 +217,9 @@ autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
 " Python default is:        indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
 autocmd FileType python set indentkeys=0{,0},!^F,o,O,e,=elif,=except
 
-"
-" Plugin configuration
-"
+" Default indentation rules
+se sts=4 sw=4 ts=4 et
 
-" nerdcommenter bindings
-map <C-c> ,c<space>
-imap <C-c> ,c<space>
-
-" CamelCaseMotion aware bindings
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
-nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
-imap <silent> <C-Left> <Plug>CamelCaseMotion_b
-imap <silent> <C-Right> <Plug>CamelCaseMotion_e
-
-" taglist toggle
-map <Leader>tl :TlistToggle<Return>
-
-" surround: make b surround text with <<",">> in Erlang mode
-autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
-
-" neocomplcache: enable
-let g:neocomplcache_enable_at_startup = 1
-
-"
-" Extra filetype support
-"
-
-" vala
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala setfiletype vala
-au BufRead,BufNewFile *.vapi setfiletype vala
-
-" ooc
-au BufNewFile,BufRead *.ooc set filetype=ooc
-
-"
-" Predefined macros/variables
-"
-
-" reStructuredText/AsciiDoc header macro
-let @h = "yypVr"
-
-" Personal information used in snippet expansion
-let g:author	= 'Radosław Szymczyszyn'
-let g:copyright	= 'Radosław Szymczyszyn'
+" Use per project .vimrc and make it secure
+set exrc
+set secure
