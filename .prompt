@@ -74,7 +74,7 @@ OnIWhite='\e[0;107m'    # White
 #PS1="\t \u @ \h : \w\n\$ "
 if [ -f "$HOME/.git-prompt.sh" ]; then
 	. "$HOME/.git-prompt.sh"
-	PS1="\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\[$Blue\]\$(__git_ps1 ' (%s)')\[$ColorOff\]\n\[$IWhite\]\$\[$ColorOff\] "
+	PS1="\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\[$Blue\]\$(__git_ps1 ' (%s)')\[$ColorOff\]\n\[$IWhite\]\\$\[$ColorOff\] "
 else
-	PS1='\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\n\[$IWhite\]\$\[$ColorOff\]'
+	PS1='\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\n\[$IWhite\]\\$\[$ColorOff\]'
 fi
