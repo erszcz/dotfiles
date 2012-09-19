@@ -32,8 +32,8 @@ filetype plugin indent on
 "
 
 " nerdcommenter bindings
-map <C-c> ,c<space>
-imap <C-c> ,c<space>
+map <C-c> <Leader>c<space>
+imap <C-c> <Leader>c<space>
 
 " CamelCaseMotion aware bindings
 map <silent> w <Plug>CamelCaseMotion_w
