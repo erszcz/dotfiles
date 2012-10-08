@@ -199,6 +199,9 @@ set cryptmethod=blowfish
 " Buffer list hotkey
 map <Leader>b :buffers<Return>
 
+" Make hotkey (good for markup previews)
+map <Leader>m :make<CR>
+
 " Copy to global clipboard not just yank into buffer
 let s:os = substitute(system('uname'), "\n", "", "")
 if "Linux" == s:os
