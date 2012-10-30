@@ -56,6 +56,9 @@ autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 " neocomplcache: enable
 let g:neocomplcache_enable_at_startup = 1
 
+" neocomplcache: don't try to automatically complete, wait for hitting tab
+let g:neocomplcache_disable_auto_complete = 1
+
 "
 " Extra filetype support
 "
