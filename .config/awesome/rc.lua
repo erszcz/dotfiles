@@ -6,8 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
--- MPD client
-require("lib/mpd")
+-- Expose-like functionality
+require("revelation")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -182,6 +182,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey, "Control" }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey,           }, "e",      revelation),
 
     awful.key({ modkey,           }, "j",
         function ()
