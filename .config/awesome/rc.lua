@@ -169,12 +169,6 @@ for s = 1, screen.count() do
 end
 -- }}}
 
--- {{{ MPD client
-
-mpc = mpd.connect()
-
--- }}}
-
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -285,16 +279,7 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   dictionary_lookup, nil,
                   awful.util.getdir("cache") .. "/history_dict")
-              end),
-
-    -- MPD controls
-    awful.key({ modkey            }, "p",   function () mpc_toggleplay()                end),
-    awful.key({ modkey,           }, "\\",  function () mpc_playlist()                  end),
-    awful.key({ modkey, "Shift"   }, "\\",  function () mpc_info()                      end),
-    awful.key({ modkey,           }, "[",   function () mpc:previous(); mpc_info()      end),
-    awful.key({ modkey,           }, "]",   function () mpc:next(); mpc_info()          end),
-    awful.key({ modkey,           }, "=",   function () mpc_volume{ 5, relative = true} end),
-    awful.key({ modkey,           }, "-",   function () mpc_volume{-5, relative = true} end)
+              end)
 )
 
 clientkeys = awful.util.table.join(
@@ -433,38 +418,6 @@ function dictionary_lookup(word)
   end
   word = (word == "") and get_clipboard() or word
   awful.util.spawn("d " .. word)
-end
-
-function mpc_playlist()
-  awful.util.spawn_with_shell("mpc play `mpc playlist | nl -s ') ' | "
-                              .. dmenu("-i -l 20") .. " | cut -d')' -f1`")
-end
-
-function mpc_info()
-  awful.util.spawn_with_shell('notify-send \\\"Now playing\\\" \\\"$(mpc)\\\"')
-end
-
-function mpc_volume(args)
-  local volume = args[1]
-  if args.relative == true then
-    local status = mpc:status()
-    volume = volume + status.volume
-  end
-  if volume > 100 then
-    volume = 100
-  elseif volume < 0 then
-    volume = 0
-  end
-  mpc:set_vol(volume)
-end
-
-function mpc_toggleplay()
-  local r = mpc:status()
-  if r.state == "play" then
-    mpc:pause(true)
-  else
-    mpc:pause(false)
-  end
 end
 
 -- Helpers
