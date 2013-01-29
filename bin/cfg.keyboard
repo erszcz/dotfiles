@@ -1,3 +1,7 @@
 #!/bin/bash
 
+if [ -f "$HOME/.cache/xenv" ]; then
+    . "$HOME/.cache/xenv"
+fi
+logger "configuring keyboard settings"
 xkbset b r rate 200 40 &
