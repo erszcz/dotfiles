@@ -168,6 +168,7 @@ cabbr Ed ed
 cabbr Qall qall
 cabbr Wqall wqall
 cabbr E Explore
+cabbr B b
 
 " Display statusline no matter how many windows are open
 set laststatus=2
