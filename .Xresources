@@ -13,3 +13,10 @@ xterm*background: black
 !        but do so on key press
 xterm*scrollTtyOutput: false
 xterm*scrollKey: true
+
+! xterm: clear scrollback buffer on Ctrl-L
+XTerm*VT100*translations: #override \\
+	Ctrl<KeyPress>l: clear-saved-lines()
+
+! xterm: scrollback buffer size
+xterm*SaveLines: 5000
