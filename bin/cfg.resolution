@@ -5,5 +5,5 @@ if [ $? = 0 ]; then
     xrandr --output VGA1 --mode 1440x900
     xrandr --output LVDS1 --mode 1366x768 --left-of VGA1
 else
-    xrandr --output LVDS1 --mode 1366x768
+    xrandr --output LVDS1 --mode 1366x768 --same-as VGA1
 fi
