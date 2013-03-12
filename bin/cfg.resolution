@@ -1,8 +1,9 @@
 #!/bin/bash
 
-xrandr | grep "CRT1 connected" > /dev/null
+xrandr | grep "VGA1 connected" > /dev/null
 if [ $? = 0 ]; then
-    xrandr --output CRT1 --mode 1440x900 &
+    xrandr --output VGA1 --mode 1440x900
+    xrandr --output LVDS1 --mode 1366x768 --left-of VGA1
 else
-    xrandr --output LVDS --mode 1366x768 &
+    xrandr --output LVDS1 --mode 1366x768
 fi
