@@ -5,6 +5,10 @@ xhost +localhost
 
 cfg.resolution
 
+# configure preferred file associations
+# insufficient? edit /usr/share/applications/defaults.list
+xdg-mime default okular.desktop application/pdf &
+
 wmname LG3D
 export EDITOR="vim"
 export XDG_CONFIG_HOME="$HOME/.config"
