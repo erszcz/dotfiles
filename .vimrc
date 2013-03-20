@@ -73,6 +73,12 @@ au BufRead,BufNewFile *.vapi setfiletype vala
 " ooc
 au BufNewFile,BufRead *.ooc set filetype=ooc
 
+" Markdown instead of Modula
+au BufNewFile,BufRead *.md set filetype=markdown textwidth=74
+
+" Treat Epistle files as Markdown by default
+au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt set filetype=markdown
+
 "
 " Predefined macros/variables
 "
