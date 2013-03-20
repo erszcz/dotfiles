@@ -18,7 +18,7 @@ beautiful.init(os.getenv("XDG_CONFIG_HOME")
                .. "/awesome/themes/redd/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "rxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
