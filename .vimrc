@@ -71,6 +71,12 @@ autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 au BufRead,BufNewFile *.vala setfiletype vala
 au BufRead,BufNewFile *.vapi setfiletype vala
 
+" ejabberd test.config
+au BufRead,BufNewFile */ejabberd_tests/test.config setfiletype erlang
+
+" tsung dumps
+au BufRead,BufNewFile tsung.dump setfiletype xml wrap
+
 " ooc
 au BufNewFile,BufRead *.ooc set filetype=ooc
 
