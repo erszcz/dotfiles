@@ -288,7 +288,11 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioRaiseVolume",
               function () awful.util.spawn("amixer set Master 5%+") end),
     awful.key({}, "XF86AudioMute",
-              function () awful.util.spawn("amixer set Master toggle") end)
+              function () awful.util.spawn("amixer set Master toggle") end),
+
+    -- X Server Negative / Positive Toggle
+    awful.key({ modkey, "Control" }, "i",
+              function () awful.util.spawn("xcalib -invert -alter") end)
 )
 
 clientkeys = awful.util.table.join(
