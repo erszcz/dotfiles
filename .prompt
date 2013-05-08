@@ -71,10 +71,16 @@ OnIPurple='\e[10;95m'   # Purple
 OnICyan='\e[0;106m'     # Cyan
 OnIWhite='\e[0;107m'    # White
 
+if [ -f "$HOME/.outdoor.on" ]; then
+    PromptSignColor="$Black"
+else
+    PromptSignColor="$IWhite"
+fi
+
 #PS1="\t \u @ \h : \w\n\$ "
 if [ -f "$HOME/.git-prompt.sh" ]; then
 	. "$HOME/.git-prompt.sh"
-	PS1="\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\[$Blue\]\$(__git_ps1 ' (%s)')\[$ColorOff\]\n\[$IWhite\]\\$\[$ColorOff\] "
+	PS1="\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\[$Blue\]\$(__git_ps1 ' (%s)')\[$ColorOff\]\n\[$PromptSignColor\]\$\[$ColorOff\] "
 else
-	PS1='\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\n\[$IWhite\]\\$\[$ColorOff\]'
+	PS1='\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\n\[$PromptSignColor\]\$\[$ColorOff\]'
 fi
