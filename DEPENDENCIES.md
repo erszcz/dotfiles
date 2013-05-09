@@ -14,3 +14,4 @@ though most might also come in handy on other Unices:
 - play or playsound
 - xcalib
 - rxvt
+- ack (known as ack-grep in Debian)
