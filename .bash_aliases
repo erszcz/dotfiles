@@ -6,9 +6,6 @@ alias pdc='cd "`tail -n 1 ~/.pdstack`"'
 alias pdcat='echo `cat ~/.pdstack`'
 # no more pd
 
-alias lla='ls -alh'
-alias l1='ls -1'
-
 alias ts='date +%F_%T'
 alias ds='date +%F'
 
@@ -24,10 +21,7 @@ alias cl=clear
 
 case `uname` in
 Linux)
-    alias ls='ls --color=auto'
-    alias ll='ls -l -h --color=auto'
-    alias la='ls -A -h --color=auto'
-    alias l='ls -CF -h --color=auto'
+    LS_COLOR="ls --color=auto"
 
     # Debian package management with bash autocompletion
     alias ac="apt-cache"
@@ -47,4 +41,19 @@ Linux)
     # alias for ack (known as ack-grep under Debian)
     alias ack="ack-grep"
     ;;
+Darwin)
+    LS_COLOR="ls -G"
+    ;;
 esac
+
+alias ls="$LS_COLOR -CF -h"
+alias l=ls
+alias la="$LS_COLOR -A"
+alias ll="$LS_COLOR -l"
+alias lla="$LS_COLOR -al"
+alias l1="$LS_COLOR -1"
+
+# ack color settings depending on color scheme
+if [ -f "$HOME/.outdoor.on" ]; then
+    alias ack="ack --color-filename=red --color-lineno=blue"
+fi
