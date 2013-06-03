@@ -6,7 +6,7 @@ alias pdc='cd "`tail -n 1 ~/.pdstack`"'
 alias pdcat='echo `cat ~/.pdstack`'
 # no more pd
 
-alias ts='date +%F_%T'
+alias ts='date +%F_%H%M%S'
 alias ds='date +%F'
 
 alias grip='grep -i'
