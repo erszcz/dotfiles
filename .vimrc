@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'ervandew/taglisttoo'
 "Bundle 'scrooloose/nerdtree'
 Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
@@ -24,7 +25,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
-Bundle 'vim-scripts/neocomplcache'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/xterm16.vim'
 
@@ -58,12 +58,6 @@ map <Leader>tl :TlistToggle<Return>
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
-
-" neocomplcache: enable
-let g:neocomplcache_enable_at_startup = 1
-
-" neocomplcache: don't try to automatically complete, wait for hitting tab
-let g:neocomplcache_disable_auto_complete = 1
 
 "
 " Extra filetype support

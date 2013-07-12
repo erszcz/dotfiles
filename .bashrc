@@ -73,3 +73,6 @@ shopt -s globstar
 . /usr/share/autojump/autojump.sh
 
 export GIT_PS1_SHOWDIRTYSTATE="yes"
+
+# workaround for git calling vim with YouCompleteMe on Mac
+export EDITOR="DYLD_FORCE_FLAT_NAMESPACE=1 vim"

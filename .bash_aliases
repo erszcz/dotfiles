@@ -43,6 +43,9 @@ Linux)
     ;;
 Darwin)
     LS_COLOR="ls -G"
+
+    # workaround for brew/ports vim and YouCompleteMe
+    alias vim="DYLD_FORCE_FLAT_NAMESPACE=1 vim"
     ;;
 esac
 
