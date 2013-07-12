@@ -16,10 +16,11 @@ Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
 Bundle 'hallettj/jslint.vim'
+Bundle 'hcs42/vim-erlang'
 Bundle 'honza/snipmate-snippets'
-Bundle 'jimenezrick/vimerl'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
@@ -32,6 +33,9 @@ filetype plugin indent on
 "
 " Plugin configuration
 "
+
+" syntastic - populate location list with errors
+let g:syntastic_always_populate_loc_list=1
 
 " nerdcommenter bindings
 map <C-c> <Leader>c<space>
