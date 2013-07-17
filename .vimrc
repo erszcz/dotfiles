@@ -182,6 +182,10 @@ cabbr Wqall wqall
 cabbr E Explore
 cabbr B b
 
+" Use :ln, :lp for navigating the location list
+cabbr ln lnext
+cabbr lp lprevious
+
 " Substitutions for Spanish characters
 iabbr 'i í
 iabbr 'a á
