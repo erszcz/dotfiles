@@ -31,16 +31,15 @@ fi
 # enable autojump
 case `uname` in
     Linux)
-        if [ -f "/usr/share/autojump/autojump.sh" ]; then
-            . "/usr/share/autojump/autojump.sh"
-        fi
+        AUTOJUMP_PATH="/usr/share/autojump/autojump.sh"
         ;;
     Darwin)
-        if [ -f `brew --prefix`/etc/autojump ]; then
-            . `brew --prefix`/etc/autojump
-        fi
+        AUTOJUMP_PATH="/usr/local/Cellar/autojump/21.6.9/etc/autojump.bash"
         ;;
 esac
+if [ -f "$AUTOJUMP_PATH" ]; then
+    . "$AUTOJUMP_PATH"
+fi
 
 # enable bash completion from ports
 if [ -f /opt/local/etc/bash_completion ]; then
