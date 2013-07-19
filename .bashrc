@@ -69,9 +69,6 @@ fi
 # enable zsh-like recursive globbing
 shopt -s globstar
 
-# enable autojump
-. /usr/share/autojump/autojump.sh
-
 export GIT_PS1_SHOWDIRTYSTATE="yes"
 
 # workaround for git calling vim with YouCompleteMe on Mac

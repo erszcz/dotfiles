@@ -28,6 +28,20 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
+# enable autojump
+case `uname` in
+    Linux)
+        if [ -f "/usr/share/autojump/autojump.sh" ]; then
+            . "/usr/share/autojump/autojump.sh"
+        fi
+        ;;
+    Darwin)
+        if [ -f `brew --prefix`/etc/autojump ]; then
+            . `brew --prefix`/etc/autojump
+        fi
+        ;;
+esac
+
 # enable bash completion from ports
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
