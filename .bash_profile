@@ -12,16 +12,16 @@ if [ -d ~/bin ] ; then
 fi
 
 [ -d "/opt/local/bin" ] \
-  && PATH="/opt/local/bin":"${PATH}"
+  && export PATH="/opt/local/bin":"${PATH}"
 
 [ -d "/opt/local/sbin" ] \
-  && PATH="/opt/local/sbin":"${PATH}"
+  && export PATH="/opt/local/sbin":"${PATH}"
 
 [ -d "/usr/local/bin" ] \
-  && PATH="/usr/local/bin":"${PATH}"
+  && export PATH="/usr/local/bin":"${PATH}"
 
 [ -d "/usr/local/sbin" ] \
-  && PATH="/usr/local/sbin":"${PATH}"
+  && export PATH="/usr/local/sbin":"${PATH}"
 
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
