@@ -45,3 +45,8 @@ fi
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 fi
+
+# extend svn with some git-like niceties
+[ -f "${HOME}/.subversion/svn.sh" ] && {
+    . "${HOME}/.subversion/svn.sh"
+}
