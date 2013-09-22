@@ -15,7 +15,11 @@ usage () {
 }
 
 get () {
-  echo "$cwd/$1" >> "$cart"
+  if [[ $1 == /* ]]; then
+    echo "$1" >> "$cart"
+  else
+    echo "$cwd/$1" >> "$cart"
+  fi
 }
 
 put () {
