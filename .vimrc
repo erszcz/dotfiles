@@ -92,6 +92,9 @@ au BufNewFile,BufRead *.md set filetype=markdown textwidth=74
 " Treat Epistle files as Markdown by default
 au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt set filetype=markdown
 
+" Vagrantfile is just ruby
+au BufRead,BufNewFile Vagrantfile set filetype=ruby
+
 "
 " Predefined macros/variables
 "
