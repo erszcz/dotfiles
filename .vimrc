@@ -219,17 +219,18 @@ set ruler
 
 " Colorscheme selection
 if $TERM == "linux"
-	colorscheme peachpuff
-elseif $TERM == "xterm"
-	set t_Co=256
-	if filereadable($HOME . "/.outdoor.on")
-		let g:xterm16_ccube    = "005f87afd7ff"
-		let xterm16_colormap   = "softlight"
-		let xterm16_brightness = "high"
-		colorscheme xterm16
-	else
-		colorscheme 256-grayvim
-	endif
+    colorscheme peachpuff
+"elseif $TERM == "xterm"
+else
+    set t_Co=256
+    if filereadable($HOME . "/.outdoor.on")
+        let g:xterm16_ccube    = "005f87afd7ff"
+        let xterm16_colormap   = "softlight"
+        let xterm16_brightness = "high"
+        colorscheme xterm16
+    else
+        colorscheme 256-grayvim
+    endif
 endif
 
 " Default encryption method
