@@ -37,6 +37,10 @@ filetype plugin indent on
 " syntastic - populate location list with errors
 let g:syntastic_always_populate_loc_list=1
 
+" SnipMate alternate keybinding
+imap <C-\> <Plug>snipMateNextOrTrigger
+smap <C-\> <Plug>snipMateNextOrTrigger
+
 " nerdcommenter bindings
 map <C-c> <Leader>c<space>
 imap <C-c> <Leader>c<space>
