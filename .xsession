@@ -22,4 +22,6 @@ nm-applet &
 
 dropbox start &
 
+conky &
+
 exec awesome
