@@ -16,3 +16,4 @@ though most might also come in handy on other Unices:
 - rxvt
 - ack (known as ack-grep in Debian)
 - [jq](http://stedolan.github.io/jq/) - great tool for CLI JSON processing
+- dropbox

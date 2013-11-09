@@ -20,4 +20,6 @@ cfg.keyboard
 #wicd-client -t &
 nm-applet &
 
+dropbox start &
+
 exec awesome
