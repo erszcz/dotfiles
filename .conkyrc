@@ -40,6 +40,7 @@ ${color grey}cpu0   :$color ${execi 1 sensors | grep 'Core 0' | awk '{print $3}'
 ${color grey}cpu1   :$color ${execi 1 sensors | grep 'Core 1' | awk '{print $3}'} ${alignr 120}${cpu cpu2}% ${cpubar cpu2}
 ${color grey}cpu2   :$color ${execi 1 sensors | grep 'Core 2' | awk '{print $3}'} ${alignr 120}${cpu cpu3}% ${cpubar cpu3}
 ${color grey}cpu3   :$color ${execi 1 sensors | grep 'Core 3' | awk '{print $3}'} ${alignr 120}${cpu cpu4}% ${cpubar cpu4}
+${color grey}env    :$color ${execi 1 sensors | grep 'Physical' | awk '{print $4}'}
 
 ${color grey}proc   :$color $processes  ${color grey}running:$color $running_processes
 
