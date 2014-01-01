@@ -1,12 +1,29 @@
 #!/bin/bash
 
-DICTCMD="ydpdict -w $1"
+case "$@" in
+    "")
+        XSEL="$(xsel)"
+        case "${XSEL}" in
+            "")
+                ARGS=""
+                ;;
+            *)
+                ARGS="-w ${XSEL}"
+                ;;
+        esac
+        ;;
+    *)
+        ARGS="-w \"$@\""
+        ;;
+esac
+
+DICTCMD="ydpdict ${ARGS}"
 
 case $TERM in
     xterm)
-        $DICTCMD
+        ${DICTCMD}
         ;;
     *)
-        exec xterm -e bash -c "$DICTCMD"
+        exec xterm -e "${DICTCMD}"
         ;;
 esac
