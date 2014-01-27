@@ -14,7 +14,12 @@ though most might also come in handy on other Unices:
 - play or playsound
 - xcalib
 - rxvt
+
+# Other useful stuff
+
 - ack (known as ack-grep in Debian)
 - [jq](http://stedolan.github.io/jq/) - great tool for CLI JSON processing
 - dropbox
 - conky
+- https://github.com/robertoaloi/keynote-to-text - convert keynote files
+  to text for easy diffing

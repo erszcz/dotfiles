@@ -11,3 +11,7 @@
     grep = auto
     interactive = auto
     status = auto
+[diff "key"]
+    binary = true
+    textconv = keynote-to-text
+    cachetextconv = true
