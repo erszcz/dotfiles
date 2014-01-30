@@ -9,14 +9,15 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "Bundle 'ervandew/taglisttoo'
+"Bundle 'hallettj/jslint.vim'
 "Bundle 'scrooloose/nerdtree'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-scripts/neocomplcache'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
-Bundle 'hallettj/jslint.vim'
 Bundle 'hcs42/vim-erlang'
 Bundle 'honza/vim-snippets'
 Bundle 'kien/ctrlp.vim'
@@ -27,6 +28,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/xterm16.vim'
+Bundle 'wting/rust.vim'
 
 filetype plugin indent on
 
@@ -36,10 +38,6 @@ filetype plugin indent on
 
 " syntastic - populate location list with errors
 let g:syntastic_always_populate_loc_list=1
-
-" SnipMate alternate keybinding
-imap <C-\> <Plug>snipMateNextOrTrigger
-smap <C-\> <Plug>snipMateNextOrTrigger
 
 " nerdcommenter bindings
 map <C-c> <Leader>c<space>
@@ -62,6 +60,15 @@ map <Leader>tl :TlistToggle<Return>
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+" make word an Erlang binary with one keybinding
+nmap <Leader>B viwSb
+vmap <Leader>B Sb
+" export type
+nmap <Leader>e wwviwy0o-export_type([pa/0]).0
+
+" AutoTag
+" Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
+let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
 
 "
 " Extra filetype support
@@ -75,6 +82,7 @@ au BufRead,BufNewFile *.vapi setfiletype vala
 
 " ejabberd test.config and other Erlang-like filetypes
 au BufRead,BufNewFile */ejabberd_tests/test.config setfiletype erlang
+au BufRead,BufNewFile escalus.config setfiletype erlang
 au BufRead,BufNewFile rebar.config setfiletype erlang
 au BufRead,BufNewFile rebar.*.config setfiletype erlang
 au BufRead,BufNewFile *.xrl setfiletype erlang
@@ -91,9 +99,6 @@ au BufNewFile,BufRead *.md set filetype=markdown textwidth=74
 
 " Treat Epistle files as Markdown by default
 au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt set filetype=markdown
-
-" Vagrantfile is just ruby
-au BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 "
 " Predefined macros/variables
@@ -219,18 +224,17 @@ set ruler
 
 " Colorscheme selection
 if $TERM == "linux"
-    colorscheme peachpuff
-"elseif $TERM == "xterm"
-else
-    set t_Co=256
-    if filereadable($HOME . "/.outdoor.on")
-        let g:xterm16_ccube    = "005f87afd7ff"
-        let xterm16_colormap   = "softlight"
-        let xterm16_brightness = "high"
-        colorscheme xterm16
-    else
-        colorscheme 256-grayvim
-    endif
+	colorscheme peachpuff
+elseif $TERM == "xterm"
+	set t_Co=256
+	if filereadable($HOME . "/.outdoor.on")
+		let g:xterm16_ccube    = "005f87afd7ff"
+		let xterm16_colormap   = "softlight"
+		let xterm16_brightness = "high"
+		colorscheme xterm16
+	else
+		colorscheme 256-grayvim
+	endif
 endif
 
 " Default encryption method
