@@ -10,7 +10,7 @@
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 # history length
-export HISTSIZE=2000
+export HISTSIZE=20000
 # append to the history file, don't overwrite it
 shopt -s histappend
 
