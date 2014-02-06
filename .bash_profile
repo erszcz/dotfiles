@@ -50,3 +50,8 @@ fi
 [ -f "${HOME}/.subversion/svn.sh" ] && {
     . "${HOME}/.subversion/svn.sh"
 }
+
+# use cabal-installed binaries
+[ -d "${HOME}/.cabal/bin" ] && {
+  export PATH="${HOME}/.cabal/bin:${PATH}"
+}
