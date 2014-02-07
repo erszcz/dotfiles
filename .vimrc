@@ -267,3 +267,28 @@ se sts=4 sw=4 ts=4 et
 " Use per project .vimrc and make it secure
 set exrc
 set secure
+
+" Autosave/autoload session if it exists
+function! MakeSession()
+  let b:sessiondir = getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:sessionfile = b:sessiondir . '/session.vim'
+  if (filereadable(b:sessionfile))
+    exe "mksession! " . b:sessionfile
+  endif
+endfunction
+
+function! LoadSession()
+  let b:sessionfile = getcwd() . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+au VimEnter * nested :call LoadSession()
+au VimLeave * :call MakeSession()
