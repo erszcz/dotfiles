@@ -290,5 +290,5 @@ function! LoadSession()
   endif
 endfunction
 
-au VimEnter * nested :call LoadSession()
+map <Leader>l :call LoadSession()<CR>
 au VimLeave * :call MakeSession()
