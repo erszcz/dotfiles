@@ -75,6 +75,7 @@ au BufRead,BufNewFile *.vapi setfiletype vala
 
 " ejabberd test.config and other Erlang-like filetypes
 au BufRead,BufNewFile */ejabberd_tests/test.config setfiletype erlang
+au BufRead,BufNewFile escalus.config setfiletype erlang
 au BufRead,BufNewFile rebar.config setfiletype erlang
 au BufRead,BufNewFile rebar.*.config setfiletype erlang
 au BufRead,BufNewFile *.xrl setfiletype erlang
