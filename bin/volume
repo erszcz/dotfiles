@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+prog=$(basename $0)
+
+usage () {
+    echo <<END
+usage: $prog up|down
+       $prog toggle
+END
+}
+
+case $1 in
+up)
+    amixer set Master 5%+
+    ;;
+down)
+    amixer set Master 5%-
+    ;;
+toggle)
+    amixer set Master toggle
+    ;;
+*)
+    usage
+esac
