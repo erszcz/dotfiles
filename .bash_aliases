@@ -41,7 +41,7 @@ Linux)
     # alias for ack (known as ack-grep under Debian)
     alias ack="ack-grep"
     ;;
-Darwin)
+Darwin|DragonFly)
     LS_COLOR="ls -G"
 
     # workaround for brew/ports vim and YouCompleteMe
