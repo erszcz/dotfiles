@@ -46,6 +46,14 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# dfly: bash-completion
+[[ $PS1 && -f "/usr/local/share/bash-completion/bash_completion" ]] && \
+    . "/usr/local/share/bash-completion/bash_completion"
+
+# dfly: completion for git from pkg/dports
+[[ $PS1 && -f "/usr/local/share/git-core/contrib/completion/git-completion.bash" ]] && \
+    . "/usr/local/share/git-core/contrib/completion/git-completion.bash"
+
 # Setup a nicer prompt
 
 if [ -f ~/.prompt ]; then
