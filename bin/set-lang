@@ -1,0 +1,15 @@
+#!/bin/bash
+
+prog=$(basename $0)
+
+err () {
+    notify-send --expire-time=10 "${prog}" "$@"
+    echo "${prog}: $@" > /dev/fd/2
+}
+
+CHOICES="es pancyr pl"
+LANG=$(echo $CHOICES | sed 's/ /\n/g' | dmenu)
+SET=${HOME}/bin/cfg.${LANG}
+[[ -f "${SET}" ]] && \
+    exec "${SET}" || \
+    (err "unknown lang: ${LANG}" && exit 1)
