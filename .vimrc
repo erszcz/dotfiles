@@ -268,27 +268,43 @@ se sts=4 sw=4 ts=4 et
 set exrc
 set secure
 
-" Autosave/autoload session if it exists
-function! MakeSession()
-  let b:sessiondir = getcwd()
-  if (filewritable(b:sessiondir) != 2)
-    exe 'silent !mkdir -p ' b:sessiondir
-    redraw!
-  endif
-  let b:sessionfile = b:sessiondir . '/session.vim'
-  if (filereadable(b:sessionfile))
-    exe "mksession! " . b:sessionfile
+" Autosave session if it was intentioanlly loaded
+function! AutoSaveSession()
+  if exists("t:sessionfileloaded")
+      call SaveSession()
   endif
 endfunction
 
+" Save session
+function! SaveSession()
+  let l:sessiondir = getcwd()
+  let t:sessionfile = l:sessiondir . "/session.vim"
+  if filewritable(l:sessiondir)
+    exe "mksession! " . t:sessionfile
+    echom "Session file " . t:sessionfile . " written."
+  endif
+endfunction
+
+" Load session into the current tab
 function! LoadSession()
-  let b:sessionfile = getcwd() . "/session.vim"
-  if (filereadable(b:sessionfile))
-    exe 'source ' b:sessionfile
+  let t:sessionfile = getcwd() . "/session.vim"
+  if filereadable(t:sessionfile)
+    exe 'source ' t:sessionfile
+    let t:sessionfileloaded = 1
   else
     echo "No session loaded."
   endif
 endfunction
 
-map <Leader>l :call LoadSession()<CR>
-au VimLeave * :call MakeSession()
+" Check whether there's a session in the current project directory
+function! CheckForSession()
+  let t:sessionfile = getcwd() . '/session.vim'
+  if filereadable(t:sessionfile)
+    echom "Session file " . t:sessionfile . " exists."
+  endif
+endfunction
+
+nnoremap <Leader>s :call SaveSession()<CR>
+nnoremap <Leader>l :call LoadSession()<CR>
+au VimLeave * :call AutoSaveSession()
+au VimEnter * :call CheckForSession()
