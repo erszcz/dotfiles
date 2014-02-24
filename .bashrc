@@ -81,3 +81,8 @@ export GIT_PS1_SHOWDIRTYSTATE="yes"
 
 # workaround for git calling vim with YouCompleteMe on Mac
 export EDITOR="DYLD_FORCE_FLAT_NAMESPACE=1 vim"
+
+# Debian package maintainer info
+DEBEMAIL="radoslaw.szymczyszyn@erlang-solutions.com"
+DEBFULLNAME="Radek Szymczyszyn"
+export DEBEMAIL DEBFULLNAME
