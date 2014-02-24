@@ -8,10 +8,10 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+"Bundle 'Valloric/YouCompleteMe'
 "Bundle 'ervandew/taglisttoo'
 "Bundle 'scrooloose/nerdtree'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
@@ -25,6 +25,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
+Bundle 'vim-scripts/neocomplcache'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/xterm16.vim'
 
