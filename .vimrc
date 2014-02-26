@@ -253,7 +253,7 @@ elseif "Darwin" == s:os
 endif
 
 " Sane (Bash-like) filename completion style
-set wildmode=longest:full
+set wildmode=list:longest
 set wildmenu
 
 " Turn off reindenting on typing closing parens, brackets and curlies
