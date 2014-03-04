@@ -71,6 +71,10 @@ map <Leader>tl :TlistToggle<Return>
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 
+" AutoTag
+" Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
+"let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
+
 "
 " Extra filetype support
 "
