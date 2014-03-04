@@ -320,3 +320,10 @@ nnoremap <Leader>s :call SaveSession()<CR>
 nnoremap <Leader>l :call LoadSession()<CR>
 au VimLeave * :call AutoSaveSession()
 au VimEnter * :call CheckForSession()
+
+" erlang/surround: make word an Erlang binary with one keybinding
+nmap <Leader>B viwSb
+vmap <Leader>B Sb
+
+" erlang: export type
+nmap <Leader>e wwviwy0o-export_type([pa/0]).0
