@@ -115,6 +115,10 @@ au BufRead,BufNewFile Vagrantfile set filetype=ruby
 " reStructuredText/AsciiDoc header macro
 let @h = "yypVr"
 
+" ask about changing each Erlang string from here to the end of file
+" to a binary
+let @b = ':.,$s/\([^<]\{1,2\}\)"\(\S\{-\}\)"\([^>]\{1,2\}\)/\1<<"\2">>\3/gec'
+
 " Personal information used in snippet expansion
 let g:author	= 'Radosław Szymczyszyn'
 let g:copyright	= 'Radosław Szymczyszyn'
