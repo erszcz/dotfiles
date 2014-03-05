@@ -112,7 +112,7 @@ au BufRead,BufNewFile Vagrantfile set filetype=ruby
 " Predefined macros/variables
 "
 
-" reStructuredText/AsciiDoc header macro
+" reStructuredText/AsciiDoc header/title macro
 let @h = "yypVr"
 
 " ask about changing each Erlang string from here to the end of file
