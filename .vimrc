@@ -67,7 +67,7 @@ imap <silent> <C-Right> <Plug>CamelCaseMotion_e
 
 " taglist toggle
 map <Leader>tl :TlistToggle<Return>
-let g:tlist_markdown_settings = 'markdown;h:Contents'
+let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links'
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
