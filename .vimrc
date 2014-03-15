@@ -278,6 +278,10 @@ autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
 " Python default is:        indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
 autocmd FileType python set indentkeys=0{,0},!^F,o,O,e,=elif,=except
 
+" When editing markdown, treat : and - as parts of a word
+" Default is:                 iskeyword=@,48-57,_,192-255,$,.
+autocmd FileType markdown set iskeyword=@,48-57,_,192-255,$,.,-,:
+
 " Default indentation rules
 se sts=4 sw=4 ts=4 et
 
