@@ -7,4 +7,9 @@
 --regex-markdown=/^#####[ \t]+(.*)/-        \1/h,heading5/
 --regex-markdown=/^######[ \t]+(.*)/-          \1/h,heading6/
 --regex-markdown=/^#######[ \t]+(.*)/-            \1/h,heading7/
---regex-markdown=/^\[([^]]+)\]:/\1/l,link/
+--regex-markdown=/^\[([^]]+)\]:/\1/d,link-definition/
+--regex-markdown=/<a name=(['"])([^\1]+)\1[ ]?\/>/\2/a,anchor/
+--regex-markdown=/\\label\{([^\}]+)\}/\1/a,anchor/
+--regex-markdown=/\\ref\{([^\}]+)\}/\1/x,xref/
+--regex-markdown=/\[[^]]+\]\[([^]]+)\]/\1/l,link/
+--regex-markdown=/\[[^]]+\]\(([^]]+)\)/\1/l,link/
