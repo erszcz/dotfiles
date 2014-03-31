@@ -86,3 +86,13 @@ export EDITOR="DYLD_FORCE_FLAT_NAMESPACE=1 vim"
 DEBEMAIL="radoslaw.szymczyszyn@erlang-solutions.com"
 DEBFULLNAME="Radek Szymczyszyn"
 export DEBEMAIL DEBFULLNAME
+
+# go to Kerl OTP source directory
+cd-kerl-otp () {
+    if [[ x"" = x"${_KERL_ACTIVE_DIR}" ]]; then
+        echo "_KERL_ACTIVE_DIR not set"
+    else
+        version=`basename ${_KERL_ACTIVE_DIR}`
+        cd ${HOME}/.kerl/builds/${version}/otp_src_${version}
+    fi
+}
