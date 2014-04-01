@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+prog=$(basename $0)
+
+[[ "$#" -eq 1 ]] || {
+    echo "usage: ${prog} file-to-watch"
+    exit 1
+}
+
+file_to_watch="$1"
+
+inotifywait "${file_to_watch}" > /dev/null 2>&1
+while [[ $? -eq 0 || $? -eq 1 ]];
+do
+    make > /dev/null 2>&1
+    inotifywait "${file_to_watch}" > /dev/null 2>&1
+    echo -n .
+done
