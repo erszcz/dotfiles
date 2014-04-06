@@ -31,3 +31,15 @@ rxvt.keysym.Shift-Down: command:\033]721;1\007
 
 ! Tk apps less ugly
 *TkTheme: clam
+
+! vim like scrollback for rxvt
+rxvt*perl-lib: /home/erszcz/src/urxvt-vim-scrollback
+rxvt*perl-ext-common: -searchable-scrollback,vim-scrollback
+
+! configure alt-s as the keybinding to enter vim scrollback mode.
+rxvt.vim-scrollback: M-s
+
+! configure the background and foreground colors used for the status bar while
+! in scrollback mode.
+rxvt.vim-scrollback-bg: 16
+rxvt.vim-scrollback-fg: 10

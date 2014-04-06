@@ -14,6 +14,7 @@ though most might also come in handy on other Unices:
 - play or playsound
 - xcalib
 - rxvt
+- [rxvt-vim-scrollback](https://github.com/ervandew/urxvt-vim-scrollback)
 
 # Other useful stuff
 
