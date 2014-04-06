@@ -28,3 +28,6 @@ rxvt*background: black
 rxvt*scrollBar: false
 rxvt.keysym.Shift-Up: command:\033]720;1\007
 rxvt.keysym.Shift-Down: command:\033]721;1\007
+
+! Tk apps less ugly
+*TkTheme: clam
