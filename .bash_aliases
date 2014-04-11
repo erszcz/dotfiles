@@ -60,3 +60,6 @@ alias l1="$LS_COLOR -1"
 if [ -f "$HOME/.outdoor.on" ]; then
     alias ack="ack --color-filename=red --color-lineno=blue"
 fi
+
+# shorthand for using ctags
+alias make-tags="ctags -a {include,src}/*.{erl,hrl}"
