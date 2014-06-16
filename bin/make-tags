@@ -1,0 +1,9 @@
+#!/bin/sh
+
+WHERE="apps deps include* src*"
+CTAGS=ctags
+
+find ${WHERE} \
+    -name .git -prune -o \
+    -name *.erl -exec ${CTAGS} -a '{}' \; -o \
+    -name *.hrl -exec ${CTAGS} -a '{}' \;
