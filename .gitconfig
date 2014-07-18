@@ -5,6 +5,7 @@
     st = status
     co = checkout
     br = branch
+    l = log --format=oneline --abbrev-commit
 [color]
     branch = auto
     diff = auto
