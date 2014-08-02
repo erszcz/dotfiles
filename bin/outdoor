@@ -1,12 +1,25 @@
 #!/bin/bash
 
 OUTDOOR_FILE="$HOME/.outdoor.on"
+XRESOURCES=${HOME}/.Xresources
+OUTDOOR_XRESOURCES=${XRESOURCES}.outdoor
+
+on () {
+    touch ${OUTDOOR_FILE}
+    xrdb -merge ${OUTDOOR_XRESOURCES}
+}
+
+off () {
+    [ -f "$OUTDOOR_FILE" ] && rm $OUTDOOR_FILE
+    xrdb ${XRESOURCES}
+}
+
+status () {
+    [ -f "$OUTDOOR_FILE" ] && echo "outdoor: yes" || echo "outdoor: no"
+}
 
 case $1 in
-  on|yes)
-    touch $OUTDOOR_FILE ;;
-  off|no)
-    [ -f "$OUTDOOR_FILE" ] && rm $OUTDOOR_FILE ;;
-  *)
-    [ -f "$OUTDOOR_FILE" ] && echo "outdoor: yes" || echo "outdoor: no" ;;
+  on|yes) on ;;
+  off|no) off ;;
+  *) status ;;
 esac
