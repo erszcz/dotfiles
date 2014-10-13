@@ -83,19 +83,20 @@ autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 " vala
 autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala setfiletype vala
-au BufRead,BufNewFile *.vapi setfiletype vala
+au BufRead,BufNewFile *.vala set filetype=vala
+au BufRead,BufNewFile *.vapi set filetype=vala
 
 " ejabberd test.config and other Erlang-like filetypes
-au BufRead,BufNewFile */ejabberd_tests/test.config setfiletype erlang
-au BufRead,BufNewFile escalus.config setfiletype erlang
-au BufRead,BufNewFile rebar.config setfiletype erlang
-au BufRead,BufNewFile rebar.*.config setfiletype erlang
-au BufRead,BufNewFile *.xrl setfiletype erlang
-au BufRead,BufNewFile *.yrl setfiletype erlang
+au BufRead,BufNewFile */ejabberd_tests/*.config set filetype=erlang
+au BufRead,BufNewFile */ejabberd_tests/*.spec set filetype=erlang
+au BufRead,BufNewFile escalus.config set filetype=erlang
+au BufRead,BufNewFile rebar.config set filetype=erlang
+au BufRead,BufNewFile rebar.*.config set filetype=erlang
+au BufRead,BufNewFile *.xrl set filetype=erlang
+au BufRead,BufNewFile *.yrl set filetype=erlang
 
 " tsung dumps
-au BufRead,BufNewFile tsung.dump setfiletype xml wrap
+au BufRead,BufNewFile tsung.dump set filetype=xml wrap
 
 " ooc
 au BufNewFile,BufRead *.ooc set filetype=ooc
