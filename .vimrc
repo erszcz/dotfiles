@@ -250,8 +250,8 @@ endif
 " Default encryption method
 set cryptmethod=blowfish
 
-" Buffer list hotkey
-map <Leader>b :buffers<Return>
+" CtrlP: buffer list hotkey
+noremap <Leader>b :CtrlPBuffer<cr>
 
 " Make hotkey (good for markup previews)
 map <Leader>m :make<CR>
