@@ -34,7 +34,7 @@ rxvt.scrollTtyOutput:   false
 rxvt.scrollWithBuffer:  true
 rxvt.scrollTtyKeypress: true
 ! Discard scroll buffer history
-rxvt.keysym.C-k:        echo -ne '\\033c'\n
+rxvt.keysym.C-k:        \ echo -ne '\\033c'\n
 
 ! Tk apps less ugly
 *TkTheme: clam
