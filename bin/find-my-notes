@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+#set -x
+
+fail () {
+    echo $1 > /dev/fd/2
+    exit 1
+}
+
+warn () {
+    echo -n "warn: " > /dev/fd/2
+    echo $1
+}
+
+dot-my-path () {
+    local path="$1"
+    echo ${path//\//.}
+}
+
+find-my-notes () {
+    local myself=$0
+    local where="$1"
+    local archive="$2"
+    local hostname="$3"
+    find "${where}" -name notes.md \
+        -exec ${myself} --strip=${strip} backup {} "${archive}/${hostname}" \; && \
+    commit "${archive}"
+}
+
+backup () {
+    local what="$1"
+    local archive="$2"
+    local dirname="${what%/*}"
+    local dirname="${dirname##${strip}}"
+    local basename="${what##*/}"
+    local target="${archive}/${dirname}"
+    mkdir -p "${target}"
+    cp "${what}" "${target}/${basename}"
+}
+
+commit () {
+    local archive="$1"
+    cd "${archive}"
+    git status > /dev/null 2>&1 || fail "not a git repo: ${archive}"
+    git add . && \
+    git commit -m "Update on $(date)" || warn "cannot commit ${archive}"
+    git push --all || fail "cannot push commit ${archive}"
+}
+
+usage () {
+    echo "not ready yet"
+}
+
+main () {
+    case $1 in
+    dot)
+        path="$2"
+        dot-my-path ${path}
+        ;;
+    backup)
+        what="$2"
+        archive="$3"
+        backup ${what} ${archive}
+        ;;
+    --help | -h | usage)
+        usage
+        ;;
+    --strip=* | -s*)
+        strip=${1##*=}
+        shift
+        main $@
+        ;;
+    *)
+        where="$1"
+        archive="$2"
+        [[ ! -d "${where}" ]] && fail "dir does not exist: ${where}"
+        [[ ! -d "${archive}" ]] && fail "dir does not exist: ${archive}"
+        find-my-notes "${where}" "${archive}" "$(hostname)"
+        ;;
+    esac
+}
+
+main $@
