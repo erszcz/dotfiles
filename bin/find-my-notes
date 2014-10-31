@@ -23,7 +23,7 @@ find-my-notes () {
     local archive="$2"
     local hostname="$3"
     find "${where}" -name notes.md \
-        -exec ${myself} --strip=${strip} backup {} "${archive}/${hostname}" \; && \
+        -exec ${myself} --strip=${strip} backup {} "${archive}/${hostname}" \;
     commit "${archive}"
 }
 
@@ -43,7 +43,7 @@ commit () {
     cd "${archive}"
     git status > /dev/null 2>&1 || fail "not a git repo: ${archive}"
     git add . && \
-    git commit -m "Update on $(date)" || warn "cannot commit ${archive}"
+        git commit -m "Update on $(date) from $(hostname)" || warn "cannot commit ${archive}"
     git push --all || fail "cannot push commit ${archive}"
 }
 
