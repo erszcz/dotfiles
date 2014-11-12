@@ -45,3 +45,7 @@ nmap 0b 9999b
 
 " go to grooveshark app tab
 nmap <Leader>gr :b grooveshark<CR>
+
+" move a tab to the left/right
+map <M-S-Right> :tabm! +1<CR>
+map <M-S-Left> :tabm! -1<CR>
