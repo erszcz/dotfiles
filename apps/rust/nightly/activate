@@ -1,0 +1,11 @@
+RUST="${HOME}/apps/rust/nightly"
+
+if [ $(uname) = Darwin ]
+then
+    export LIBCLANG_PATH=/Library/Developer/CommandLineTools/usr/lib
+    export DYLD_LIBRARY_PATH="${RUST}/lib:${LIBCLANG_PATH}:${DYLD_LIBRARY_PATH}"
+else
+    export LD_LIBRARY_PATH="${RUST}/lib:${LD_LIBRARY_PATH}"
+fi
+export PATH="${RUST}/bin:${PATH}"
+export MANPATH="${RUST}/share/man:${PATH}"
