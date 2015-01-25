@@ -27,8 +27,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec dmenu_run
 
 # input language chooser
-bindsym $mod+l exec set-lang
-bindsym $mod+Cyrillic_el exec set-lang
+bindsym $mod+l exec toggle-lang
+bindsym $mod+Cyrillic_el exec toggle-lang
 
 # change focus
 bindsym $mod+Left focus left

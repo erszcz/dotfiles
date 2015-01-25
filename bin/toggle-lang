@@ -1,0 +1,25 @@
+#!/bin/bash
+
+prog=$(basename $0)
+
+notify () {
+    notify-send --expire-time=2 "${prog}" "$@"
+    echo "${prog}: $@" > /dev/fd/2
+}
+
+layouts="es pancyr pl"
+current_layout=$(setxkbmap -print | grep symbols | cut -d+ -f2)
+case $current_layout in
+es)
+  notify "pancyr"
+  exec cfg.pancyr;;
+pancyr)
+  notify "pl"
+  exec cfg.pl;;
+pl)
+  notify "es"
+  exec cfg.es;;
+*)
+  notify "pl"
+  exec cfg.pl;;
+esac
