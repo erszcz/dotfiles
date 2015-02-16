@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# In case you're wondering,
+# ETF (as in escape_etf) stands for (Erlang) External Term Format.
+
+case `uname` in
+    Linux)
+        SED=sed
+        ;;
+    Darwin)
+        SED=gsed
+        ;;
+esac
+
+# Match #Ref<7798.0.0.22932> and substitute with '#Ref<7798.0.0.22932>'
+# Match <7798.1560.0> and substitute with '<7798.1560.0>'
+${SED} \
+    -e "s%\(#Ref<[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+>\)%\'\1\'%g" \
+    -e "s%\(<[0-9]\+\.[0-9]\+\.[0-9]\+>\)%\'\1\'%g" \
+    $@
