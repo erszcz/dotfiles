@@ -96,3 +96,6 @@ cd-kerl-otp () {
         cd ${HOME}/.kerl/builds/${version}/otp_src_${version}
     fi
 }
+
+# Customize Python interactive sessions
+export PYTHONSTARTUP=${HOME}/.pythonrc.py
