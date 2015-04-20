@@ -5,7 +5,8 @@
     st = status
     co = checkout
     br = branch
-    l = log --format=oneline --abbrev-commit
+    l = log --format=\"%C(auto)%h %C(blue)%ad%Creset %s\" --abbrev-commit --date=short
+
 [color]
     branch = auto
     diff = auto
