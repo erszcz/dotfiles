@@ -3,7 +3,11 @@
 WHERE="apps deps include* src* test*"
 CTAGS=ctags
 
+[[ -f tags ]] && rm tags
 find ${WHERE} \
     -name .git -prune -o \
-    -name '*.erl' -exec ${CTAGS} -a '{}' \; -o \
-    -name '*.hrl' -exec ${CTAGS} -a '{}' \;
+    -name '*.erl' -print -o \
+    -name '*.hrl' -print -o \
+    -name '*.c' -print -o \
+    -name '*.h' -print \
+    | ${CTAGS} -L-
