@@ -77,6 +77,9 @@ fi
 # enable zsh-like recursive globbing
 shopt -s globstar
 
+export EDITOR="vim"
+export BROWSER="firefox"
+export XDG_CONFIG_HOME="$HOME/.config"
 export GIT_PS1_SHOWDIRTYSTATE="yes"
 
 # workaround for git calling vim with YouCompleteMe on Mac
