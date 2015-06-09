@@ -24,3 +24,4 @@ though most might also come in handy on other Unices:
 - conky
 - https://github.com/robertoaloi/keynote-to-text - convert keynote files
   to text for easy diffing
+- gnupg, gnupg-agent

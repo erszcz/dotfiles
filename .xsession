@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# gpg-agent / ssh-agent setup
+gpg-agent --daemon --enable-ssh-support \
+    --write-env-file "${HOME}/.gpg-agent-info"
+
 # allow users from localhost access to this session
 xhost +localhost
 
