@@ -1,0 +1,6 @@
+#!/bin/sh
+PLAY=$(which play)
+BEEP=${HOME}/.local/share/beep/beep-07.wav
+[ -x ${PLAY} ] \
+    && ${PLAY} ${BEEP} > /dev/null 2>&1 \
+    || (echo "beep: play not found"; exit 1)
