@@ -112,3 +112,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# Export Gist It token
+. ~/.gistit-token
