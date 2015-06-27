@@ -216,14 +216,6 @@ cabbr B b
 cabbr ln lnext
 cabbr lp lprevious
 
-" Substitutions for Spanish characters
-iabbr 'i í
-iabbr 'a á
-iabbr 'e é
-iabbr 'o ó
-iabbr 'u ú
-iabbr "u ü
-
 " Display statusline no matter how many windows are open
 set laststatus=2
 
