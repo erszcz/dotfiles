@@ -8,26 +8,32 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-"Bundle 'Valloric/YouCompleteMe'
 "Bundle 'ervandew/taglisttoo'
+"Bundle 'hallettj/jslint.vim'
 "Bundle 'scrooloose/nerdtree'
+"Bundle 'vim-scripts/neocomplcache'
 Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
-Bundle 'hallettj/jslint.vim'
 Bundle 'hcs42/vim-erlang'
 Bundle 'honza/vim-snippets'
-Bundle 'jonathanfilip/vim-lucius'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
-Bundle 'vim-scripts/neocomplcache'
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'vim-scripts/xterm16.vim'
+Bundle 'wting/rust.vim'
+Bundle 'vim-ruby/vim-ruby'
+
+Bundle 'tpope/vim-sleuth'
+
+"Bundle "ppikula/vim-wrangler"
 
 filetype plugin indent on
 
@@ -41,6 +47,7 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_always_populate_location_list = 1
 
 " syntastic - populate location list with errors
 let g:syntastic_always_populate_loc_list=1
@@ -67,14 +74,13 @@ imap <silent> <C-Right> <Plug>CamelCaseMotion_e
 
 " taglist toggle
 map <Leader>tl :TlistToggle<Return>
-let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 
 " AutoTag
 " Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
-"let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
+let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
 
 "
 " Extra filetype support
@@ -92,8 +98,20 @@ au BufRead,BufNewFile */ejabberd_tests/*.spec set filetype=erlang
 au BufRead,BufNewFile escalus.config set filetype=erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
 au BufRead,BufNewFile rebar.*.config set filetype=erlang
+au BufRead,BufNewFile reltool.config set filetype=erlang
 au BufRead,BufNewFile *.xrl set filetype=erlang
 au BufRead,BufNewFile *.yrl set filetype=erlang
+
+" Wrangler integration
+let g:erlangRefactoring = 1
+let g:erlangWranglerPath = '/Users/erszcz/work/wrangler'
+nnoremap <leader>e :call ErlangExtractFunction("n")<ENTER>
+vnoremap <leader>e :call ErlangExtractFunction("v")<ENTER>
+noremap  <leader>m :call ErlangRenameModule()<ENTER>
+noremap  <leader>f :call ErlangRenameFunction()<ENTER>
+noremap  <leader>v :call ErlangRenameVariable()<ENTER>
+noremap  <leader>p :call ErlangRenameProcess()<ENTER>
+noremap  <leader>u :call ErlangUndo()<ENTER>
 
 " tsung dumps
 au BufRead,BufNewFile tsung.dump set filetype=xml wrap
@@ -124,6 +142,8 @@ let @b = ':.,$s/\([^<]\{1,2\}\)"\(\S\{-\}\)"\([^>]\{1,2\}\)/\1<<"\2">>\3/gec'
 " Personal information used in snippet expansion
 let g:author	= 'Radosław Szymczyszyn'
 let g:copyright	= 'Radosław Szymczyszyn'
+let g:email_esl = 'radoslaw.szymczyszyn@erlang-solutions.com'
+let g:email     = 'lavrin@gmail.com'
 
 "
 " Customizations
@@ -237,14 +257,18 @@ se foldcolumn=2
 set ruler
 
 " Colorscheme selection
-set t_Co=256
-if filereadable($HOME . "/.outdoor.on")
-    source /home/erszcz/.vim/bundle/vim-lucius/colors/lucius.vim
-    colorscheme lucius
-    LuciusLight
-    source /home/erszcz/.vim/bundle/vim-lucius/colors/lucius.vim
-else
-    colorscheme 256-grayvim
+if $TERM == "linux"
+	colorscheme peachpuff
+elseif $TERM == "xterm"
+	set t_Co=256
+	if filereadable($HOME . "/.outdoor.on")
+		let g:xterm16_ccube    = "005f87afd7ff"
+		let xterm16_colormap   = "softlight"
+		let xterm16_brightness = "high"
+		colorscheme xterm16
+	else
+		colorscheme 256-grayvim
+	endif
 endif
 
 " Default encryption method
@@ -273,10 +297,6 @@ set wildmenu
 autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
 " Python default is:        indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
 autocmd FileType python set indentkeys=0{,0},!^F,o,O,e,=elif,=except
-
-" When editing markdown, treat : and - as parts of a word
-" Default is:                 iskeyword=@,48-57,_,192-255,$,.
-autocmd FileType markdown set iskeyword=@,48-57,_,192-255,$,.,-,:
 
 " Default indentation rules
 se sts=4 sw=4 ts=4 et
@@ -331,4 +351,4 @@ nmap <Leader>B viwSb
 vmap <Leader>B Sb
 
 " erlang: export type
-nmap <Leader>e wwviwy0o-export_type([pa/0]).0
+"nmap <Leader>e wwviwy0o-export_type([pa/0]).0
