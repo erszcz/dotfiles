@@ -240,7 +240,9 @@ else
 endif
 
 " Default encryption method
-set cryptmethod=blowfish
+if !has('nvim')
+    set cryptmethod=blowfish
+endif
 
 " CtrlP: buffer list hotkey
 noremap <Leader>b :CtrlPBuffer<cr>
