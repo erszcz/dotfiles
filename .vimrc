@@ -177,18 +177,20 @@ set incsearch
 set hlsearch
 
 " Paste mode toggle
-noremap <Leader>p :call Paste_on_off()<CR>
+noremap <Leader>p :call TogglePasteMode()<CR>
 set pastetoggle=<F11>p
 
-let paste_mode = 0 " 0 = normal, 1 = paste
+let g:paste_mode = 0 " 0 = normal, 1 = paste
 
-func! Paste_on_off()
+func! TogglePasteMode()
 	if g:paste_mode == 0
 		set paste
 		let g:paste_mode = 1
+		echo "Paste mode: on"
 	else
 		set nopaste
 		let g:paste_mode = 0
+		echo "Paste mode: off"
 	endif
 	return
 endfunc
