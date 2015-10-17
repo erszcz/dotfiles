@@ -324,3 +324,6 @@ vmap <Leader>B Sb
 
 " erlang: export type
 nmap <Leader>e wwviwy0o-export_type([pa/0]).0
+
+noremap <Leader>ev :split $MYVIMRC<CR>
+noremap <Leader>sv :source $MYVIMRC<CR>
