@@ -46,24 +46,20 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:syntastic_always_populate_loc_list=1
 
 " SnipMate alternate keybinding
-inoremap <C-\> <Plug>snipMateNextOrTrigger
-snoremap <C-\> <Plug>snipMateNextOrTrigger
+imap <C-\> <Plug>snipMateNextOrTrigger
+smap <C-\> <Plug>snipMateNextOrTrigger
 
 " nerdcommenter bindings
-noremap <C-c> <Leader>c<space>
-inoremap <C-c> <Leader>c<space>
+map <C-c> <Leader>c<space>
+imap <C-c> <Leader>c<space>
 
 " CamelCaseMotion aware bindings
-noremap <silent> w <Plug>CamelCaseMotion_w
-noremap <silent> b <Plug>CamelCaseMotion_b
-noremap <silent> e <Plug>CamelCaseMotion_e
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-nnoremap <silent> <C-Left> <Plug>CamelCaseMotion_b
-nnoremap <silent> <C-Right> <Plug>CamelCaseMotion_e
-inoremap <silent> <C-Left> <Plug>CamelCaseMotion_b
-inoremap <silent> <C-Right> <Plug>CamelCaseMotion_e
 
 " taglist toggle
 noremap <Leader>tl :TlistToggle<Return>
