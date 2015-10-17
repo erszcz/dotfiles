@@ -46,27 +46,27 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:syntastic_always_populate_loc_list=1
 
 " SnipMate alternate keybinding
-imap <C-\> <Plug>snipMateNextOrTrigger
-smap <C-\> <Plug>snipMateNextOrTrigger
+inoremap <C-\> <Plug>snipMateNextOrTrigger
+snoremap <C-\> <Plug>snipMateNextOrTrigger
 
 " nerdcommenter bindings
-map <C-c> <Leader>c<space>
-imap <C-c> <Leader>c<space>
+noremap <C-c> <Leader>c<space>
+inoremap <C-c> <Leader>c<space>
 
 " CamelCaseMotion aware bindings
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
+noremap <silent> w <Plug>CamelCaseMotion_w
+noremap <silent> b <Plug>CamelCaseMotion_b
+noremap <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
-nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
-imap <silent> <C-Left> <Plug>CamelCaseMotion_b
-imap <silent> <C-Right> <Plug>CamelCaseMotion_e
+nnoremap <silent> <C-Left> <Plug>CamelCaseMotion_b
+nnoremap <silent> <C-Right> <Plug>CamelCaseMotion_e
+inoremap <silent> <C-Left> <Plug>CamelCaseMotion_b
+inoremap <silent> <C-Right> <Plug>CamelCaseMotion_e
 
 " taglist toggle
-map <Leader>tl :TlistToggle<Return>
+noremap <Leader>tl :TlistToggle<Return>
 let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
 
 " surround: make b surround text with <<",">> in Erlang mode
@@ -181,7 +181,7 @@ set incsearch
 set hlsearch
 
 " Paste mode toggle
-map <Leader>p :call Paste_on_off()<CR>
+noremap <Leader>p :call Paste_on_off()<CR>
 set pastetoggle=<F11>p
 
 let paste_mode = 0 " 0 = normal, 1 = paste
@@ -248,14 +248,14 @@ endif
 noremap <Leader>b :CtrlPBuffer<cr>
 
 " Make hotkey (good for markup previews)
-map <Leader>m :make<CR>
+noremap <Leader>m :make<CR>
 
 " Copy to global clipboard not just yank into buffer
 let s:os = substitute(system('uname'), "\n", "", "")
 if "Linux" == s:os
-	map <Leader>y "*y
+	noremap <Leader>y "*y
 elseif "Darwin" == s:os
-	map <Leader>y "+y
+	noremap <Leader>y "+y
 endif
 
 " Sane (Bash-like) filename completion style
