@@ -18,7 +18,7 @@ font pango:DejaVu Sans Mono 8.6
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec stterm -e tmux
+bindsym $mod+Return exec rxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
