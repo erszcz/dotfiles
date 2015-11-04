@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+eval $(docker-machine env docker-machine-host1)
+# not neccessary but convenient
+eval "export BOOT2DOCKER_IP=$(echo ${DOCKER_HOST#tcp://} | cut -d: -f1)"
+eval "export BOOT2DOCKER_PORT=$(echo ${DOCKER_HOST#tcp://} | cut -d: -f2)"
