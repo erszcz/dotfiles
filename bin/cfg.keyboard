@@ -6,3 +6,4 @@ fi
 logger "configuring keyboard settings"
 xkbset b r rate 200 40
 setxkbmap -option caps:ctrl_modifier
+#bluez-test-input connect 00:BA:55:56:4E:A7
