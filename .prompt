@@ -72,25 +72,15 @@ OnICyan='\e[0;106m'     # Cyan
 OnIWhite='\e[0;107m'    # White
 
 if [ -f "$HOME/.outdoor.on" ]; then
-    DateTimeC="$BBlack"
-    UserC="$Purple"
-    AtC="$Black"
-    HostC="$Red"
-    GitC="$Blue"
-    PromptC="$Black"
+    PromptSignColor="$Black"
 else
-    DateTimeC="$Green"
-    UserC="$Yellow"
-    AtC="$White"
-    HostC="$Red"
-    GitC="$Blue"
-    PromptC="$IWhite"
+    PromptSignColor="$IWhite"
 fi
 
 #PS1="\t \u @ \h : \w\n\$ "
 if [ -f "$HOME/.git-prompt.sh" ]; then
 	. "$HOME/.git-prompt.sh"
-	PS1="\[$DateTimeC\]\t \[$UserC\]\u \[$AtC\]@ \[$HostC\]\h\[$ColorOff\] : \w\[$GitC\]\$(__git_ps1 ' (%s)')\[$ColorOff\]\n\[$PromptC\]\$\[$ColorOff\] "
+	PS1="\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\[$Blue\]\$(__git_ps1 ' (%s)')\[$ColorOff\]\n\[$PromptSignColor\]\$\[$ColorOff\] "
 else
-	PS1='\[$DateTimeC\]\t \[$UserC\]\u \[$AtC\]@ \[$HostC\]\h\[$ColorOff\] : \w\n\[$PromptColor\]\$\[$ColorOff\]'
+	PS1='\[$Green\]\t \[$Yellow\]\u \[$White\]@ \[$Red\]\h\[$ColorOff\] : \w\n\[$PromptSignColor\]\$\[$ColorOff\]'
 fi
