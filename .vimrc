@@ -86,6 +86,7 @@ au BufRead,BufNewFile *.vapi set filetype=vala
 au BufRead,BufNewFile */ejabberd_tests/*.config set filetype=erlang
 au BufRead,BufNewFile */ejabberd_tests/*.spec set filetype=erlang
 au BufRead,BufNewFile escalus.config set filetype=erlang
+au BufRead,BufNewFile app.config,sys.config set filetype=erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
 au BufRead,BufNewFile rebar.*.config set filetype=erlang
 au BufRead,BufNewFile *.xrl set filetype=erlang
