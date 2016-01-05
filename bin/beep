@@ -1,6 +1,10 @@
 #!/bin/sh
-PLAY=$(which play)
+if [ `uname` = Darwin ]; then
+    PLAY=$(which afplay)
+else
+    PLAY=$(which play)
+fi
 BEEP=${HOME}/.local/share/beep/beep-07.wav
 [ -x ${PLAY} ] \
     && ${PLAY} ${BEEP} > /dev/null 2>&1 \
-    || (echo "beep: play not found"; exit 1)
+    || (echo "beep: ${PLAY} not found"; exit 1)
