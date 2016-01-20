@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#set -x
-
 fail () {
     echo $1 > /dev/fd/2
     exit 1
@@ -48,7 +46,12 @@ commit () {
 }
 
 usage () {
-    echo "not ready yet"
+    echo "${0} [-s=PREFIX|--strip=PREFIX] WHERE ARCHIVE"
+    echo "Find notebooks (notes.md files) in WHERE directory and commit then"
+    echo "push them in repo ARCHIVE."
+    echo
+    echo "Options:"
+    echo "  -s=PREFIX, --strip=PREFIX     Strip PREFIX from absolute path of found files."
 }
 
 main () {
