@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+find-vagrant-vms () {
+    local myself=$0
+    local where="$1"
+    find "${where}" -name Vagrantfile \
+        -exec ${myself} get-id-for-vagrantfile {} \;
+}
+
+usage () {
+    echo missing
+}
+
+get-id-for-vagrantfile () {
+    local vagrantfile="$1"
+    local idfile=$(dirname "${vagrantfile}")/.vagrant/machines/default/virtualbox/id
+    if [ -f ${idfile} ]; then
+	printf "%s: %s\n" "${vagrantfile}" $(cat ${idfile})
+    else
+	printf "%s: missing VM\n" "${vagrantfile}" > /dev/fd/2
+    fi
+}
+
+main () {
+    case $1 in
+    --help | -h | usage)
+        usage
+        ;;
+    get-id-for-vagrantfile)
+	shift
+	get-id-for-vagrantfile $@
+	;;
+    *)
+        where="$1"
+        [[ ! -d "${where}" ]] && fail "dir does not exist: ${where}"
+        find-vagrant-vms "${where}"
+        ;;
+    esac
+}
+
+main $@
