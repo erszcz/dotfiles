@@ -28,7 +28,7 @@ rxvt*background:        black
 rxvt*scrollBar:         false
 rxvt.keysym.Shift-Up:   command:\033]720;1\007
 rxvt.keysym.Shift-Down: command:\033]721;1\007
-rxvt.SaveLines:         15000
+rxvt.saveLines:         20000
 ! Stay focused on a particular part of scrollback buffer when scrolled up from the bottom
 rxvt.scrollTtyOutput:   false
 rxvt.scrollWithBuffer:  true
