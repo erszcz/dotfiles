@@ -250,6 +250,7 @@ endif
 
 " CtrlP: buffer list hotkey
 noremap <Leader>b :CtrlPBuffer<cr>
+noremap <Leader>t :CtrlPBufTagAll<cr>
 
 " Make hotkey (good for markup previews)
 noremap <Leader>m :make<CR>
