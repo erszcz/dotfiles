@@ -28,6 +28,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'vim-scripts/neocomplcache'
 Bundle 'vim-scripts/taglist.vim'
+"Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on
 
@@ -64,6 +65,10 @@ sunmap e
 " taglist toggle
 noremap <Leader>tl :TlistToggle<Return>
 let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
+
+" tagbar
+"noremap <Leader>tl :TagbarToggle<CR>
+"let g:tagbar_left=1
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
