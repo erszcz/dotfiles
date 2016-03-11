@@ -1,9 +1,9 @@
 #!/bin/sh
 
-WHERE="apps deps include* src* test*"
-CTAGS=ctags
+[ -z "$WHERE" ] && WHERE="apps deps include* src* test*"
+[ -z "$CTAGS" ] && CTAGS=ctags
 
-[[ -f tags ]] && rm tags
+[ -f tags ] && rm tags
 find ${WHERE} \
     -name .git -prune -o \
     -name '*.erl' -print -o \
