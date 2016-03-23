@@ -19,3 +19,11 @@ set sort=threads
 set sort_aux=last-date-received       
 set sort_browser=reverse-date
 set sort_re
+
+# Custom keybindings
+bind index G imap-fetch-mail
+bind pager <Down> next-line
+bind pager <Up>   previous-line
+
+# Don't move to next message when at the bottom of a message
+set pager_stop = yes
