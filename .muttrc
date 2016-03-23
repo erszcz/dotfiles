@@ -1,0 +1,21 @@
+set imap_user = "lavrin@gmail.com"
+set imap_pass =
+set smtp_url = "smtp://lavrin@smtp.gmail.com:587/"
+set smtp_pass =
+set from = "lavrin@gmail.com"
+set realname = "Radek Szymczyszyn"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+set move = no
+# For sending email via SMTP on Mac
+set smtp_authenticators = 'gssapi:login'
+
+# Sort threads like GMail
+set sort=threads
+set sort_aux=last-date-received       
+set sort_browser=reverse-date
+set sort_re
