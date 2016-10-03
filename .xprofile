@@ -1,0 +1,2 @@
+xrandr --output HDMI-1 --mode 1920x1080
+xrandr --output LVDS-1 --mode 1366x768 --left-of HDMI-1
