@@ -30,5 +30,8 @@ dropbox start &
 
 conky &
 
+# sync primary and secondary clipboard buffers
+xcmenu &
+
 #exec awesome
 exec i3
