@@ -28,7 +28,8 @@ nm-applet --no-check &
 
 dropbox start &
 
-conky &
+# setting background first should help cruft displayed behind conky window
+feh --bg-center ~/Downloads/3112309337_40875fbf92.jpg & #&& conky &
 
 # sync primary and secondary clipboard buffers
 xcmenu &
