@@ -62,3 +62,6 @@ if [ -f "$HOME/.outdoor.on" ]; then
 fi
 
 alias r3=rebar3
+
+# renameutils qmv: move many files at once
+alias mvm='qmv -f destination-only'
