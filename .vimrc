@@ -8,27 +8,40 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-"Bundle 'Valloric/YouCompleteMe'
+" Let's try the new version - disable this line for now.
+"Bundle 'hcs42/vim-erlang'
+
 "Bundle 'ervandew/taglisttoo'
-"Bundle 'scrooloose/nerdtree'
+"Bundle 'hallettj/jslint.vim'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'tpope/vim-sleuth'
+"Bundle 'vim-erlang/vim-erlang-runtime'
+"Bundle 'vim-scripts/neocomplcache'
+"Bundle 'vim-scripts/taglist.vim'
+Bundle "elixir-lang/vim-elixir"
+Bundle "ppikula/vim-wrangler"
 Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
-Bundle 'hallettj/jslint.vim'
-Bundle 'hcs42/vim-erlang'
 Bundle 'honza/vim-snippets'
-Bundle 'jonathanfilip/vim-lucius'
 Bundle 'kien/ctrlp.vim'
+Bundle 'lambdatoast/elm.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'neomake/neomake'
+Bundle 'scheakur/vim-scheakur'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
+Bundle 'vim-erlang/vim-erlang-omnicomplete'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/AutoTag'
-Bundle 'vim-scripts/neocomplcache'
-Bundle 'vim-scripts/taglist.vim'
-"Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/xterm16.vim'
+Bundle 'wting/rust.vim'
 
 filetype plugin indent on
 
@@ -42,6 +55,7 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_always_populate_location_list = 1
 
 " syntastic - populate location list with errors
 let g:syntastic_always_populate_loc_list=1
@@ -61,21 +75,28 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
+nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
+imap <silent> <C-Left> <Plug>CamelCaseMotion_b
+imap <silent> <C-Right> <Plug>CamelCaseMotion_e
 
 " taglist toggle
 noremap <Leader>tl :TlistToggle<Return>
 let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
 
-" tagbar
-"noremap <Leader>tl :TagbarToggle<CR>
-"let g:tagbar_left=1
-
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+autocmd FileType erlang set sw=4 et
+
+" Elm
+autocmd FileType elm set sw=2 ts=2 sts=2 et
 
 " AutoTag
 " Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
-"let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
+let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
+
+" Neomake
+autocmd! BufWritePost * Neomake
 
 "
 " Extra filetype support
@@ -91,11 +112,23 @@ au BufRead,BufNewFile *.vapi set filetype=vala
 au BufRead,BufNewFile */ejabberd_tests/*.config set filetype=erlang
 au BufRead,BufNewFile */ejabberd_tests/*.spec set filetype=erlang
 au BufRead,BufNewFile escalus.config set filetype=erlang
-au BufRead,BufNewFile app.config,sys.config set filetype=erlang
+au BufRead,BufNewFile app.config,*.app.config,sys.config,*.sys.config set filetype=erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
 au BufRead,BufNewFile rebar.*.config set filetype=erlang
+au BufRead,BufNewFile reltool.config set filetype=erlang
 au BufRead,BufNewFile *.xrl set filetype=erlang
 au BufRead,BufNewFile *.yrl set filetype=erlang
+
+" Wrangler integration
+let g:erlangRefactoring = 1
+let g:erlangWranglerPath = '/Users/erszcz/work/wrangler'
+nnoremap <leader>e :call ErlangExtractFunction("n")<ENTER>
+vnoremap <leader>e :call ErlangExtractFunction("v")<ENTER>
+noremap  <leader>m :call ErlangRenameModule()<ENTER>
+noremap  <leader>f :call ErlangRenameFunction()<ENTER>
+noremap  <leader>v :call ErlangRenameVariable()<ENTER>
+noremap  <leader>p :call ErlangRenameProcess()<ENTER>
+noremap  <leader>u :call ErlangUndo()<ENTER>
 
 " tsung dumps
 au BufRead,BufNewFile tsung.dump set filetype=xml wrap
@@ -126,6 +159,8 @@ let @b = ':.,$s/\([^<]\{1,2\}\)"\(\S\{-\}\)"\([^>]\{1,2\}\)/\1<<"\2">>\3/gec'
 " Personal information used in snippet expansion
 let g:author	= 'Radosław Szymczyszyn'
 let g:copyright	= 'Radosław Szymczyszyn'
+let g:email_esl = 'radoslaw.szymczyszyn@erlang-solutions.com'
+let g:email     = 'lavrin@gmail.com'
 
 "
 " Customizations
@@ -233,14 +268,20 @@ se foldcolumn=2
 set ruler
 
 " Colorscheme selection
-set t_Co=256
-if filereadable($HOME . "/.outdoor.on")
-    source /home/erszcz/.vim/bundle/vim-lucius/colors/lucius.vim
-    colorscheme lucius
-    LuciusLight
-    source /home/erszcz/.vim/bundle/vim-lucius/colors/lucius.vim
-else
-    colorscheme 256-grayvim
+if !has('nvim')
+    if $TERM == "linux"
+	    colorscheme peachpuff
+    elseif $TERM == "xterm"
+	    set t_Co=256
+	    if filereadable($HOME . "/.outdoor.on")
+		    let g:xterm16_ccube    = "005f87afd7ff"
+		    let xterm16_colormap   = "softlight"
+		    let xterm16_brightness = "high"
+		    colorscheme xterm16
+	    else
+		    colorscheme 256-grayvim
+	    endif
+    endif
 endif
 
 " Default encryption method
@@ -250,7 +291,10 @@ endif
 
 " CtrlP: buffer list hotkey
 noremap <Leader>b :CtrlPBuffer<cr>
-noremap <Leader>t :CtrlPBufTagAll<cr>
+" CtrlP: buffer's tags
+noremap <Leader>tl :CtrlPBufTag<cr>
+" CtrlP: tags for Elixir
+let g:ctrlp_buftag_types = { 'elixir': '--language-force=elixir' }
 
 " Make hotkey (good for markup previews)
 noremap <Leader>m :make<CR>
