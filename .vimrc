@@ -86,10 +86,10 @@ let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
-autocmd FileType erlang set sw=4 et
+autocmd FileType erlang setlocal sw=4 et
 
 " Elm
-autocmd FileType elm set sw=2 ts=2 sts=2 et
+autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
 
 " AutoTag
 " Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
@@ -103,21 +103,21 @@ autocmd! BufWritePost * Neomake
 "
 
 " vala
-autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala set filetype=vala
-au BufRead,BufNewFile *.vapi set filetype=vala
+autocmd BufRead *.vala setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala setlocal filetype=vala
+au BufRead,BufNewFile *.vapi setlocal filetype=vala
 
 " ejabberd test.config and other Erlang-like filetypes
-au BufRead,BufNewFile */ejabberd_tests/*.config set filetype=erlang
-au BufRead,BufNewFile */ejabberd_tests/*.spec set filetype=erlang
-au BufRead,BufNewFile escalus.config set filetype=erlang
-au BufRead,BufNewFile app.config,*.app.config,sys.config,*.sys.config set filetype=erlang
-au BufRead,BufNewFile rebar.config set filetype=erlang
-au BufRead,BufNewFile rebar.*.config set filetype=erlang
-au BufRead,BufNewFile reltool.config set filetype=erlang
-au BufRead,BufNewFile *.xrl set filetype=erlang
-au BufRead,BufNewFile *.yrl set filetype=erlang
+au BufRead,BufNewFile */ejabberd_tests/*.config setlocal filetype=erlang
+au BufRead,BufNewFile */ejabberd_tests/*.spec setlocal filetype=erlang
+au BufRead,BufNewFile escalus.config setlocal filetype=erlang
+au BufRead,BufNewFile app.config,*.app.config,sys.config,*.sys.config setlocal filetype=erlang
+au BufRead,BufNewFile rebar.config setlocal filetype=erlang
+au BufRead,BufNewFile rebar.*.config setlocal filetype=erlang
+au BufRead,BufNewFile reltool.config setlocal filetype=erlang
+au BufRead,BufNewFile *.xrl setlocal filetype=erlang
+au BufRead,BufNewFile *.yrl setlocal filetype=erlang
 
 " Wrangler integration
 let g:erlangRefactoring = 1
@@ -131,19 +131,19 @@ noremap  <leader>p :call ErlangRenameProcess()<ENTER>
 noremap  <leader>u :call ErlangUndo()<ENTER>
 
 " tsung dumps
-au BufRead,BufNewFile tsung.dump set filetype=xml wrap
+au BufRead,BufNewFile tsung.dump setlocal filetype=xml wrap
 
 " ooc
-au BufNewFile,BufRead *.ooc set filetype=ooc
+au BufNewFile,BufRead *.ooc setlocal filetype=ooc
 
 " Markdown instead of Modula
-au BufNewFile,BufRead *.md set filetype=markdown textwidth=74
+au BufNewFile,BufRead *.md setlocal filetype=markdown textwidth=74
 
 " Treat Epistle files as Markdown by default
-au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt set filetype=markdown
+au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt setlocal filetype=markdown
 
 " Vagrantfile is just ruby
-au BufRead,BufNewFile Vagrantfile set filetype=ruby
+au BufRead,BufNewFile Vagrantfile setlocal filetype=ruby
 
 "
 " Predefined macros/variables
@@ -262,7 +262,7 @@ set laststatus=2
 set statusline=%<%f\ %h%m%r%q%=%-14.(%l,%c%V%)\ %P
 
 " Fold column width
-se foldcolumn=2
+set foldcolumn=2
 
 " Show ruler
 set ruler
@@ -313,13 +313,13 @@ set wildmenu
 
 " Turn off reindenting on typing closing parens, brackets and curlies
 " Erlang default is:        indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch,=),=],=}
-autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
+autocmd FileType erlang setlocal indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
 " Python default is:        indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
-autocmd FileType python set indentkeys=0{,0},!^F,o,O,e,=elif,=except
+autocmd FileType python setlocal indentkeys=0{,0},!^F,o,O,e,=elif,=except
 
 " When editing markdown, treat : and - as parts of a word
 " Default is:                 iskeyword=@,48-57,_,192-255,$,.
-autocmd FileType markdown set iskeyword=@,48-57,_,192-255,$,.,-,:
+autocmd FileType markdown setlocal iskeyword=@,48-57,_,192-255,$,.,-,:
 
 " Default indentation rules
 se sts=4 sw=4 ts=4 et
