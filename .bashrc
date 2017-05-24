@@ -101,6 +101,24 @@ cd-kerl-otp () {
     fi
 }
 
+# go to asdf OTP source directory
+cd-asdf-erlang () {
+    if [[ x"$(which asdf)" == x"" ]]; then
+        echo "asdf not found"
+        return
+    fi
+    local current_erlang=$(asdf current erlang)
+    if [[ x"" == x"No such plugin" ]]; then
+        echo "Erlang not installed/activated via asdf"
+        return
+    fi
+    local version=$(echo ${current_erlang} | cut -d" " -f1)
+    cd ${HOME}/.asdf/installs/erlang/${version}/lib/erlang
+}
+
+# To run programs built with fsharpc you need to set:
+export MONO_GAC_PREFIX="/usr/local"
+
 # Customize Python interactive sessions
 export PYTHONSTARTUP=${HOME}/.pythonrc.py
 
