@@ -1,11 +1,13 @@
 #!/bin/sh
 
-[ -z "$WHERE" ] && WHERE="apps deps include* src* test*"
-[ -z "$CTAGS" ] && CTAGS=ctags
+[ -z "$WHERE" ] && WHERE="apps deps include* lib* src* test*"
+[ -z "$CTAGS" ] && CTAGS=/Users/erszcz/apps/ctags/bin/ctags
 
 [ -f tags ] && rm tags
 find ${WHERE} \
     -name .git -prune -o \
+    -name '*.ex' -print -o \
+    -name '*.exs' -print -o \
     -name '*.erl' -print -o \
     -name '*.hrl' -print -o \
     -name '*.ex' -print -o \
