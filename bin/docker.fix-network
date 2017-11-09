@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+## Make Docker4Mac containers routable in a private network.
+## This is mostly a copy-paste from the original solution.
+## IT'S NOT A COMPLETE SOLUTION - this script only does the
+## steps necessary every time Docker4Mac is restarted.
+## Beforehand, you have to run the steps marked as ONCE yourself.
+## See https://github.com/docker/for-mac/issues/155#issuecomment-320509769
+
+set -e
+
+: NET_NAME=dev_nw
+NET_RANGE=10.11.12.0/24
+HOST_IFACE=${HOST_IFACE:-eth1}
+BRIDGE_IFACE=bridge100
+
+GATEWAY=$(docker run --rm --net=host --pid=host --privileged -it justincormack/nsenter1 /bin/sh -c "ipaddr show $HOST_IFACE | grep inet[^6] | awk '{ print \$2 }' | cut -d/ -f1")
+docker run --rm --net=host --pid=host --privileged -it justincormack/nsenter1 /usr/local/sbin/iptables -I FORWARD -i $HOST_IFACE -j ACCEPT
+NATIVE_IFACE=$(ifconfig bridge100 | grep member | awk '{ print $2 }')
+sudo ifconfig $BRIDGE_IFACE deletem $NATIVE_IFACE
+sudo ifconfig $BRIDGE_IFACE addm $NATIVE_IFACE
+sudo route add $NET_RANGE $GATEWAY
+
