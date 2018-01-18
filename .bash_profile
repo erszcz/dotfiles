@@ -55,3 +55,16 @@ fi
 [ -d "${HOME}/.cabal/bin" ] && {
   export PATH="${HOME}/.cabal/bin:${PATH}"
 }
+
+# Init asdf - the universal env manager
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+ERLANG_EXTRA_CONFIGURE_OPTIONS="--disable-hipe --enable-smp-support --enable-threads
+                                --enable-kernel-poll --enable-darwin-64bit"
+export ERLANG_EXTRA_CONFIGURE_OPTIONS
+export MANPATH="$(asdf where erlang $(asdf current erlang | cut -f1 -d' '))/lib/erlang/man:${MANPATH}"
+export DOCSH_BASE="/Users/erszcz/work/erszcz/docsh"
+export DOCSH_USER_DEFAULT="/Users/erszcz/work/erszcz/docsh/user_default"
+
+# Erlang 20.0+ shell history
+export ERL_AFLAGS="-kernel shell_history enabled"
