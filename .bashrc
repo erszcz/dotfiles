@@ -113,7 +113,7 @@ cd-asdf-erlang () {
         return
     fi
     local version=$(echo ${current_erlang} | cut -d" " -f1)
-    cd ${HOME}/.asdf/installs/erlang/${version}/lib/erlang
+    cd $(asdf where erlang ${version})
 }
 
 # To run programs built with fsharpc you need to set:
