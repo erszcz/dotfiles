@@ -23,6 +23,7 @@ Bundle "ppikula/vim-wrangler"
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'craigemery/vim-autotag'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
@@ -39,7 +40,6 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-erlang/vim-erlang-omnicomplete'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/AutoTag'
 Bundle 'vim-scripts/xterm16.vim'
 Bundle 'wting/rust.vim'
 
@@ -91,7 +91,7 @@ autocmd FileType erlang setlocal sw=4 et
 " Elm
 autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
 
-" AutoTag
+" autotag
 " Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
 let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
 
