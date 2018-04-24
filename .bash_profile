@@ -34,7 +34,7 @@ case `uname` in
         AUTOJUMP_PATH="/usr/share/autojump/autojump.sh"
         ;;
     Darwin)
-        AUTOJUMP_PATH="/usr/local/Cellar/autojump/21.6.9/etc/autojump.bash"
+        AUTOJUMP_PATH="/usr/local/opt/autojump/etc/autojump.sh"
         ;;
 esac
 if [ -f "$AUTOJUMP_PATH" ]; then
