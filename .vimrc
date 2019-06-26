@@ -1,5 +1,5 @@
-"
-" Use Vundle!
+".
+"' Use Vundle!
 "
 
 filetype off
@@ -33,20 +33,24 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'neomake/neomake'
+Bundle 'purescript-contrib/purescript-vim'
+Bundle 'rust-lang/rust.vim'
 Bundle 'scheakur/vim-scheakur'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'severin-lemaignan/vim-minimap'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-erlang/vim-erlang-omnicomplete'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/xterm16.vim'
-Bundle 'wting/rust.vim'
+
+Bundle 'editorconfig/editorconfig-vim'
 
 filetype plugin indent on
 
-"
-" Plugin configuration
+".
+"' Plugin configuration
 "
 
 " YouCompleteMe configuration
@@ -88,6 +92,10 @@ let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
 autocmd FileType erlang setlocal sw=4 et
 
+" erlang/surround: make word an Erlang binary with one keybinding
+nmap <Leader>B viwSb
+vmap <Leader>B Sb
+
 " Elm
 autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
 
@@ -97,9 +105,12 @@ let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
 
 " Neomake
 autocmd! BufWritePost * Neomake
+" Neomake: enable Erlang Gradualizer
+let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
+nnoremap <leader>G :echom join(neomake#makers#ft#erlang#GradualizerArgs( neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
 
-"
-" Extra filetype support
+".
+"' Extra filetype support
 "
 
 " vala
@@ -145,8 +156,8 @@ au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt setlocal filetype=markdown
 " Vagrantfile is just ruby
 au BufRead,BufNewFile Vagrantfile setlocal filetype=ruby
 
-"
-" Predefined macros/variables
+".
+"' Predefined macros/variables
 "
 
 " reStructuredText/AsciiDoc header/title macro
@@ -162,8 +173,8 @@ let g:copyright	= 'Radosław Szymczyszyn'
 let g:email_esl = 'radoslaw.szymczyszyn@erlang-solutions.com'
 let g:email     = 'lavrin@gmail.com'
 
-"
-" Customizations
+".
+"' Customizations
 "
 
 " No Vi compatibility
@@ -209,7 +220,8 @@ set backspace=2
 set encoding=utf8
 
 " Highlight cursor line
-set cursorline
+" TODO: reenable when https://github.com/vim/vim/issues/2584 is gone
+"set cursorline
 
 " Wrap search past the end of document
 set incsearch
@@ -369,12 +381,13 @@ nnoremap <Leader>l :call LoadSession()<CR>
 au VimLeave * :call AutoSaveSession()
 au VimEnter * :call CheckForSession()
 
-" erlang/surround: make word an Erlang binary with one keybinding
-nmap <Leader>B viwSb
-vmap <Leader>B Sb
-
 " erlang: export type
 nmap <Leader>e wwviwy0o-export_type([pa/0]).0
 
 noremap <Leader>ev :split $MYVIMRC<CR>
 noremap <Leader>sv :source $MYVIMRC<CR>
+
+" make J join lines with a single space even on end of sentence / period character
+:set nojoinspaces
+
+". vim: foldmethod=marker foldmarker="',".
