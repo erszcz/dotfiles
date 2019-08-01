@@ -23,7 +23,7 @@ Bundle "ppikula/vim-wrangler"
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'craigemery/vim-autotag'
+Bundle 'ludovicchabant/vim-gutentags'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
