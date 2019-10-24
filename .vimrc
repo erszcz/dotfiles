@@ -337,7 +337,8 @@ autocmd FileType python setlocal indentkeys=0{,0},!^F,o,O,e,=elif,=except
 autocmd FileType markdown setlocal iskeyword=@,48-57,_,192-255,$,.,-,:
 
 " Default indentation rules
-se sts=4 sw=4 ts=4 et
+"se sts=4 sw=4 ts=4 et
+set expandtab
 
 " Use per project .vimrc and make it secure
 set exrc
@@ -391,6 +392,6 @@ noremap <Leader>ev :split $MYVIMRC<CR>
 noremap <Leader>sv :source $MYVIMRC<CR>
 
 " make J join lines with a single space even on end of sentence / period character
-:set nojoinspaces
+set nojoinspaces
 
 ". vim: foldmethod=marker foldmarker="',".
