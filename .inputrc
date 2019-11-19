@@ -1,1 +1,5 @@
 set mark-symlinked-directories On
+"\e[A": history-search-backward
+"\eOA": history-search-backward
+"\e[B": history-search-forward
+"\eOB": history-search-forward
