@@ -110,7 +110,7 @@ let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
 "let g:neomake_erlang_gradualizer_report_error_columns = 'true'
 " override this one in a project-local .vimrc
 "let g:neomake_erlang_gradualizer_extra_args = []
-nnoremap <leader>G :echom join(neomake#makers#ft#erlang#GradualizerArgs( neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
+nnoremap <Leader>G :echom join(neomake#makers#ft#erlang#GradualizerArgs('.', neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
 
 ".
 "' Extra filetype support
