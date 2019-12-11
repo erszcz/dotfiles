@@ -283,19 +283,17 @@ set foldcolumn=2
 set ruler
 
 " Colorscheme selection
-if !has('nvim')
-    if $TERM == "linux"
-	    colorscheme peachpuff
-    elseif $TERM == "xterm"
-	    set t_Co=256
-	    if filereadable($HOME . "/.outdoor.on")
-		    let g:xterm16_ccube    = "005f87afd7ff"
-		    let xterm16_colormap   = "softlight"
-		    let xterm16_brightness = "high"
-		    colorscheme xterm16
-	    else
-		    colorscheme 256-grayvim
-	    endif
+if $TERM == "linux"
+    colorscheme peachpuff
+elseif $TERM == "xterm"
+    set t_Co=256
+    if filereadable($HOME . "/.outdoor.on")
+            let g:xterm16_ccube    = "005f87afd7ff"
+            let xterm16_colormap   = "softlight"
+            let xterm16_brightness = "high"
+            colorscheme xterm16
+    else
+            colorscheme 256-grayvim
     endif
 endif
 
