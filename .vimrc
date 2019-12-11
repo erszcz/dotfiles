@@ -283,6 +283,8 @@ set foldcolumn=2
 set ruler
 
 " Colorscheme selection
+" TODO: check this out
+"set termguicolors
 if $TERM == "linux"
     colorscheme peachpuff
 elseif $TERM == "xterm"
