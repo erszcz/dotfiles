@@ -1,0 +1,360 @@
+"
+" Use Vundle!
+"
+
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+"Bundle 'quark-zju/vim-cpp-auto-include'
+"Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'vim-scripts/neocomplcache'
+Bundle "frigoeu/psc-ide-vim"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'carlosgaldino/elixir-snippets'
+Bundle 'dag/vim2hs'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'ervandew/supertab'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'fsouza/go.vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'godlygeek/tabular'
+Bundle 'gregsexton/gitv'
+Bundle 'hallettj/jslint.vim'
+Bundle 'hcs42/vim-erlang'
+Bundle 'honza/vim-snippets'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'kien/ctrlp.vim'
+Bundle 'lynnard/haskellmode-vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'neomake/neomake'
+Bundle 'pangloss/vim-javascript'
+Bundle 'purescript-contrib/purescript-vim'
+Bundle 'rust-lang/rust.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-sleuth'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/AutoTag'
+
+Bundle 'ppikula/vim-wrangler'
+
+filetype plugin indent on
+
+" ocaml merlin
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute 'set rtp+=' . '/home/erszcz/.opam/4.02.1/share/merlin/vim/'
+
+"
+" Plugin configuration
+"
+
+" Wrangler
+let g:erlangWranglerPath = "$HOME/work/wrangler"
+
+" YouCompleteMe configuration
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+" TODO: try these two out
+"let g:ycm_add_preview_to_completeopt = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+
+" HaskellMode configuration
+let g:haddock_browser="/usr/bin/firefox"
+
+" syntastic - populate location list with errors
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_ocaml_checkers = ['merlin']
+
+" SnipMate alternate keybinding
+imap <C-\> <Plug>snipMateNextOrTrigger
+smap <C-\> <Plug>snipMateNextOrTrigger
+
+" nerdcommenter bindings
+map <C-c> <Leader>c<space>
+imap <C-c> <Leader>c<space>
+
+" CamelCaseMotion aware bindings
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+" taglist toggle
+"noremap <Leader>tl :TlistToggle<Return>
+"let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
+
+" tagbar
+noremap <Leader>tl :TagbarToggle<CR>
+let g:tagbar_left=1
+
+" surround: make b surround text with <<",">> in Erlang mode
+autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+
+" neocomplcache: enable
+let g:neocomplcache_enable_at_startup = 1
+
+" neocomplcache: don't try to automatically complete, wait for hitting tab
+let g:neocomplcache_disable_auto_complete = 1
+
+" Neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
+
+"
+" Extra filetype support
+"
+
+" vala
+autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala set filetype=vala
+au BufRead,BufNewFile *.vapi set filetype=vala
+
+" ejabberd test.config and other Erlang-like filetypes
+au BufRead,BufNewFile */ejabberd_tests/*.config set filetype=erlang
+au BufRead,BufNewFile */ejabberd_tests/*.spec set filetype=erlang
+au BufRead,BufNewFile escalus.config set filetype=erlang
+au BufRead,BufNewFile rebar.config set filetype=erlang
+au BufRead,BufNewFile rebar.*.config set filetype=erlang
+au BufRead,BufNewFile *.xrl set filetype=erlang
+au BufRead,BufNewFile *.yrl set filetype=erlang
+
+" tsung dumps
+au BufRead,BufNewFile tsung.dump set filetype=xml wrap
+
+" ooc
+au BufNewFile,BufRead *.ooc set filetype=ooc
+
+" Markdown instead of Modula
+au BufNewFile,BufRead *.md set filetype=markdown textwidth=74
+
+" Treat Epistle files as Markdown by default
+au BufNewFile,BufRead $HOME/Dropbox/epistle/*.txt set filetype=markdown
+
+" Vagrantfile is just ruby
+au BufRead,BufNewFile Vagrantfile set filetype=ruby
+
+"
+" Predefined macros/variables
+"
+
+" reStructuredText/AsciiDoc header macro
+let @h = "yypVr"
+
+" Personal information used in snippet expansion
+let g:author	= 'Radosław Szymczyszyn'
+let g:copyright	= 'Radosław Szymczyszyn'
+
+"
+" Customizations
+"
+
+" No Vi compatibility
+set nocompatible
+
+" Nice autocompletion
+set ofu=syntaxcomplete#Complete
+set completeopt=longest,menuone
+
+" Smart search
+" expression is lowercase? match any case hits
+" expression is mixed case? find exact matches
+set ignorecase
+set smartcase
+
+" Number lines
+set nu
+
+" Don't wrap lines
+set nowrap
+
+" Turn Brace/Bracket match showing off
+set noshowmatch
+
+" Enable backups
+set backupdir=$HOME/.vim/backupdir
+set backup
+
+" Set swap file location
+set directory=$HOME/.vim/swapdir
+
+" Enable persistent undo
+set undodir=$HOME/.vim/undodir
+set undofile
+
+" Syntax highlighting
+syntax on
+
+" Backspace through anything
+set backspace=2
+
+" UTF FTW!
+set encoding=utf8
+
+" Highlight cursor line
+set cursorline
+
+" Wrap search past the end of document
+set incsearch
+
+" Highlight search results
+set hlsearch
+
+" Paste mode toggle
+noremap <Leader>p :call TogglePasteMode()<CR>
+set pastetoggle=<F11>p
+
+let g:paste_mode = 0 " 0 = normal, 1 = paste
+
+func! TogglePasteMode()
+	if g:paste_mode == 0
+		set paste
+		let g:paste_mode = 1
+		echo "Paste mode: on"
+	else
+		set nopaste
+		let g:paste_mode = 0
+		echo "Paste mode: off"
+	endif
+	return
+endfunc
+
+" Autoclose C-style block comments
+iabbr /* /* */<Esc>2hi
+
+" Autocorrect often misspelled commands/words
+iabbr improt import
+cabbr Q q
+cabbr W w
+cabbr WQ wq
+cabbr Wq wq
+cabbr Ed ed
+cabbr Qall qall
+cabbr Wqall wqall
+cabbr E Explore
+cabbr B b
+
+" Display statusline no matter how many windows are open
+set laststatus=2
+
+" Statusline with filename, buffer info, ruler
+set statusline=%<%f\ %h%m%r%q%=%-14.(%l,%c%V%)\ %P
+
+" Fold column width
+se foldcolumn=2
+
+" Show ruler
+set ruler
+
+" Colorscheme selection
+set t_Co=256
+if filereadable($HOME . "/.outdoor.on")
+    source /home/erszcz/.vim/bundle/vim-lucius/colors/lucius.vim
+    colorscheme lucius
+    LuciusLight
+    source /home/erszcz/.vim/bundle/vim-lucius/colors/lucius.vim
+else
+    colorscheme 256-grayvim
+endif
+
+" Default encryption method
+if !has('nvim')
+    set cryptmethod=blowfish
+endif
+
+" CtrlP: buffer list hotkey
+noremap <Leader>b :CtrlPBuffer<cr>
+noremap <Leader>t :CtrlPBufTagAll<cr>
+
+" Make hotkey (good for markup previews)
+noremap <Leader>m :make<CR>
+
+" Copy to global clipboard not just yank into buffer
+let s:os = substitute(system('uname'), "\n", "", "")
+if "Linux" == s:os
+	noremap <Leader>y "*y
+elseif "Darwin" == s:os
+	noremap <Leader>y "+y
+endif
+
+" Sane (Bash-like) filename completion style
+set wildmode=list:longest
+set wildmenu
+
+" Turn off reindenting on typing closing parens, brackets and curlies
+" Erlang default is:        indentkeys=0{,0},:,0#,!^F,o,O,e,=after,=end,=catch,=),=],=}
+autocmd FileType erlang set indentkeys=0{,0},0#,!^F,o,O,e,=after,=end,=catch
+" Python default is:        indentkeys=0{,0},:,!^F,o,O,e,<:>,=elif,=except
+autocmd FileType python set indentkeys=0{,0},!^F,o,O,e,=elif,=except
+
+" When editing markdown, treat : and - as parts of a word
+" Default is:                 iskeyword=@,48-57,_,192-255,$,.
+autocmd FileType markdown set iskeyword=@,48-57,_,192-255,$,.,-,:
+
+" Default indentation rules
+se sts=4 sw=4 ts=4 et
+
+" Use per project .vimrc and make it secure
+set exrc
+set secure
+
+" Autosave session if it was intentioanlly loaded
+function! AutoSaveSession()
+  if exists("t:sessionfileloaded")
+      call SaveSession()
+  endif
+endfunction
+
+" Save session
+function! SaveSession()
+  let l:sessiondir = getcwd()
+  let t:sessionfile = l:sessiondir . "/session.vim"
+  if filewritable(l:sessiondir)
+    exe "mksession! " . t:sessionfile
+    echom "Session file " . t:sessionfile . " written."
+  endif
+endfunction
+
+" Load session into the current tab
+function! LoadSession()
+  let t:sessionfile = getcwd() . "/session.vim"
+  if filereadable(t:sessionfile)
+    exe 'source ' t:sessionfile
+    let t:sessionfileloaded = 1
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+" Check whether there's a session in the current project directory
+function! CheckForSession()
+  let t:sessionfile = getcwd() . '/session.vim'
+  if filereadable(t:sessionfile)
+    echom "Session file " . t:sessionfile . " exists."
+  endif
+endfunction
+
+nnoremap <Leader>s :call SaveSession()<CR>
+nnoremap <Leader>l :call LoadSession()<CR>
+au VimLeave * :call AutoSaveSession()
+au VimEnter * :call CheckForSession()
+
+noremap <Leader>ev :split $MYVIMRC<CR>
+noremap <Leader>sv :source $MYVIMRC<CR>
+
+" Do not break VTE / terminal emulator wrt pasting text
+set t_BE=
