@@ -20,6 +20,8 @@ install-vim: vim-vundle
 	mkdir -p $(TARGET)/.vim/backupdir \
 		$(TARGET)/.vim/swapdir \
 		$(TARGET)/.vim/undodir
+	mkdir -p $(TARGET)/.config/nvim
+	cp .config/nvim/init.vim $(TARGET)/.config/nvim/
 
 vim-vundle:
 	git submodule update --init --recursive
