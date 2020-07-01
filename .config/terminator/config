@@ -1,0 +1,29 @@
+[global_config]
+[keybindings]
+  go_up = <Primary>Up
+  go_down = <Primary>Down
+  go_left = <Primary>Left
+  go_right = <Primary>Right
+  split_horiz = <Primary><Shift>d
+  copy = <Primary><Shift>c
+  paste = <Primary>v
+  line_up = <Shift>Up
+  line_down = <Shift>Down
+  toggle_zoom = <Primary><Shift>Return
+  scaled_zoom = None
+  full_screen = None
+  reset_clear = <Primary>k
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
