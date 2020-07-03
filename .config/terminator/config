@@ -19,6 +19,7 @@
     scrollback_infinite = True
     use_custom_command = True
     custom_command = tmux
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
