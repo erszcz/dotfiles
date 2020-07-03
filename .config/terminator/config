@@ -17,6 +17,8 @@
   [[default]]
     cursor_color = "#aaaaaa"
     scrollback_infinite = True
+    use_custom_command = True
+    custom_command = tmux
 [layouts]
   [[default]]
     [[[child1]]]
