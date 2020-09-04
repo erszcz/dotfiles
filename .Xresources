@@ -5,9 +5,9 @@ xterm*foreground: gray
 xterm*background: black
 
 ! xterm: scrolling by single line
-*VT100.Translations: #override \\
-	Shift <Key>Up:   scroll-back(1) \n\\
-	Shift <Key>Down: scroll-forw(1) \n
+!*VT100.Translations: #override \\
+!        Shift <Key>Up:   scroll-back(1) \n\\
+!        Shift <Key>Down: scroll-forw(1) \n
 
 ! xterm: do not jump to bottom when new output appears,
 !        but do so on key press
@@ -21,13 +21,9 @@ XTerm*VT100*translations: #override \\
 ! xterm: scrollback buffer size
 xterm*SaveLines: 5000
 
-rxvt*font:              xft:DeJavu Sans Mono:pixelsize=12
-rxvt*letterSpace:       -2
-rxvt*foreground:        gray
-rxvt*background:        black
 rxvt*scrollBar:         false
-rxvt.keysym.Shift-Up:   command:\033]720;1\007
-rxvt.keysym.Shift-Down: command:\033]721;1\007
+!rxvt.keysym.Shift-Up:   command:\033]720;1\007
+!rxvt.keysym.Shift-Down: command:\033]721;1\007
 rxvt.saveLines:         20000
 ! Stay focused on a particular part of scrollback buffer when scrolled up from the bottom
 rxvt.scrollTtyOutput:   false
