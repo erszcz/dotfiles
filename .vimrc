@@ -11,6 +11,11 @@ Bundle 'gmarik/vundle'
 " Let's try the new version - disable this line for now.
 "Bundle 'hcs42/vim-erlang'
 
+"Bundle 'autozimu/LanguageClient-neovim'
+Bundle 'neomake/neomake'
+
+"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'craigemery/vim-autotag'
 "Bundle 'ervandew/taglisttoo'
 "Bundle 'hallettj/jslint.vim'
 "Bundle 'scrooloose/syntastic'
@@ -21,9 +26,7 @@ Bundle 'gmarik/vundle'
 Bundle "elixir-lang/vim-elixir"
 Bundle "ppikula/vim-wrangler"
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'ludovicchabant/vim-gutentags'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
@@ -31,8 +34,8 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
+"Bundle 'ludovicchabant/vim-gutentags'
 Bundle 'mattn/emmet-vim'
-Bundle 'neomake/neomake'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'scheakur/vim-scheakur'
@@ -44,6 +47,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-erlang/vim-erlang-omnicomplete'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/xterm16.vim'
+Bundle 'dart-lang/dart-vim-plugin'
+Bundle 'cespare/vim-toml'
 
 Bundle 'editorconfig/editorconfig-vim'
 
@@ -52,6 +57,28 @@ filetype plugin indent on
 ".
 "' Plugin configuration
 "
+
+" LanguageClient
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+"let g:LanguageClient_serverCommands = {
+"    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"    \ 'python': ['/usr/local/bin/pyls'],
+"    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+"    \ }
+let g:LanguageClient_serverCommands = {
+    \ 'erlang': ['tcp://127.0.0.1:10000']
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 
 " YouCompleteMe configuration
 let g:ycm_complete_in_comments = 1
@@ -90,14 +117,14 @@ let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;
 
 " surround: make b surround text with <<",">> in Erlang mode
 autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
-autocmd FileType erlang setlocal sw=4 et
+autocmd FileType erlang setlocal sw=4 ts=4 sts=4 et
 
 " erlang/surround: make word an Erlang binary with one keybinding
 nmap <Leader>B viwSb
 vmap <Leader>B Sb
 
 " Elm
-autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
+"autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
 
 " autotag
 " Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
