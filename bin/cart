@@ -3,7 +3,7 @@
 prog=`basename $0`
 cart="$HOME/.cart"
 
-[ -f "$cart" ] || exit 1
+[ -f "$cart" ] || touch "$cart"
 
 cwd=`pwd`
 
