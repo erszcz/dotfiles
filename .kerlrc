@@ -1,7 +1,9 @@
 KERL_BUILD_DOCS=yes
 KERL_INSTALL_MANPAGES=yes
 KERL_CONFIGURE_OPTIONS="--enable-lock-counter \
-                        --disable-hipe --enable-smp-support --enable-threads \
-                        --enable-kernel-poll \
+                        --disable-hipe \
                         --with-ssl=/usr/local/opt/openssl@1.1 \
-                        --without-javac"
+                        --without-javac \
+                        --enable-smp-support \
+                        --enable-threads \
+                        --enable-kernel-poll"
