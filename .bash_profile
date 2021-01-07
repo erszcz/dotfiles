@@ -57,14 +57,19 @@ fi
 }
 
 # Init asdf - the universal env manager
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-ERLANG_EXTRA_CONFIGURE_OPTIONS="--disable-hipe --enable-smp-support --enable-threads
-                                --enable-kernel-poll --enable-darwin-64bit"
-export ERLANG_EXTRA_CONFIGURE_OPTIONS
-export MANPATH="$(asdf where erlang $(asdf current erlang | cut -f1 -d' '))/lib/erlang/man:${MANPATH}"
-export DOCSH_BASE="/Users/erszcz/work/erszcz/docsh"
-export DOCSH_USER_DEFAULT="/Users/erszcz/work/erszcz/docsh/user_default"
+if [ -f $HOME/.asdf.on ]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+    . $HOME/.kerlrc
+    export KERL_BUILD_DOCS
+    export KERL_INSTALL_MANPAGES
+    export KERL_CONFIGURE_OPTIONS
+    #ASDF_ERLANG_MAN="$(dirname $(dirname $(asdf which erl)))/man"
+    ASDF_ERLANG_MAN="/Users/erszcz/.asdf/installs/erlang/23.0-rc2/man"
+    [ -d "$ASDF_ERLANG_MAN" ] && {
+      export MANPATH="$ASDF_ERLANG_MAN:$MANPATH"
+    }
+fi
 
 # Erlang 20.0+ shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
