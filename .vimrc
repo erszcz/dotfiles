@@ -38,6 +38,7 @@ Bundle 'mattn/emmet-vim'
 Bundle 'neomake/neomake'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
+Bundle 'sbdchd/neoformat'
 Bundle 'scheakur/vim-scheakur'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -53,6 +54,12 @@ filetype plugin indent on
 ".
 "' Plugin configuration
 "
+
+" Neoformat - format on save
+augroup neoformat
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " LanguageClient
 " Required for operations modifying multiple buffers like rename.
