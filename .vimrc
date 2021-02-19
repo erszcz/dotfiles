@@ -8,34 +8,34 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" Let's try the new version - disable this line for now.
-"Bundle 'hcs42/vim-erlang'
-
-"Bundle 'autozimu/LanguageClient-neovim'
-Bundle 'neomake/neomake'
-
 "Bundle 'Valloric/YouCompleteMe'
+"Bundle 'autozimu/LanguageClient-neovim'
 "Bundle 'craigemery/vim-autotag'
 "Bundle 'ervandew/taglisttoo'
 "Bundle 'hallettj/jslint.vim'
+"Bundle 'hcs42/vim-erlang'
+"Bundle 'ludovicchabant/vim-gutentags'
+"Bundle 'ppikula/vim-wrangler'
 "Bundle 'scrooloose/syntastic'
 "Bundle 'tpope/vim-sleuth'
 "Bundle 'vim-erlang/vim-erlang-runtime'
 "Bundle 'vim-scripts/neocomplcache'
 "Bundle 'vim-scripts/taglist.vim'
-Bundle "elixir-lang/vim-elixir"
-Bundle "ppikula/vim-wrangler"
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'cespare/vim-toml'
+Bundle 'dart-lang/dart-vim-plugin'
+Bundle 'editorconfig/editorconfig-vim'
 Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
-"Bundle 'ludovicchabant/vim-gutentags'
 Bundle 'mattn/emmet-vim'
+Bundle 'neomake/neomake'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'scheakur/vim-scheakur'
@@ -47,10 +47,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'vim-erlang/vim-erlang-omnicomplete'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/xterm16.vim'
-Bundle 'dart-lang/dart-vim-plugin'
-Bundle 'cespare/vim-toml'
-
-Bundle 'editorconfig/editorconfig-vim'
 
 filetype plugin indent on
 
