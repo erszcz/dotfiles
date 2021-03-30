@@ -52,97 +52,6 @@ Bundle 'vim-scripts/xterm16.vim'
 filetype plugin indent on
 
 ".
-"' Plugin configuration
-"
-
-" Neoformat - format on save
-augroup neoformat
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
-
-" LanguageClient
-" Required for operations modifying multiple buffers like rename.
-set hidden
-
-"let g:LanguageClient_serverCommands = {
-"    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-"    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-"    \ 'python': ['/usr/local/bin/pyls'],
-"    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-"    \ }
-let g:LanguageClient_serverCommands = {
-    \ 'erlang': ['tcp://127.0.0.1:10000']
-    \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-
-" YouCompleteMe configuration
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_always_populate_location_list = 1
-
-" syntastic - populate location list with errors
-let g:syntastic_always_populate_loc_list=1
-
-" SnipMate alternate keybinding
-imap <C-\> <Plug>snipMateNextOrTrigger
-smap <C-\> <Plug>snipMateNextOrTrigger
-
-" nerdcommenter bindings
-map <C-c> <Leader>c<space>
-imap <C-c> <Leader>c<space>
-
-" CamelCaseMotion aware bindings
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
-nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
-imap <silent> <C-Left> <Plug>CamelCaseMotion_b
-imap <silent> <C-Right> <Plug>CamelCaseMotion_e
-
-" taglist toggle
-noremap <Leader>tl :TlistToggle<Return>
-let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
-
-" surround: make b surround text with <<",">> in Erlang mode
-autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
-autocmd FileType erlang setlocal sw=4 ts=4 sts=4 et
-
-" erlang/surround: make word an Erlang binary with one keybinding
-nmap <Leader>B viwSb
-vmap <Leader>B Sb
-
-" Elm
-"autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
-
-" autotag
-" Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
-let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
-
-" Neomake
-autocmd! BufWritePost * Neomake
-" Neomake: enable Erlang Gradualizer
-let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
-"let g:neomake_erlang_gradualizer_report_error_columns = 'true'
-" override this one in a project-local .vimrc
-"let g:neomake_erlang_gradualizer_extra_args = []
-nnoremap <Leader>G :put =join(neomake#makers#ft#erlang#GradualizerArgs('.', neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
-
-".
 "' Extra filetype support
 "
 
@@ -425,3 +334,94 @@ noremap <Leader>sv :source $MYVIMRC<CR>
 set nojoinspaces
 
 ". vim: foldmethod=marker foldmarker="',".
+"' Plugin configuration
+"
+
+" Neoformat - format on save
+augroup neoformat
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+" LanguageClient
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+"let g:LanguageClient_serverCommands = {
+"    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"    \ 'python': ['/usr/local/bin/pyls'],
+"    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+"    \ }
+let g:LanguageClient_serverCommands = {
+    \ 'erlang': ['tcp://127.0.0.1:10000']
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+
+" YouCompleteMe configuration
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_always_populate_location_list = 1
+
+" syntastic - populate location list with errors
+let g:syntastic_always_populate_loc_list=1
+
+" SnipMate alternate keybinding
+imap <C-\> <Plug>snipMateNextOrTrigger
+smap <C-\> <Plug>snipMateNextOrTrigger
+
+" nerdcommenter bindings
+map <C-c> <Leader>c<space>
+imap <C-c> <Leader>c<space>
+
+" CamelCaseMotion aware bindings
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+nmap <silent> <C-Left> <Plug>CamelCaseMotion_b
+nmap <silent> <C-Right> <Plug>CamelCaseMotion_e
+imap <silent> <C-Left> <Plug>CamelCaseMotion_b
+imap <silent> <C-Right> <Plug>CamelCaseMotion_e
+
+" taglist toggle
+noremap <Leader>tl :TlistToggle<Return>
+let g:tlist_markdown_settings = 'markdown;h:Contents;l:Links;x:Cross references;a:Anchors;d:Link definitions'
+
+" surround: make b surround text with <<",">> in Erlang mode
+autocmd FileType erlang let b:surround_98 = "<<\"\r\">>"
+autocmd FileType erlang setlocal sw=4 ts=4 sts=4 et
+
+" erlang/surround: make word an Erlang binary with one keybinding
+nmap <Leader>B viwSb
+vmap <Leader>B Sb
+
+" Elm
+"autocmd FileType elm setlocal sw=2 ts=2 sts=2 et
+
+" autotag
+" Installed from $HOME/work/lavrin/ctags / github.com/lavrin/ctags
+let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
+
+" Neomake
+autocmd! BufWritePost * Neomake
+" Neomake: enable Erlang Gradualizer
+let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
+"let g:neomake_erlang_gradualizer_report_error_columns = 'true'
+" override this one in a project-local .vimrc
+"let g:neomake_erlang_gradualizer_extra_args = []
+nnoremap <Leader>G :put =join(neomake#makers#ft#erlang#GradualizerArgs('.', neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
+
+".
