@@ -119,6 +119,12 @@ let g:email     = 'lavrin@gmail.com'
 "' Customizations
 "
 
+" Disable cursor shape changing in NeoVim:
+" prevent the cursor from changing to a vertical bar in insert mode
+if has('nvim')
+    set guicursor=
+endif
+
 " No Vi compatibility
 set nocompatible
 
