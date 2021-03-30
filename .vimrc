@@ -8,12 +8,16 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-"Bundle 'Valloric/YouCompleteMe'
+" Let's try the new version - disable this line for now.
+"Bundle 'hcs42/vim-erlang'
+
 "Bundle 'autozimu/LanguageClient-neovim'
+"Bundle 'neomake/neomake'
+
+"Bundle 'Valloric/YouCompleteMe'
 "Bundle 'craigemery/vim-autotag'
 "Bundle 'ervandew/taglisttoo'
 "Bundle 'hallettj/jslint.vim'
-"Bundle 'hcs42/vim-erlang'
 "Bundle 'ludovicchabant/vim-gutentags'
 "Bundle 'ppikula/vim-wrangler'
 "Bundle 'scrooloose/syntastic'
@@ -35,7 +39,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
-Bundle 'neomake/neomake'
+Bundle 'neoclide/coc.nvim'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'sbdchd/neoformat'
@@ -339,15 +343,15 @@ noremap <Leader>sv :source $MYVIMRC<CR>
 " make J join lines with a single space even on end of sentence / period character
 set nojoinspaces
 
-". vim: foldmethod=marker foldmarker="',".
+".
 "' Plugin configuration
 "
 
-" Neoformat - format on save
-augroup neoformat
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+"" Neoformat - format on save
+"augroup neoformat
+"  autocmd!
+"  autocmd BufWritePre * undojoin | Neoformat
+"augroup END
 
 " LanguageClient
 " Required for operations modifying multiple buffers like rename.
@@ -422,7 +426,7 @@ vmap <Leader>B Sb
 let g:autotagCtagsCmd = "$HOME/apps/ctags/bin/ctags"
 
 " Neomake
-autocmd! BufWritePost * Neomake
+"autocmd! BufWritePost * Neomake
 " Neomake: enable Erlang Gradualizer
 let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
 "let g:neomake_erlang_gradualizer_report_error_columns = 'true'
@@ -430,4 +434,10 @@ let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
 "let g:neomake_erlang_gradualizer_extra_args = []
 nnoremap <Leader>G :put =join(neomake#makers#ft#erlang#GradualizerArgs('.', neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
 
-".
+" CoC (for LSP support): disable underlining
+highlight clear CocErrorHighlight
+highlight clear CocWarningHighlight
+highlight clear CocInfoHighlight
+highlight clear CocHintHighlight
+
+". vim: foldmethod=marker foldmarker="',".
