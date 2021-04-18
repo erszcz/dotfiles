@@ -285,6 +285,9 @@ autocmd FileType python setlocal indentkeys=0{,0},!^F,o,O,e,=elif,=except
 " Default is:                 iskeyword=@,48-57,_,192-255,$,.
 autocmd FileType markdown setlocal iskeyword=@,48-57,_,192-255,$,.,-,:
 
+" HTML indentation rules
+autocmd FileType html setlocal sts=2 sw=2 ts=2 et
+
 " Default indentation rules
 "se sts=4 sw=4 ts=4 et
 set expandtab
