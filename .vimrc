@@ -39,7 +39,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
-Bundle 'neoclide/coc.nvim'
+Bundle 'neovim/nvim-lspconfig'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'sbdchd/neoformat'
@@ -442,5 +442,12 @@ highlight clear CocErrorHighlight
 highlight clear CocWarningHighlight
 highlight clear CocInfoHighlight
 highlight clear CocHintHighlight
+
+" nvim-lspconfig startup
+if has('nvim')
+lua << EOF
+require 'lspconfig'.erlangls.setup{}
+EOF
+endif
 
 ". vim: foldmethod=marker foldmarker="',".
