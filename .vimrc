@@ -445,9 +445,21 @@ highlight clear CocHintHighlight
 
 " nvim-lspconfig startup
 if has('nvim')
-lua << EOF
-require 'lspconfig'.erlangls.setup{}
+  lua << EOF
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    signs = true,
+    underline = false,
+    update_in_insert = false
+  })
+  require 'lspconfig'.erlangls.setup({
+    cmd = {"erlang_ls"}
+  })
 EOF
 endif
+highlight LspDiagnosticsDefaultError ctermfg=grey
+highlight LspDiagnosticsDefaultHint ctermfg=grey
+highlight LspDiagnosticsDefaultInformation ctermfg=grey
+highlight LspDiagnosticsDefaultWarning ctermfg=grey
 
-". vim: foldmethod=marker foldmarker="',".
+". vim: foldmethod=marker foldmarker="',". ts=2 sts=2 sw=2 et
