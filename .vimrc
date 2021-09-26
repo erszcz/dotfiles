@@ -40,6 +40,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'neovim/nvim-lspconfig'
+Bundle 'hrsh7th/cmp-nvim-lsp'
+Bundle 'hrsh7th/cmp-buffer'
+Bundle 'hrsh7th/nvim-cmp'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'sbdchd/neoformat'
@@ -135,9 +138,9 @@ endif
 " No Vi compatibility
 set nocompatible
 
-" Nice autocompletion
-set ofu=syntaxcomplete#Complete
-set completeopt=longest,menuone
+" Nice autocompletion - see nvim-cmp
+"set ofu=syntaxcomplete#Complete
+"set completeopt=longest,menuone
 
 " Smart search
 " expression is lowercase? match any case hits
@@ -490,5 +493,28 @@ highlight LspDiagnosticsDefaultError ctermfg=grey
 highlight LspDiagnosticsDefaultHint ctermfg=grey
 highlight LspDiagnosticsDefaultInformation ctermfg=grey
 highlight LspDiagnosticsDefaultWarning ctermfg=grey
+
+" nvim-cmp: autocompletion
+set completeopt=menu,menuone,noselect
+if has('nvim')
+  lua <<EOF
+  -- Setup nvim-cmp
+  local cmp = require 'cmp'
+
+  cmp.setup({
+    mapping = {
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = {
+      --{ name = 'nvim_lsp' },
+      { name = 'buffer' },
+    }
+  })
+EOF
+endif
 
 ". vim: foldmethod=marker foldmarker="',". ts=2 sts=2 sw=2 et
