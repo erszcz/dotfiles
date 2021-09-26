@@ -109,6 +109,9 @@ au BufRead,BufNewFile Vagrantfile setlocal filetype=ruby
 " reStructuredText/AsciiDoc header/title macro
 let @h = "yypVr"
 
+" Erlang function spec
+let @s = "0v$€klyI€ku-spec p"
+
 " ask about changing each Erlang string from here to the end of file
 " to a binary
 let @b = ':.,$s/\([^<]\{1,2\}\)"\(\S\{-\}\)"\([^>]\{1,2\}\)/\1<<"\2">>\3/gec'
