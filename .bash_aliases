@@ -65,3 +65,6 @@ alias r3=rebar3
 
 # renameutils qmv: move many files at once
 alias mvm='qmv -f destination-only'
+
+alias k=kubectl
+complete -F _complete_alias k

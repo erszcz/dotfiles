@@ -69,7 +69,13 @@ if [ -f $HOME/.asdf.on ]; then
     [ -d "$ASDF_ERLANG_MAN" ] && {
       export MANPATH="$ASDF_ERLANG_MAN:$MANPATH"
     }
+
+    kubectl completion bash > /tmp/kubectl.bash_completion
+    source /tmp/kubectl.bash_completion
 fi
 
 # Erlang 20.0+ shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+[ -f "$HOME/.bash_completion.d/complete_alias" ] \
+  && source "$HOME/.bash_completion.d/complete_alias"
