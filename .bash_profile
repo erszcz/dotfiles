@@ -70,8 +70,10 @@ if [ -f $HOME/.asdf.on ]; then
       export MANPATH="$ASDF_ERLANG_MAN:$MANPATH"
     }
 
-    kubectl completion bash > /tmp/kubectl.bash_completion
-    source /tmp/kubectl.bash_completion
+    # We don't have to run it on every shell startup.
+    # Check $HOME/.local/share/kubectl/kubectl.bash_completion
+    #kubectl completion bash > /tmp/kubectl.bash_completion
+    source $HOME/.local/share/kubectl/kubectl.bash_completion
 fi
 
 # Erlang 20.0+ shell history
