@@ -81,3 +81,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 [ -f "$HOME/.bash_completion.d/complete_alias" ] \
   && source "$HOME/.bash_completion.d/complete_alias"
+
+# Homebrew bash-completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
+  && . "/usr/local/etc/profile.d/bash_completion.sh"
