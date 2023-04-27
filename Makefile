@@ -24,7 +24,8 @@ install-vim: vim-vundle
 	cp .config/nvim/init.vim $(TARGET)/.config/nvim/
 
 vim-vundle:
-	git submodule update --init --recursive
+	mkdir -p .vim/bundle
+	cd .vim/bundle && git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git vundle
 
 install:
 	@if [ -n "$$file" ]; then \
