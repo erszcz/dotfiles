@@ -85,3 +85,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # Homebrew bash-completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
   && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# Homebrew installed asdf
+[[ -r "/usr/local/opt/asdf/libexec/asdf.sh" ]] \
+  && . /usr/local/opt/asdf/libexec/asdf.sh
