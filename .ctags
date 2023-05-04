@@ -26,7 +26,6 @@
 --regex-Rust=/^[ \t]*(pub[ \t]+)?impl([ \t\n]+<.*>)?[ \t]+([a-zA-Z0-9_]+)/\3/i,impls,trait implementations/
 --regex-Rust=/^[ \t]*macro_rules![ \t]+([a-zA-Z0-9_]+)/\1/d,macros,macro definitions/
 
-## Source: https://github.com/mmorearty/elixir-ctags
 --langdef=Elixir
 --langmap=Elixir:.ex.exs
 --regex-Elixir=/^[ \t]*def(p?)[ \t]+([a-z_][a-zA-Z0-9_?!]*)/\2/f,functions,functions (def ...)/
