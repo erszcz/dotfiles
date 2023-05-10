@@ -89,3 +89,8 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # Homebrew installed asdf
 [[ -r "/usr/local/opt/asdf/libexec/asdf.sh" ]] \
   && . /usr/local/opt/asdf/libexec/asdf.sh
+
+# Erlang settings for asdf/kerlrc
+if [ -f "${HOME}/.kerlrc" ]; then
+  . "${HOME}/.kerlrc"
+fi
