@@ -70,3 +70,5 @@ alias mvm='qmv -f destination-only'
 
 alias k=kubectl
 complete -F _complete_alias k
+
+alias vim=nvim
