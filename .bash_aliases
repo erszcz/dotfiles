@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ~/.complete_alias
+
 # pd - pass directory, a utility to quickly share current working dir between sessions
 alias pds='echo -n `pwd` > ~/.pdstack'
 alias pdc='cd "`tail -n 1 ~/.pdstack`"'

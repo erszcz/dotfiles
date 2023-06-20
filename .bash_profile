@@ -41,11 +41,6 @@ if [ -f "$AUTOJUMP_PATH" ]; then
     . "$AUTOJUMP_PATH"
 fi
 
-# enable bash completion from ports
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
-fi
-
 # extend svn with some git-like niceties
 [ -f "${HOME}/.subversion/svn.sh" ] && {
     . "${HOME}/.subversion/svn.sh"
@@ -82,15 +77,23 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 [ -f "$HOME/.bash_completion.d/complete_alias" ] \
   && source "$HOME/.bash_completion.d/complete_alias"
 
+# Homebrew prefix
+HOMEBREW_PREFIX="$(brew --prefix)"
+
 # Homebrew bash-completion
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] \
-  && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] \
+  && . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
 # Homebrew installed asdf
-[[ -r "/usr/local/opt/asdf/libexec/asdf.sh" ]] \
-  && . /usr/local/opt/asdf/libexec/asdf.sh
+[[ -r "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ]] \
+  && . "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 
 # Erlang settings for asdf/kerlrc
 if [ -f "${HOME}/.kerlrc" ]; then
   . "${HOME}/.kerlrc"
+fi
+
+# kubectl bash completion
+if [ -f "${HOME}/.kube/completion" ]; then
+  . "${HOME}/.kube/completion"
 fi
