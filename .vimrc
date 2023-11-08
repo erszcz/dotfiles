@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'neomake/neomake'
 
 "Bundle 'Valloric/YouCompleteMe'
+"Bundle 'ashinkarov/nvim-agda'
 "Bundle 'craigemery/vim-autotag'
 "Bundle 'ervandew/taglisttoo'
 "Bundle 'hallettj/jslint.vim'
@@ -26,7 +27,6 @@ Bundle 'gmarik/vundle'
 "Bundle 'vim-scripts/neocomplcache'
 "Bundle 'vim-scripts/taglist.vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'ashinkarov/nvim-agda'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'cespare/vim-toml'
 Bundle 'chrisbra/unicode.vim'
@@ -38,13 +38,16 @@ Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
+Bundle 'hrsh7th/cmp-buffer'
+Bundle 'hrsh7th/cmp-nvim-lsp'
+Bundle 'hrsh7th/nvim-cmp'
+Bundle 'isovector/cornelis'
+Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'neovim/nvim-lspconfig'
-Bundle 'hrsh7th/cmp-nvim-lsp'
-Bundle 'hrsh7th/cmp-buffer'
-Bundle 'hrsh7th/nvim-cmp'
+Bundle 'neovimhaskell/nvim-hs.vim'
 Bundle 'purescript-contrib/purescript-vim'
 Bundle 'rust-lang/rust.vim'
 Bundle 'sbdchd/neoformat'
@@ -357,6 +360,26 @@ set nojoinspaces
 ".
 "' Plugin configuration
 "
+
+"" Cornelis - agda-mode for NeoVim
+let g:cornelis_use_global_binary = 1
+let g:cornelis_split_location = 'bottom'
+au BufRead,BufNewFile *.agda call AgdaFiletype()
+function! AgdaFiletype()
+    nnoremap <buffer> <leader>l :CornelisLoad<CR>
+    nnoremap <buffer> <leader>r :CornelisRefine<CR>
+    nnoremap <buffer> <leader>d :CornelisMakeCase<CR>
+    nnoremap <buffer> <leader>, :CornelisTypeContext<CR>
+    nnoremap <buffer> <leader>. :CornelisTypeContextInfer<CR>
+    nnoremap <buffer> <leader>n :CornelisSolve<CR>
+    nnoremap <buffer> <leader>a :CornelisAuto<CR>
+    nnoremap <buffer> gd        :CornelisGoToDefinition<CR>
+    nnoremap <buffer> [/        :CornelisPrevGoal<CR>
+    nnoremap <buffer> ]/        :CornelisNextGoal<CR>
+    nnoremap <buffer> <C-A>     :CornelisInc<CR>
+    nnoremap <buffer> <C-X>     :CornelisDec<CR>
+endfunction
+au BufWritePost *.agda execute "normal! :CornelisLoad\<CR>"
 
 "" Neoformat - format on save
 "augroup neoformat
