@@ -134,6 +134,12 @@ let g:email     = 'lavrin@gmail.com'
 "' Customizations
 "
 
+" Custom digraph definitions
+digraph ll 955  " GREEK SMALL LETTER LAMBDA
+digraph NN 8469 " DOUBLE-STRUCK CAPITAL N for Naturals
+digraph ~= 8771 " ASYMPTOTICALLY EQUAL TO
+digraph ~< 8818 " LESS-THAN OR EQUIVALENT TO
+
 " Disable cursor shape changing in NeoVim:
 " prevent the cursor from changing to a vertical bar in insert mode
 if has('nvim')
