@@ -38,6 +38,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'garbas/vim-snipmate'
+Bundle 'gbprod/yanky.nvim'
 Bundle 'honza/vim-snippets'
 Bundle 'hrsh7th/cmp-buffer'
 Bundle 'hrsh7th/cmp-nvim-lsp'
@@ -368,6 +369,33 @@ set nojoinspaces
 ".
 "' Plugin configuration
 "
+
+"" yanky - yank-ring for NeoVim
+if has('nvim')
+  lua << EOF
+  require("yanky").setup({
+    ring = {
+      history_length = 100,
+      storage = "shada",
+      sync_with_numbered_registers = true,
+      cancel_event = "update",
+      ignore_registers = { "_" },
+      update_register_on_cycle = false,
+    },
+    system_clipboard = {
+      sync_with_ring = true,
+    },
+  })
+
+  vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+  vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+  vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+  vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+
+  vim.keymap.set("n", "<c-p>", "<Plug>(YankyPreviousEntry)")
+  vim.keymap.set("n", "<c-n>", "<Plug>(YankyNextEntry)")
+EOF
+endif
 
 "" Cornelis - agda-mode for NeoVim
 let g:cornelis_use_global_binary = 1
