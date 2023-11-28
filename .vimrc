@@ -30,6 +30,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'cespare/vim-toml'
 Bundle 'chrisbra/unicode.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'ekalinin/Dockerfile.vim'
@@ -43,7 +44,6 @@ Bundle 'hrsh7th/cmp-nvim-lsp'
 Bundle 'hrsh7th/nvim-cmp'
 Bundle 'isovector/cornelis'
 Bundle 'kana/vim-textobj-user'
-Bundle 'kien/ctrlp.vim'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'neovim/nvim-lspconfig'
@@ -270,6 +270,8 @@ if !has('nvim')
     set cryptmethod=blowfish
 endif
 
+" CtrlP: disable default mapping
+let g:ctrlp_map = ''
 " CtrlP: buffer list hotkey
 noremap <Leader>b :CtrlPBuffer<cr>
 " CtrlP: buffer's tags
