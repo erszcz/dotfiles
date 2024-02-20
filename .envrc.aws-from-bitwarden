@@ -1,0 +1,9 @@
+# Get AWS credentials from a BitWarden vault
+# vim: ft=sh
+
+export BW_SESSION="bitwarden-session"
+
+BW_AWS_CLI_ACCESS_JSON=$(bw get item "aws-credentials-item-id")
+export AWS_ACCESS_KEY_ID=$(echo "${BW_AWS_CLI_ACCESS_JSON}" | jq -r '.fields[] | select(.name == "AWS_ACCESS_KEY_ID") | .value')
+export AWS_SECRET_ACCESS_KEY=$(echo "${BW_AWS_CLI_ACCESS_JSON}" | jq -r '.fields[] | select(.name == "AWS_SECRET_ACCESS_KEY") | .value')
+export AWS_DEFAULT_REGION=eu-north-1
