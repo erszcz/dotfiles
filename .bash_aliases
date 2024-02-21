@@ -71,4 +71,7 @@ alias mvm='qmv -f destination-only'
 alias k=kubectl
 complete -F _complete_alias k
 
+alias tf=terraform
+complete -C /Users/erszcz/.asdf/installs/terraform/1.7.3/bin/terraform tf
+
 alias vim=nvim

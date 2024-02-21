@@ -101,3 +101,7 @@ fi
 if [ -f "${HOME}/.kube/completion" ]; then
   . "${HOME}/.kube/completion"
 fi
+
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+complete -C /Users/erszcz/.asdf/installs/terraform/1.7.3/bin/terraform terraform
