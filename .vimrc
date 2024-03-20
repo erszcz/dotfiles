@@ -546,9 +546,9 @@ if has('nvim')
   vim.o.updatetime = 250
   vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
 
-  -- Enable ErlangLS
-  require 'lspconfig'.erlangls.setup({
-    cmd = {"erlang_ls"}
+  -- Enable Erlang Language Platform elp
+  require 'lspconfig'.elp.setup({
+    cmd = {"elp", "server"}
   })
 EOF
 endif
