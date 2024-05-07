@@ -132,3 +132,6 @@ export GPG_TTY
 . ~/.gistit-token
 
 eval "$(direnv hook bash)"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash --disable-up-arrow)"
