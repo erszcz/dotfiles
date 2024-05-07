@@ -130,3 +130,5 @@ export GPG_TTY
 
 # Export Gist It token
 . ~/.gistit-token
+
+eval "$(direnv hook bash)"
