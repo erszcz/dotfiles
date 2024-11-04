@@ -27,6 +27,12 @@ fi
 [ -d "/usr/local/sbin" ] \
   && export PATH="/usr/local/sbin":"${PATH}"
 
+# Enable Homebrew on Apple M Silicon
+if [ -d "/opt/homebrew/bin" ]; then
+  export PATH="/opt/homebrew/bin:${PATH}"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
@@ -80,9 +86,6 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 [ -f "$HOME/.bash_completion.d/complete_alias" ] \
   && source "$HOME/.bash_completion.d/complete_alias"
-
-# Homebrew prefix
-HOMEBREW_PREFIX="$(brew --prefix)"
 
 # Homebrew bash-completion
 [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] \
