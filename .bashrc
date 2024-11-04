@@ -88,31 +88,6 @@ DEBEMAIL="radoslaw.szymczyszyn@erlang-solutions.com"
 DEBFULLNAME="Radek Szymczyszyn"
 export DEBEMAIL DEBFULLNAME
 
-# go to Kerl OTP source directory
-cd-kerl-otp () {
-    if [[ x"" = x"${_KERL_ACTIVE_DIR}" ]]; then
-        echo "_KERL_ACTIVE_DIR not set"
-    else
-        version=`basename ${_KERL_ACTIVE_DIR}`
-        cd ${HOME}/.kerl/builds/${version}/otp_src_${version}
-    fi
-}
-
-# go to asdf OTP source directory
-cd-asdf-erlang () {
-    if [[ x"$(which asdf)" == x"" ]]; then
-        echo "asdf not found"
-        return
-    fi
-    local current_erlang=$(asdf current erlang)
-    if [[ x"" == x"No such plugin" ]]; then
-        echo "Erlang not installed/activated via asdf"
-        return
-    fi
-    local version=$(echo ${current_erlang} | cut -d" " -f1)
-    cd $(asdf where erlang ${version})
-}
-
 # To run programs built with fsharpc you need to set:
 export MONO_GAC_PREFIX="/usr/local"
 
