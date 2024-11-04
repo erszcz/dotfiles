@@ -110,3 +110,6 @@ eval "$(direnv hook bash)"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash --disable-up-arrow)"
+
+# Activate mise
+eval "$(mise activate bash)"
