@@ -548,9 +548,23 @@ if has('nvim')
   vim.o.updatetime = 250
   vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
 
+  local lspconfig = require("lspconfig")
+  local homedir = vim.loop.os_homedir()
+
   -- Enable Erlang Language Platform elp
-  require 'lspconfig'.elp.setup({
+  lspconfig.elp.setup({
     cmd = {"elp", "server"}
+  })
+
+  -- Enable Elixir Lexical from a locally built package
+  lspconfig.lexical.setup({
+    cmd = { homedir .. "/work/lexical-lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+    root_dir = function(fname)
+    return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+    end,
+    filetypes = { "elixir", "eelixir", "heex" },
+    -- optional settings
+    settings = {}
   })
 EOF
 endif
