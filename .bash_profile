@@ -27,11 +27,12 @@ fi
 [ -d "/usr/local/sbin" ] \
   && export PATH="/usr/local/sbin":"${PATH}"
 
-# Enable Homebrew on Apple M Silicon
+# Enable Homebrew
 if [ -d "/opt/homebrew/bin" ]; then
+ # ... on Apple M Silicon
   export PATH="/opt/homebrew/bin:${PATH}"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+eval "$(brew shellenv)"
 
 # include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
@@ -92,10 +93,13 @@ export ERL_AFLAGS="-kernel shell_history enabled"
   && . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
 # Homebrew installed asdf
-[[ -r "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ]] \
-  && . "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
+#[[ -r "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ]] \
+#  && . "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
 
-# Erlang settings for asdf/kerlrc
+# Activate mise instead of asdf
+eval "$(mise activate bash)"
+
+# Erlang settings for asdf/mise/kerlrc
 if [ -f "${HOME}/.kerlrc" ]; then
   . "${HOME}/.kerlrc"
 fi
