@@ -252,8 +252,9 @@ set foldcolumn=2
 set ruler
 
 " Colorscheme selection
-" TODO: check this out
-"set termguicolors
+" neovim 0.10+: this is necessary to be backwards compatible with old vim colorschemes
+set notermguicolors
+"colorscheme 256-grayvim
 if $TERM == "linux"
     colorscheme peachpuff
 elseif $TERM == "xterm"
