@@ -37,6 +37,7 @@ Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'folke/tokyonight.nvim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'gbprod/yanky.nvim'
 Bundle 'gleam-lang/gleam.vim'
@@ -253,20 +254,24 @@ set foldcolumn=2
 set ruler
 
 " Colorscheme selection
-" neovim 0.10+: this is necessary to be backwards compatible with old vim colorschemes
-set notermguicolors
-"colorscheme 256-grayvim
-if $TERM == "linux"
-    colorscheme peachpuff
-elseif $TERM == "xterm"
-    set t_Co=256
-    if filereadable($HOME . "/.outdoor.on")
-            let g:xterm16_ccube    = "005f87afd7ff"
-            let xterm16_colormap   = "softlight"
-            let xterm16_brightness = "high"
-            colorscheme xterm16
-    else
-            colorscheme 256-grayvim
+if has('nvim')
+    colorscheme tokyonight
+else
+    " neovim 0.10+: this is necessary to be backwards compatible with old vim colorschemes
+    set notermguicolors
+
+    if $TERM == "linux"
+        colorscheme peachpuff
+    elseif $TERM == "xterm"
+        set t_Co=256
+        if filereadable($HOME . "/.outdoor.on")
+                let g:xterm16_ccube    = "005f87afd7ff"
+                let xterm16_colormap   = "softlight"
+                let xterm16_brightness = "high"
+                colorscheme xterm16
+        else
+                colorscheme 256-grayvim
+        endif
     endif
 endif
 
