@@ -13,7 +13,7 @@
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AutoHideTmuxClientSession</key>
-	<false/>
+	<true/>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -3141,6 +3141,8 @@
 	<false/>
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
+	<key>TmuxSyncClipboard</key>
+	<true/>
 	<key>TmuxUsesDedicatedProfile</key>
 	<false/>
 	<key>TranslateScreenToXterm</key>
