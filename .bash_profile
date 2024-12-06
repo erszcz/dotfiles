@@ -112,3 +112,4 @@ fi
 export XDG_DATA_HOME="${HOME}/.local/share"
 
 complete -C /Users/erszcz/.asdf/installs/terraform/1.7.3/bin/terraform terraform
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
