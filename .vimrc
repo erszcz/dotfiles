@@ -426,6 +426,16 @@ function! AgdaFiletype()
 endfunction
 au BufWritePost *.agda execute "normal! :CornelisLoad\<CR>"
 
+function! CornelisLoadWrapper()
+  if exists(":CornelisLoad") ==# 2
+    CornelisLoad
+  endif
+endfunction
+
+au BufReadPre *.agda call CornelisLoadWrapper()
+au BufReadPre *.lagda* call CornelisLoadWrapper()
+
+
 "" Neoformat - format on save
 "augroup neoformat
 "  autocmd!
