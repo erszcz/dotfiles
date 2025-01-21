@@ -62,26 +62,6 @@ fi
   export PATH="${HOME}/.cabal/bin:${PATH}"
 }
 
-# Init asdf - the universal env manager
-if [ -f $HOME/.asdf.on ]; then
-    . $HOME/.asdf/asdf.sh
-    . $HOME/.asdf/completions/asdf.bash
-    . $HOME/.kerlrc
-    export KERL_BUILD_DOCS
-    export KERL_INSTALL_MANPAGES
-    export KERL_CONFIGURE_OPTIONS
-    #ASDF_ERLANG_MAN="$(dirname $(dirname $(asdf which erl)))/man"
-    ASDF_ERLANG_MAN="/Users/erszcz/.asdf/installs/erlang/23.0-rc2/man"
-    [ -d "$ASDF_ERLANG_MAN" ] && {
-      export MANPATH="$ASDF_ERLANG_MAN:$MANPATH"
-    }
-
-    # We don't have to run it on every shell startup.
-    # Check $HOME/.local/share/kubectl/kubectl.bash_completion
-    #kubectl completion bash > /tmp/kubectl.bash_completion
-    source $HOME/.local/share/kubectl/kubectl.bash_completion
-fi
-
 # Erlang 20.0+ shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -92,14 +72,10 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] \
   && . "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
 
-# Homebrew installed asdf
-#[[ -r "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh" ]] \
-#  && . "${HOMEBREW_PREFIX}/opt/asdf/libexec/asdf.sh"
-
 # Activate mise instead of asdf
 eval "$(mise activate bash)"
 
-# Erlang settings for asdf/mise/kerlrc
+# Erlang settings for asdf/mise/kerl
 if [ -f "${HOME}/.kerlrc" ]; then
   . "${HOME}/.kerlrc"
 fi
@@ -110,6 +86,3 @@ if [ -f "${HOME}/.kube/completion" ]; then
 fi
 
 export XDG_DATA_HOME="${HOME}/.local/share"
-
-complete -C /Users/erszcz/.asdf/installs/terraform/1.7.3/bin/terraform terraform
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
