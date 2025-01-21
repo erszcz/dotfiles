@@ -23,7 +23,7 @@
 	<key>Control</key>
 	<integer>1</integer>
 	<key>ConvertItalicsToReverseVideoForTmux</key>
-	<false/>
+	<true/>
 	<key>CopyLastNewline</key>
 	<false/>
 	<key>CopySelection</key>
