@@ -17,3 +17,5 @@
     binary = true
     textconv = keynote-to-text
     cachetextconv = true
+[interactive]
+    diffFilter = diffr
