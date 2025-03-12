@@ -17,5 +17,14 @@
     binary = true
     textconv = keynote-to-text
     cachetextconv = true
+[core]
+    editor = vim
 [interactive]
     diffFilter = diffr
+
+# See https://blog.gitbutler.com/how-git-core-devs-configure-git/
+# clearly makes git better
+[tag]
+    sort = version:refname
+[init]
+    defaultBranch = main
