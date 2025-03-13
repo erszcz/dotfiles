@@ -14,6 +14,9 @@ Bundle 'gmarik/vundle'
 "Bundle 'autozimu/LanguageClient-neovim'
 "Bundle 'neomake/neomake'
 
+Bundle 'mfussenegger/nvim-qwahl'
+Bundle 'mfussenegger/nvim-fzy'
+
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'ashinkarov/nvim-agda'
 "Bundle 'craigemery/vim-autotag'
@@ -30,7 +33,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'cespare/vim-toml'
 Bundle 'chrisbra/unicode.vim'
-Bundle 'ctrlpvim/ctrlp.vim'
+"Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'ekalinin/Dockerfile.vim'
@@ -288,6 +291,15 @@ noremap <Leader>b :CtrlPBuffer<cr>
 noremap <Leader>tl :CtrlPBufTag<cr>
 " CtrlP: tags for Elixir
 let g:ctrlp_buftag_types = { 'elixir': '--language-force=elixir' }
+
+" fzy mappings
+lua fzy = require('fzy')
+nnoremap <silent><leader>ff :lua fzy.execute('fd', fzy.sinks.edit_file)<CR>
+nnoremap <silent><leader>fg :lua fzy.execute('git ls-files', fzy.sinks.edit_file)<CR>
+nnoremap <silent><leader>fl :lua fzy.execute('rg --no-heading --trim -nH .', fzy.sinks.edit_live_grep)<CR>
+nnoremap <silent><leader>fb :lua require('qwahl').buffers()<CR>
+nnoremap <silent><leader>ft :lua require('qwahl').lsp_tags()<CR>
+
 
 " Make hotkey (good for markup previews)
 noremap <Leader>m :make<CR>
