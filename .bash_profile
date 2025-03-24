@@ -86,3 +86,8 @@ if [ -f "${HOME}/.kube/completion" ]; then
 fi
 
 export XDG_DATA_HOME="${HOME}/.local/share"
+
+# brew: libpq - psql without installing the entire database
+if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
+  export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
