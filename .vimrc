@@ -33,7 +33,6 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'cespare/vim-toml'
 Bundle 'chrisbra/unicode.vim'
-"Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'ekalinin/Dockerfile.vim'
@@ -282,15 +281,6 @@ endif
 if !has('nvim')
     set cryptmethod=blowfish
 endif
-
-" CtrlP: disable default mapping
-let g:ctrlp_map = ''
-" CtrlP: buffer list hotkey
-noremap <Leader>b :CtrlPBuffer<cr>
-" CtrlP: buffer's tags
-noremap <Leader>tl :CtrlPBufTag<cr>
-" CtrlP: tags for Elixir
-let g:ctrlp_buftag_types = { 'elixir': '--language-force=elixir' }
 
 " fzy mappings
 lua fzy = require('fzy')
