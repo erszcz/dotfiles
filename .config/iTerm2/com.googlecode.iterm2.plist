@@ -3668,13 +3668,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.74901960784313726</real>
+				<real>0.72439068555831909</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.37647058823529411</real>
+				<real>0.37241101264953613</real>
 				<key>Red Component</key>
-				<real>0.2156862745098039</real>
+				<real>0.25327739119529724</real>
 			</dict>
 			<key>Cursor Color (Dark)</key>
 			<dict>
@@ -3836,61 +3836,18 @@
 			</array>
 			<key>Keyboard Map</key>
 			<dict>
-				<key>0x2d-0x40000</key>
+				<key>0x20-0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>0x1f</string>
-				</dict>
-				<key>0x32-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x00</string>
-				</dict>
-				<key>0x33-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1b</string>
-				</dict>
-				<key>0x34-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1c</string>
-				</dict>
-				<key>0x35-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1d</string>
-				</dict>
-				<key>0x36-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1e</string>
-				</dict>
-				<key>0x37-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1f</string>
-				</dict>
-				<key>0x38-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x7f</string>
+					<string>next-layout</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 				<key>0x9-0x40000</key>
 				<dict>
@@ -3899,215 +3856,811 @@
 					<key>Text</key>
 					<string>9</string>
 				</dict>
-				<key>0xf700-0x240000</key>
+				<key>0xf700-0x1200000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;5A</string>
+					<string>select-pane -U</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf700-0x260000</key>
+				<key>0xf700-0x1220000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;6A</string>
+					<string>refresh-client -U 10</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf700-0x280000</key>
+				<key>0xf700-0x1240000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x41</string>
+					<string>resize-pane -U</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf701-0x240000</key>
+				<key>0xf700-0x1280000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;5B</string>
+					<string>resize-pane -U 5</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf701-0x260000</key>
+				<key>0xf701-0x1200000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;6B</string>
+					<string>select-pane -D</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf701-0x280000</key>
+				<key>0xf701-0x1220000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x42</string>
+					<string>refresh-client -D 10</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf702-0x220000</key>
+				<key>0xf701-0x1240000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2D</string>
+					<string>resize-pane -D</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf702-0x240000</key>
+				<key>0xf701-0x1280000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;5D</string>
+					<string>resize-pane -D 5</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf702-0x260000</key>
+				<key>0xf702-0x1200000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;6D</string>
+					<string>select-pane -L</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf702-0x280000</key>
+				<key>0xf702-0x1220000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x44</string>
+					<string>refresh-client -L 10</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf703-0x220000</key>
+				<key>0xf702-0x1240000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2C</string>
+					<string>resize-pane -L</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf703-0x240000</key>
+				<key>0xf702-0x1280000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;5C</string>
+					<string>resize-pane -L 5</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf703-0x260000</key>
+				<key>0xf703-0x1200000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;6C</string>
+					<string>select-pane -R</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf703-0x280000</key>
+				<key>0xf703-0x1220000</key>
 				<dict>
 					<key>Action</key>
-					<integer>11</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>0x1b 0x1b 0x5b 0x43</string>
+					<string>refresh-client -R 10</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf704-0x20000</key>
+				<key>0xf703-0x1240000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2P</string>
+					<string>resize-pane -R</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf705-0x20000</key>
+				<key>0xf703-0x1280000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2Q</string>
+					<string>resize-pane -R 5</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf706-0x20000</key>
+				<key>0xf728-0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2R</string>
+					<string>refresh-client -c</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf707-0x20000</key>
+				<key>:0x21:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2S</string>
+					<string>break-pane</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf708-0x20000</key>
+				<key>:0x22:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[15;2~</string>
+					<string>split-window</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf709-0x20000</key>
+				<key>:0x25:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[17;2~</string>
+					<string>split-window -h</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf70a-0x20000</key>
+				<key>:0x28:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[18;2~</string>
+					<string>switch-client -p</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf70b-0x20000</key>
+				<key>:0x29:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[19;2~</string>
+					<string>switch-client -n</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf70c-0x20000</key>
+				<key>:0x2d:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[20;2~</string>
+					<string>delete-buffer</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf70d-0x20000</key>
+				<key>:0x30:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[21;2~</string>
+					<string>select-window -t :=0</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf70e-0x20000</key>
+				<key>:0x31:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[23;2~</string>
+					<string>select-window -t :=1</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf70f-0x20000</key>
+				<key>:0x31:0x1080000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[24;2~</string>
+					<string>select-layout even-horizontal</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf729-0x20000</key>
+				<key>:0x32:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2H</string>
+					<string>select-window -t :=2</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf729-0x40000</key>
+				<key>:0x32:0x1080000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;5H</string>
+					<string>select-layout even-vertical</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf72b-0x20000</key>
+				<key>:0x33:0x1000000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;2F</string>
+					<string>select-window -t :=3</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
-				<key>0xf72b-0x40000</key>
+				<key>:0x33:0x1080000</key>
 				<dict>
 					<key>Action</key>
-					<integer>10</integer>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
 					<key>Text</key>
-					<string>[1;5F</string>
+					<string>select-layout main-horizontal</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x34:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-window -t :=4</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x34:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-layout main-vertical</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x35:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-window -t :=5</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x35:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-layout tiled</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x36:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-window -t :=6</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x36:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-layout main-horizontal-mirrored</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x37:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-window -t :=7</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x37:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-layout main-vertical-mirrored</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x38:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-window -t :=8</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x39:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-window -t :=9</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x3b:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>last-pane</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x45:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-layout -E</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x4c:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>switch-client -l</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x4d:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-pane -M</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x5d:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>paste-buffer -p</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x62:0x1040000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>send-prefix</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x63:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>new-window</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x64:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>detach-client</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6c:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>last-window</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6d:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-pane -m</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6e:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>next-window</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6e:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>next-window -a</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6f:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>select-pane -t :.+</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6f:0x1040000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>rotate-window</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x6f:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>rotate-window -D</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x70:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>previous-window</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x70:0x1080000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>previous-window -a</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x72:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>refresh-client</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x7a:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>resize-pane -Z</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x7a:0x1040000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>suspend-client</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x7b:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>swap-pane -U</string>
+					<key>Version</key>
+					<integer>2</integer>
+				</dict>
+				<key>:0x7d:0x1000000</key>
+				<dict>
+					<key>Action</key>
+					<integer>65</integer>
+					<key>Apply Mode</key>
+					<integer>0</integer>
+					<key>Escaping</key>
+					<integer>0</integer>
+					<key>Text</key>
+					<string>swap-pane -D</string>
+					<key>Version</key>
+					<integer>2</integer>
 				</dict>
 			</dict>
 			<key>Link Color</key>
@@ -4201,11 +4754,11 @@
 			<key>Name</key>
 			<string>erszcz-lightbg-tmux</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 16</string>
+			<string>Monaco 19</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 16</string>
+			<string>Monaco 19</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -4398,6 +4951,51 @@
 					<string>\btelnet:([a-z0-9A-Z_]+@)?([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\b</string>
 				</dict>
 			</array>
+			<key>Status Bar Layout</key>
+			<dict>
+				<key>advanced configuration</key>
+				<dict>
+					<key>algorithm</key>
+					<integer>0</integer>
+					<key>auto-rainbow style</key>
+					<integer>0</integer>
+					<key>remove empty components</key>
+					<false/>
+				</dict>
+				<key>components</key>
+				<array>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarTmuxLeftComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>expression</key>
+								<string>\(tmuxStatusLeft)</string>
+							</dict>
+						</dict>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarSpringComponent</string>
+						<key>configuration</key>
+						<dict/>
+					</dict>
+					<dict>
+						<key>class</key>
+						<string>iTermStatusBarTmuxRightComponent</string>
+						<key>configuration</key>
+						<dict>
+							<key>knobs</key>
+							<dict>
+								<key>expression</key>
+								<string>\(tmuxStatusRight)</string>
+							</dict>
+						</dict>
+					</dict>
+				</array>
+			</dict>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -4450,6 +5048,8 @@
 			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/radoslaw.szymczyszyn</string>
+			<key>tmux Pane Title</key>
+			<string>erszcz-lightbg-tmux</string>
 		</dict>
 		<dict>
 			<key>ASCII Anti Aliased</key>
