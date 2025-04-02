@@ -91,3 +91,8 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 if [ -d "/opt/homebrew/opt/libpq/bin" ]; then
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
+
+# Cargo env
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
