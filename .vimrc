@@ -282,13 +282,14 @@ if !has('nvim')
 endif
 
 " fzy mappings
-lua fzy = require('fzy')
-nnoremap <silent><leader>ff :lua fzy.execute('fd', fzy.sinks.edit_file)<CR>
-nnoremap <silent><leader>fg :lua fzy.execute('git ls-files', fzy.sinks.edit_file)<CR>
-nnoremap <silent><leader>fl :lua fzy.execute('rg --no-heading --trim -nH .', fzy.sinks.edit_live_grep)<CR>
-nnoremap <silent><leader>fb :lua require('qwahl').buffers()<CR>
-nnoremap <silent><leader>ft :lua require('qwahl').lsp_tags()<CR>
-
+if has('nvim')
+  lua fzy = require('fzy')
+  nnoremap <silent><leader>ff :lua fzy.execute('fd', fzy.sinks.edit_file)<CR>
+  nnoremap <silent><leader>fg :lua fzy.execute('git ls-files', fzy.sinks.edit_file)<CR>
+  nnoremap <silent><leader>fl :lua fzy.execute('rg --no-heading --trim -nH .', fzy.sinks.edit_live_grep)<CR>
+  nnoremap <silent><leader>fb :lua require('qwahl').buffers()<CR>
+  nnoremap <silent><leader>ft :lua require('qwahl').lsp_tags()<CR>
+endif
 
 " Make hotkey (good for markup previews)
 noremap <Leader>m :make<CR>
