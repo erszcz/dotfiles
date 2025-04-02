@@ -207,7 +207,6 @@ set hlsearch
 
 " Paste mode toggle
 noremap <Leader>p :call TogglePasteMode()<CR>
-set pastetoggle=<F11>p
 
 let g:paste_mode = 0 " 0 = normal, 1 = paste
 
