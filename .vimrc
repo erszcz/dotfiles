@@ -8,15 +8,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" Let's try the new version - disable this line for now.
-"Bundle 'hcs42/vim-erlang'
-
-"Bundle 'autozimu/LanguageClient-neovim'
-"Bundle 'neomake/neomake'
-
-Bundle 'mfussenegger/nvim-qwahl'
-Bundle 'mfussenegger/nvim-fzy'
-
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'ashinkarov/nvim-agda'
 "Bundle 'craigemery/vim-autotag'
@@ -52,6 +43,8 @@ Bundle 'isovector/cornelis'
 Bundle 'kana/vim-textobj-user'
 Bundle 'lambdatoast/elm.vim'
 Bundle 'mattn/emmet-vim'
+Bundle 'mfussenegger/nvim-fzy'
+Bundle 'mfussenegger/nvim-qwahl'
 Bundle 'mzlogin/vim-markdown-toc'
 Bundle 'neovim/nvim-lspconfig'
 Bundle 'neovimhaskell/nvim-hs.vim'
