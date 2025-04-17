@@ -96,3 +96,8 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+# awscli aka aws bash completion
+if [ -f "/opt/homebrew/bin/aws_completer" ]; then
+  complete -C "/opt/homebrew/bin/aws_completer" aws
+fi
