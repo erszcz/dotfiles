@@ -19,12 +19,58 @@
     cachetextconv = true
 [core]
     editor = vim
+[core]
+    pager = diffr | less -R
 [interactive]
     diffFilter = diffr
 
 # See https://blog.gitbutler.com/how-git-core-devs-configure-git/
-# clearly makes git better
+#
+# Clearly makes git better
+[column]
+    ui = auto
+#[branch]
+#    sort = -committerdate
 [tag]
     sort = version:refname
 [init]
     defaultBranch = main
+#[diff]
+#    algorithm = histogram
+#    colorMoved = plain
+#    mnemonicPrefix = true
+#    renames = true
+#[push]
+#    default = simple
+#    autoSetupRemote = true
+#    followTags = true
+#[fetch]
+#    prune = true
+#    pruneTags = true
+#    all = true
+#
+# Why the hell not?
+[help]
+    autocorrect = prompt
+[commit]
+    verbose = true
+[rerere]
+    enabled = true
+    autoupdate = true
+#[core]
+#   excludesfile = ~/.gitignore
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+#
+# A matter of taste (uncomment if you dare)
+#[core]
+#   fsmonitor = true
+#   untrackedCache = true
+[merge]
+    conflictstyle = zdiff3
+[pull]
+    rebase = true
+
+# vim: ts=4 sts=4 sw=4 et
