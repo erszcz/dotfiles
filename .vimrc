@@ -61,6 +61,12 @@ Bundle 'vim-erlang/vim-erlang-omnicomplete'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/xterm16.vim'
 
+if has('nvim')
+Bundle 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+Bundle "nvim-lua/plenary.nvim"
+Bundle "elixir-tools/elixir-tools.nvim", { "tag": "stable" }
+endif
+
 filetype plugin indent on
 
 ".
@@ -374,6 +380,22 @@ set nojoinspaces
 "' Plugin configuration
 "
 
+if has('nvim')
+  lua << EOF
+    vim.diagnostic.config({
+      virtual_text = false
+    })
+EOF
+endif
+
+"" lsp_lines
+if has('nvim')
+  lua << EOF
+    vim.diagnostic.config({virtual_lines = {only_current_line = true}})
+    require("lsp_lines").setup({})
+EOF
+endif
+
 "" nvim-treesitter - enable highlighting and indent for Elixir
 if has('nvim')
   lua << EOF
@@ -576,35 +598,35 @@ highlight clear CocHintHighlight
 if has('nvim')
   lua << EOF
   -- Configure how diagnostics are displayed
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    underline = false,
-    update_in_insert = false
-  })
+  --vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  --  virtual_text = true,
+  --  signs = true,
+  --  underline = false,
+  --  update_in_insert = false
+  --})
 
   -- Print diagnostics in the statusline on hover
-  function PrintDiagnostics(opts, bufnr, line_nr, client_id)
-    opts = opts or {}
+  --function PrintDiagnostics(opts, bufnr, line_nr, client_id)
+  --  opts = opts or {}
 
-    bufnr = bufnr or 0
-    line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
+  --  bufnr = bufnr or 0
+  --  line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
 
-    local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
-    if vim.tbl_isempty(line_diagnostics) then return end
+  --  local line_diagnostics = vim.lsp.diagnostic.get_line_diagnostics(bufnr, line_nr, opts, client_id)
+  --  if vim.tbl_isempty(line_diagnostics) then return end
 
-    local diagnostic_message = ""
-    for i, diagnostic in ipairs(line_diagnostics) do
-      diagnostic_message = diagnostic_message .. string.format("%s", diagnostic.message or "")
-      print(diagnostic_message)
-      if i ~= #line_diagnostics then
-        diagnostic_message = diagnostic_message .. "\n"
-      end
-    end
-    vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
-  end
-  vim.o.updatetime = 250
-  vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
+  --  local diagnostic_message = ""
+  --  for i, diagnostic in ipairs(line_diagnostics) do
+  --    diagnostic_message = diagnostic_message .. string.format("%s", diagnostic.message or "")
+  --    print(diagnostic_message)
+  --    if i ~= #line_diagnostics then
+  --      diagnostic_message = diagnostic_message .. "\n"
+  --    end
+  --  end
+  --  vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
+  --end
+  --vim.o.updatetime = 250
+  --vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
 
   local lspconfig = require("lspconfig")
   local homedir = vim.loop.os_homedir()
@@ -614,15 +636,32 @@ if has('nvim')
     cmd = {"elp", "server"}
   })
 
-  -- Enable Elixir Lexical from a locally built package
-  lspconfig.lexical.setup({
-    cmd = { homedir .. "/work/lexical-lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
-    root_dir = function(fname)
-    return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
-    end,
-    filetypes = { "elixir", "eelixir", "heex" },
-    -- optional settings
-    settings = {}
+  -- -- Enable Elixir Lexical from a locally built package
+  --lspconfig.lexical.setup({
+  --  cmd = { homedir .. "/work/lexical-lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+  --  root_dir = function(fname)
+  --    return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+  --  end,
+  --  filetypes = { "elixir", "eelixir", "heex" },
+  --  -- optional settings
+  --  settings = {}
+  --})
+
+  -- Enable ElixirLS via elixir-tools
+  local elixir = require("elixir")
+  local elixirls = require("elixir.elixirls")
+
+  elixir.setup({
+    nextls = {enable = false},
+    projectionist = {enable = false},
+    elixirls = {
+      settings = elixirls.settings {
+        dialyzerEnabled = false,
+        fetchDeps = false,
+        enableTestLenses = false,
+        suggestSpecs = true,
+      },
+    }
   })
 EOF
 endif
