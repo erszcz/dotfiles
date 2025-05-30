@@ -140,6 +140,12 @@ let g:email     = 'lavrin@gmail.com'
 "' Customizations
 "
 
+" Elixir autoformatting
+augroup elixir
+  autocmd!
+  autocmd BufWritePost *.ex,*.exs call system('mix format') | edit
+augroup END
+
 " Custom digraph definitions
 digraph ll 955  " GREEK SMALL LETTER LAMBDA
 digraph NN 8469 " DOUBLE-STRUCK CAPITAL N for Naturals
