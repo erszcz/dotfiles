@@ -64,7 +64,7 @@ Bundle 'vim-scripts/xterm16.vim'
 if has('nvim')
 Bundle 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 Bundle "nvim-lua/plenary.nvim"
-Bundle "elixir-tools/elixir-tools.nvim", { "tag": "stable" }
+Bundle "elixir-tools/elixir-tools.nvim"
 endif
 
 filetype plugin indent on
