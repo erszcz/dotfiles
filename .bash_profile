@@ -101,3 +101,8 @@ fi
 if [ -f "/opt/homebrew/bin/aws_completer" ]; then
   complete -C "/opt/homebrew/bin/aws_completer" aws
 fi
+
+# Color definitions for fd, so it prints visible output
+if [ -f "$HOME/.dircolors" ]; then
+  . "$HOME/.dircolors"
+fi
