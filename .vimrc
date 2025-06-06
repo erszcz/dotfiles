@@ -614,15 +614,21 @@ if has('nvim')
     cmd = {"elp", "server"}
   })
 
-  -- Enable Elixir Lexical from a locally built package
-  lspconfig.lexical.setup({
-    cmd = { homedir .. "/work/lexical-lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
-    root_dir = function(fname)
-    return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
-    end,
-    filetypes = { "elixir", "eelixir", "heex" },
-    -- optional settings
-    settings = {}
+  -- Enable ElixirLS via elixir-tools
+  local elixir = require("elixir")
+  local elixirls = require("elixir.elixirls")
+
+  elixir.setup({
+    nextls = {enable = false},
+    projectionist = {enable = false},
+    elixirls = {
+      settings = elixirls.settings {
+        dialyzerEnabled = false,
+        fetchDeps = false,
+        enableTestLenses = false,
+        suggestSpecs = true,
+      },
+    }
   })
 EOF
 endif
