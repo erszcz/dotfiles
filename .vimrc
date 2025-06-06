@@ -624,7 +624,7 @@ if has('nvim')
     elixirls = {
       settings = elixirls.settings {
         dialyzerEnabled = false,
-        fetchDeps = false,
+        fetchDeps = true,
         enableTestLenses = false,
         suggestSpecs = true,
       },
