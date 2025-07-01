@@ -1,0 +1,6 @@
+[revup]
+github_oauth = super-secret-token
+
+[upload]
+rebase = True
+trim_tags = True
