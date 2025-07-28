@@ -670,4 +670,7 @@ if has('nvim')
 EOF
 endif
 
+" supertab
+let g:SuperTabCompleteCase='match'
+
 ". vim: foldmethod=marker foldmarker="',". ts=2 sts=2 sw=2 et
