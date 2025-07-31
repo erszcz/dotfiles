@@ -288,11 +288,48 @@ endif
 
 " fzy mappings
 if has('nvim')
-  lua fzy = require('fzy')
+  lua << EOF
+    fzy = require('fzy')
+    local api = vim.api
+    local ui = vim.ui
+
+    -- Helper: parse buffer line to extract buffer number
+    local function extract_bufnr(line)
+      return tonumber(line:match('^%s*(%d+)%s'))
+    end
+
+    -- Main function: fuzzy select buffer from :ls t
+    function FzySelectBuffer()
+      -- Get the output of :ls t
+      local lines = api.nvim_exec('ls t', true)
+      local buf_lines = vim.split(lines, '\n')
+
+      -- Use fzy to select
+      local opts = {
+        prompt = 'Buffer: ',
+        format_item = function(i) return i end
+      }
+      vim.ui.select(buf_lines, opts, function(selected)
+        if selected then
+          local bufnr = extract_bufnr(selected)
+          if bufnr then
+            api.nvim_set_current_buf(bufnr)
+          else
+            print('Could not extract buffer number.')
+          end
+        end
+      end)
+    end
+
+    -- Create command
+    api.nvim_create_user_command('ErszczFzyBuffers', FzySelectBuffer, {})
+EOF
+
   nnoremap <silent><leader>ff :lua fzy.execute('fd', fzy.sinks.edit_file)<CR>
   nnoremap <silent><leader>fg :lua fzy.execute('git ls-files', fzy.sinks.edit_file)<CR>
   nnoremap <silent><leader>fl :lua fzy.execute('rg --no-heading --trim -nH .', fzy.sinks.edit_live_grep)<CR>
-  nnoremap <silent><leader>fb :lua require('qwahl').buffers()<CR>
+  "nnoremap <silent><leader>fb :lua require('qwahl').buffers()<CR>
+  nnoremap <silent><leader>fb :ErszczFzyBuffers<CR>
   nnoremap <silent><leader>ft :lua require('qwahl').lsp_tags()<CR>
 endif
 
