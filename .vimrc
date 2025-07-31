@@ -659,6 +659,7 @@ if has('nvim')
     nextls = {enable = false},
     projectionist = {enable = false},
     elixirls = {
+      tag = "v0.28.1",
       settings = elixirls.settings {
         dialyzerEnabled = false,
         fetchDeps = true,
