@@ -29,8 +29,8 @@
 # Clearly makes git better
 [column]
     ui = auto
-#[branch]
-#    sort = -committerdate
+[branch]
+    sort = -committerdate
 [tag]
     sort = version:refname
 [init]
@@ -62,7 +62,8 @@
 [rebase]
     autoSquash = true
     autoStash = true
-    updateRefs = true
+    # updateRefs messes my use of branches as independent repo state snapshots
+    updateRefs = false
 #
 # A matter of taste (uncomment if you dare)
 #[core]
