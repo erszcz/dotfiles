@@ -436,7 +436,7 @@ endif
 if has('nvim')
   lua << EOF
 
-  vim.diagnostic.config({virtual_lines = {only_current_line = true}})
+  vim.diagnostic.config({virtual_lines = {only_current_line = false}})
   require("lsp_lines").setup({})
 EOF
 endif
