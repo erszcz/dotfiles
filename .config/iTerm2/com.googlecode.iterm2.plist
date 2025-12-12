@@ -3590,15 +3590,15 @@
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.5</real>
+				<real>0.603271484375</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.24517041444778442</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.1491314172744751</real>
+				<real>0.3457721471786499</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.78577333688735962</real>
 			</dict>
 			<key>Badge Color (Dark)</key>
 			<dict>
@@ -5043,6 +5043,8 @@
 			<key>Use Bright Bold (Light)</key>
 			<true/>
 			<key>Use Canonical Parser</key>
+			<false/>
+			<key>Use Cursor Guide</key>
 			<false/>
 			<key>Use Cursor Guide (Dark)</key>
 			<false/>
@@ -6644,5 +6646,9 @@
 	<integer>4</integer>
 	<key>findRegex_iTerm</key>
 	<true/>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
