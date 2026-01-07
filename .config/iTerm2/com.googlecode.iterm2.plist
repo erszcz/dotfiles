@@ -31,7 +31,7 @@
 	<key>AitermURL</key>
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AllowClipboardAccess</key>
-	<true/>
+	<false/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AutoHideTmuxClientSession</key>
@@ -4774,7 +4774,7 @@
 			<key>Minimum Contrast (Light)</key>
 			<real>0.0</real>
 			<key>Mouse Reporting</key>
-			<true/>
+			<false/>
 			<key>Name</key>
 			<string>erszcz-lightbg-tmux</string>
 			<key>Non Ascii Font</key>
