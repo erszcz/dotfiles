@@ -4774,7 +4774,7 @@
 			<key>Minimum Contrast (Light)</key>
 			<real>0.0</real>
 			<key>Mouse Reporting</key>
-			<false/>
+			<true/>
 			<key>Name</key>
 			<string>erszcz-lightbg-tmux</string>
 			<key>Non Ascii Font</key>
