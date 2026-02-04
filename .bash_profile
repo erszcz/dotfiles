@@ -108,7 +108,7 @@ if [ -f "$HOME/.dircolors" ]; then
 fi
 
 # Add locally installed binaries to PATH
-if [ -f . "$HOME/.local/bin/env" ]; then
+if [ -f "$HOME/.local/bin/env" ]; then
   . "$HOME/.local/bin/env"
 fi
 
