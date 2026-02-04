@@ -111,3 +111,8 @@ fi
 if [ -f . "$HOME/.local/bin/env" ]; then
   . "$HOME/.local/bin/env"
 fi
+
+# Enable jj dynamic (experimental) completion
+if $(command -v jj >/dev/null 2>&1); then
+  source <(COMPLETE=bash jj)
+fi
