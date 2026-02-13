@@ -31,7 +31,9 @@
 	<key>AitermURL</key>
 	<string>https://api.openai.com/v1/responses</string>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AutoHideTmuxClientSession</key>
@@ -3048,6 +3050,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>Recycle</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -3590,15 +3604,15 @@
 			<key>Badge Color</key>
 			<dict>
 				<key>Alpha Component</key>
-				<real>0.603271484375</real>
+				<real>0.5</real>
 				<key>Blue Component</key>
-				<real>0.24517041444778442</real>
+				<real>0.0</real>
 				<key>Color Space</key>
-				<string>P3</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.3457721471786499</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
-				<real>0.78577333688735962</real>
+				<real>1</real>
 			</dict>
 			<key>Badge Color (Dark)</key>
 			<dict>
@@ -3791,7 +3805,7 @@
 			<key>Custom Command</key>
 			<string>Yes</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Advanced</string>
 			<key>Custom Locale</key>
 			<string>en_GB.UTF-8</string>
 			<key>Default Bookmark</key>
@@ -5045,8 +5059,6 @@
 			<key>Use Bright Bold (Light)</key>
 			<true/>
 			<key>Use Canonical Parser</key>
-			<false/>
-			<key>Use Cursor Guide</key>
 			<false/>
 			<key>Use Cursor Guide (Dark)</key>
 			<false/>
@@ -6648,9 +6660,5 @@
 	<integer>4</integer>
 	<key>findRegex_iTerm</key>
 	<true/>
-	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>0</integer>
-	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
-	<false/>
 </dict>
 </plist>
