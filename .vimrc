@@ -45,7 +45,6 @@ Bundle 'mattn/emmet-vim'
 Bundle 'mfussenegger/nvim-fzy'
 Bundle 'mfussenegger/nvim-qwahl'
 Bundle 'mzlogin/vim-markdown-toc'
-Bundle 'neovim/nvim-lspconfig'
 Bundle 'neovimhaskell/nvim-hs.vim'
 Bundle 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Bundle 'purescript-contrib/purescript-vim'
@@ -633,47 +632,25 @@ let g:neomake_erlang_enabled_makers = ['erlc', 'gradualizer']
 "let g:neomake_erlang_gradualizer_extra_args = []
 nnoremap <Leader>G :put =join(neomake#makers#ft#erlang#GradualizerArgs('.', neomake#makers#ft#erlang#EbinDirs( neomake#makers#ft#erlang#ProjectDir() ) ), ' ')
 
-" CoC (for LSP support): disable underlining
-highlight clear CocErrorHighlight
-highlight clear CocWarningHighlight
-highlight clear CocInfoHighlight
-highlight clear CocHintHighlight
-
-" nvim-lspconfig startup
+" nvim-native LSP config for Elixir with Dexter LS
 if has('nvim')
   lua << EOF
 
-  local lspconfig = require("lspconfig")
-  local homedir = vim.loop.os_homedir()
-
-  -- Enable Erlang Language Platform elp
-  lspconfig.elp.setup({
-    cmd = {"elp", "server"}
+  vim.lsp.config('dexter', {
+    cmd = { 'dexter', 'lsp' },
+    root_markers = { '.dexter.db', '.git', 'mix.exs' },
+    filetypes = { 'elixir', 'eelixir', 'heex' },
+    init_options = {
+      followDelegates = true,  -- jump through defdelegate to the target function
+      -- stdlibPath = "",      -- override Elixir stdlib path (auto-detected)
+      -- debug = false,        -- verbose logging to stderr (view with :LspLog)
+    },
   })
 
-  -- Enable ElixirLS via elixir-tools
-  local elixir = require("elixir")
-  local elixirls = require("elixir.elixirls")
+  vim.lsp.enable 'dexter'
 
-  elixir.setup({
-    nextls = {enable = false},
-    projectionist = {enable = false},
-    elixirls = {
-      tag = "v0.30.0",
-      settings = elixirls.settings {
-        dialyzerEnabled = false,
-        fetchDeps = true,
-        enableTestLenses = false,
-        suggestSpecs = true,
-      },
-    }
-  })
 EOF
 endif
-highlight LspDiagnosticsDefaultError ctermfg=grey
-highlight LspDiagnosticsDefaultHint ctermfg=grey
-highlight LspDiagnosticsDefaultInformation ctermfg=grey
-highlight LspDiagnosticsDefaultWarning ctermfg=grey
 
 " nvim-cmp: autocompletion
 set completeopt=menu,menuone,noselect
