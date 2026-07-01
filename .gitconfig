@@ -1,3 +1,5 @@
+# vim: ts=4 sts=4 sw=4 et
+
 [user]
     name = Radek Szymczyszyn
     email = radek.szymczyszyn@v7labs.com
@@ -74,4 +76,11 @@
 [pull]
     rebase = true
 
-# vim: ts=4 sts=4 sw=4 et
+#
+# Git LFS for large file storage
+#
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
