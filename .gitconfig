@@ -7,7 +7,7 @@
     st = status
     co = checkout
     br = branch
-    l = log --format=\"%C(auto)%h %C(blue)%ad%Creset %s\" --abbrev-commit --date=short
+    l = log --decorate=short --date=short --pretty=format:'%C(auto)%h %C(blue)%ad%Creset %s%C(auto)%d%Creset'
 
 [color]
     branch = auto
