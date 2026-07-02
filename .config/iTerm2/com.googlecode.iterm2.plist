@@ -6657,7 +6657,7 @@
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findMode_iTerm</key>
-	<integer>4</integer>
+	<integer>1</integer>
 	<key>findRegex_iTerm</key>
 	<true/>
 </dict>
